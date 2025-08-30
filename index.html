@@ -177,8 +177,8 @@
     }
 
     .partner-card:hover {
-      transform: perspective(1000px) rotateY(5deg) scale(1.05);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      transform: scale(1.2);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
     }
 
     .partner-card.from-right {
@@ -236,8 +236,8 @@
             <path
               d="M12.5 7H11c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h.5c.55 0 1 .45 1 1v2c0 .55.45 1 1 1h.5c.55 0 1-.45 1-1V9c0-1.66-1.34-3-3-3zM12 9h-1c-.55 0-1 .45-1 1s.45 1 1 1h1V9zm2.5 5h-1c-.55 0-1 .45-1 1s.45 1 1 1h1v-2zM16 11h-1c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h1c1.1 0 2-.9 2-2v-2c0-1.1-.9-2-2-2zm-3 4h-1.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5H13V15zM17 11c-1.66 0-3 1.34-3 3v2c0 1.66 1.34 3 3 3h1c1.66 0 3-1.34 3-3v-2c0-1.66-1.34-3-3-3z" />
           </svg>
-          <span data-lang="en">Fashion Hub</span>
-          <span data-lang="bn" class="lang-bn">ফ্যাশন হাব</span>
+          <span data-lang="en">iTEX GLOBAL</span>
+          <span data-lang="bn" class="lang-bn">iTEX GLOBAL</span>
         </a>
         <div class="hidden md:flex items-center space-x-8 text-lg font-medium">
           <a href="#banner-section"
@@ -341,7 +341,7 @@
       </div>
     </section>
 
-    <section id="partners-section" class="py-12 md:py-20 bg-gray-100 animate-on-scroll">
+            <section id="partners-section" class="py-12 md:py-20 bg-gray-100 animate-on-scroll">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style="font-family: 'Poppins', sans-serif">
           <span data-lang="en">Our Valued Partners</span>
@@ -351,80 +351,37 @@
           <span data-lang="en">We work with trust and quality.</span>
           <span data-lang="bn" class="lang-bn">আমরা বিশ্বস্ততা এবং গুণগত মানের সাথে কাজ করি।</span>
         </p>
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-center">
           <div
-            class="partner-card bg-white rounded-2xl shadow-xl border-t-4 border-orange-500 transform transition-transform duration-300 hover:scale-105 from-left"
+            class="partner-card transform transition-transform duration-300 from-left lg:col-span-2"
             style="animation-delay: 0.2s">
             <div class="p-6">
               <img
-                src="https://images.unsplash.com/photo-1629904853716-95ce6178c769?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                alt="Fashionista Logo"
-                class="mx-auto h-20 object-contain mb-4 rounded-full border-2 border-orange-500 p-2" />
-              <p class="text-xl font-bold text-gray-800">Fashionista</p>
-              <p class="text-sm text-gray-500 mt-1">Leading fashion brand</p>
+                src="assets/images/jeniuschemlogo.svg"
+                alt="Jeniuschem Logo"
+                class="mx-auto h-24 object-contain mb-4 rounded-full p-2" />
+              <p class="text-xl font-bold text-gray-800">Jeniuschem</p>
+              <p class="text-sm text-gray-500 mt-1">Chemical Solutions</p>
             </div>
           </div>
           <div
-            class="partner-card bg-white rounded-2xl shadow-xl border-t-4 border-blue-500 transform transition-transform duration-300 hover:scale-105 from-right"
+            class="partner-card transform transition-transform duration-300 from-right lg:col-span-2"
             style="animation-delay: 0.4s">
             <div class="p-6">
               <img
-                src="https://images.unsplash.com/photo-1542831371-29b1f74f7139?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                alt="Style Craft Logo"
-                class="mx-auto h-20 object-contain mb-4 rounded-full border-2 border-blue-500 p-2" />
-              <p class="text-xl font-bold text-gray-800">Style Craft</p>
-              <p class="text-sm text-gray-500 mt-1">
-                Innovative clothing designs
-              </p>
-            </div>
-          </div>
-          <div
-            class="partner-card bg-white rounded-2xl shadow-xl border-t-4 border-green-500 transform transition-transform duration-300 hover:scale-105 from-left"
-            style="animation-delay: 0.6s">
-            <div class="p-6">
-              <img
-                src="https://images.unsplash.com/photo-1517694712202-14dd94532c2a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                alt="Urban Wear Logo"
-                class="mx-auto h-20 object-contain mb-4 rounded-full border-2 border-green-500 p-2" />
-              <p class="text-xl font-bold text-gray-800">Urban Wear</p>
-              <p class="text-sm text-gray-500 mt-1">
-                Sustainable street fashion
-              </p>
-            </div>
-          </div>
-          <div
-            class="partner-card bg-white rounded-2xl shadow-xl border-t-4 border-purple-500 transform transition-transform duration-300 hover:scale-105 from-right"
-            style="animation-delay: 0.8s">
-            <div class="p-6">
-              <img
-                src="https://images.unsplash.com/photo-1517430154848-0d19f8b4a8e3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                alt="Global Textile Logo"
-                class="mx-auto h-20 object-contain mb-4 rounded-full border-2 border-purple-500 p-2" />
-              <p class="text-xl font-bold text-gray-800">Global Textile</p>
-              <p class="text-sm text-gray-500 mt-1">
-                High-quality fabric supplier
-              </p>
-            </div>
-          </div>
-          <div
-            class="partner-card bg-white rounded-2xl shadow-xl border-t-4 border-red-500 transform transition-transform duration-300 hover:scale-105 from-left"
-            style="animation-delay: 1s">
-            <div class="p-6">
-              <img
-                src="https://images.unsplash.com/photo-1520607162513-77705d090332?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                alt="Elite Apparel Logo"
-                class="mx-auto h-20 object-contain mb-4 rounded-full border-2 border-red-500 p-2" />
-              <p class="text-xl font-bold text-gray-800">Elite Apparel</p>
-              <p class="text-sm text-gray-500 mt-1">
-                Exclusive garment production
-              </p>
+                src="https://placehold.co/400x300/1A202C/FFFFFF?text=Veratekas"
+                alt="Veratekas Logo"
+                class="mx-auto h-24 object-contain mb-4 rounded-full p-2" />
+              <p class="text-lg font-bold text-gray-800">Veratekas</p>
+              <p class="text-sm text-gray-500 mt-1">Textile Innovations</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="products-section" class="bg-white py-20 md:py-32 animate-on-scroll">
+    <section id="products-section" class="py-20 md:py-32 animate-on-scroll"
+      style="background: linear-gradient(135deg, #f0f9ff 0%, #cce7ff 100%);">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style="font-family: 'Poppins', sans-serif">
           <span data-lang="en">Our Top Products</span>
@@ -435,10 +392,17 @@
           <span data-lang="bn" class="lang-bn">শৈলী এবং গুণগত মানের এক অনন্য সংমিশ্রণ।</span>
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="product-list"></div>
+        <div class="mt-16 flex justify-center">
+          <button id="see-more-btn"
+            class="bg-orange-500 text-white px-10 py-4 rounded-full font-bold shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-110">
+            <span data-lang="en">See More</span>
+            <span data-lang="bn" class="lang-bn">আরো দেখুন</span>
+          </button>
+        </div>
       </div>
     </section>
 
-    <section id="certification-section" class="py-20 md:py-32 bg-gray-200 animate-on-scroll">
+    <section id="certification-section" class="py-20 md:py-32 animate-on-scroll" style="background-color: #F8FAFC;">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style="font-family: 'Poppins', sans-serif">
           <span data-lang="en">Our Certifications</span>
@@ -448,26 +412,145 @@
           <span data-lang="en">Proof of quality and environmental excellence.</span>
           <span data-lang="bn" class="lang-bn">গুণগত মান এবং পরিবেশগত শ্রেষ্ঠত্বের প্রমাণ।</span>
         </p>
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
-          <img src="https://placehold.co/400x300/E5E7EB/1F2937?text=ISO+9001" alt="ISO 9001 Certificate"
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
+          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=ISO+9001" alt="ISO 9001 Certificate"
             class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" />
-          <img src="https://placehold.co/400x300/E5E7EB/1F2937?text=OEKO-TEX" alt="OEKO-TEX Certificate"
+          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=OEKO-TEX" alt="OEKO-TEX Certificate"
             class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" />
-          <img src="https://placehold.co/400x300/E5E7EB/1F2937?text=WRAP+Certified" alt="WRAP Certified"
+          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=WRAP+Certified" alt="WRAP Certified"
             class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" />
-          <img src="https://placehold.co/400x300/E5E7EB/1F2937?text=GOTS" alt="GOTS Certificate"
+          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=GOTS" alt="GOTS Certificate"
             class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" />
-          <img src="https://placehold.co/400x300/E5E7EB/1F2937?text=Fair+Trade" alt="Fair Trade Certificate"
+          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=Fair+Trade" alt="Fair Trade Certificate"
             class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" />
         </div>
       </div>
     </section>
 
-    <footer class="bg-gray-200 text-gray-600 py-12">
+        <section id="contact-section" class="py-20 md:py-32 animate-on-scroll bg-blue-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style="font-family: 'Poppins', sans-serif">
+            <span data-lang="en">Contact Us</span>
+            <span data-lang="bn" class="lang-bn">যোগাযোগ করুন</span>
+          </h2>
+          <p class="text-lg text-gray-600">
+            <span data-lang="en">We'd love to hear from you. Send us a message.</span>
+            <span data-lang="bn" class="lang-bn">আমরা আপনার কাছ থেকে শুনতে চাই। আমাদের একটি বার্তা পাঠান.</span>
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div class="bg-white p-8 rounded-2xl shadow-xl animate-on-scroll from-left">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">
+              <span data-lang="en">Contact Information</span>
+              <span data-lang="bn" class="lang-bn">যোগাযোগের তথ্য</span>
+            </h3>
+            <div class="space-y-6">
+              <div class="flex items-start space-x-4">
+                <i class="fas fa-map-marker-alt text-2xl text-teal-600 mt-1"></i>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800">
+                    <span data-lang="en">Address</span>
+                    <span data-lang="bn" class="lang-bn">ঠিকানা</span>
+                  </h4>
+                  <p class="text-gray-600">9 Rangs Heritage, Flat-A5, House no-38, Shah Mokhdum avenue, Sector-13, Uttara, Dhaka-1230,Bangladesh.</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <i class="fas fa-phone-alt text-2xl text-teal-600 mt-1"></i>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800">
+                    <span data-lang="en">Mobile Number</span>
+                    <span data-lang="bn" class="lang-bn">মোবাইল নম্বর</span>
+                  </h4>
+                  <p class="text-gray-600">+8801716108470</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <i class="fas fa-envelope text-2xl text-teal-600 mt-1"></i>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800">
+                    <span data-lang="en">Email</span>
+                    <span data-lang="bn" class="lang-bn">ইমেইল</span>
+                  </h4>
+                  <p class="text-gray-600">imdad1976.houqe@gmail.com</p>
+                  <p class="text-gray-600">imdad@intexglobalsourcing.com</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <i class="fas fa-clock text-2xl text-teal-600 mt-1"></i>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-800">
+                    <span data-lang="en">Office Hour</span>
+                    <span data-lang="bn" class="lang-bn">অফিসের সময়</span>
+                  </h4>
+                  <p class="text-gray-600">
+                    <span data-lang="en">Monday - Friday: 9am - 6pm</span>
+                    <span data-lang="bn" class="lang-bn">সোমবার - শুক্রবার: সকাল ৯টা - সন্ধ্যা ৬টা</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-xl animate-on-scroll from-right">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">
+              <span data-lang="en">Send us a Message</span>
+              <span data-lang="bn" class="lang-bn">আমাদের একটি বার্তা পাঠান</span>
+            </h3>
+            <form id="contact-form" class="grid grid-cols-1 gap-6">
+              <div>
+                <label for="name" class="block text-gray-600 mb-2 sr-only">
+                  <span data-lang="en">Name</span>
+                  <span data-lang="bn" class="lang-bn">নাম</span>
+                </label>
+                <input type="text" id="name" name="name" required placeholder="Your Name"
+                  class="w-full px-4 py-3 bg-gray-200 text-gray-800 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-600" />
+              </div>
+              <div>
+                <label for="email" class="block text-gray-600 mb-2 sr-only">
+                  <span data-lang="en">Email</span>
+                  <span data-lang="bn" class="lang-bn">ইমেইল</span>
+                </label>
+                <input type="email" id="email" name="email" required placeholder="Your Email"
+                  class="w-full px-4 py-3 bg-gray-200 text-gray-800 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-600" />
+              </div>
+              <div>
+                <label for="contact-message" class="block text-gray-600 mb-2 sr-only">
+                  <span data-lang="en">Message</span>
+                  <span data-lang="bn" class="lang-bn">বার্তা</span>
+                </label>
+                <textarea id="contact-message" name="message" rows="4" required placeholder="Your Message"
+                  class="w-full px-4 py-3 bg-gray-200 text-gray-800 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-600"></textarea>
+              </div>
+              <div>
+                <button type="submit"
+                  class="bg-orange-500 text-white px-10 py-4 rounded-full font-bold shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-110 w-full">
+                  <span data-lang="en">Send Message</span>
+                  <span data-lang="bn" class="lang-bn">বার্তা পাঠান</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-gray-800 text-gray-300 py-6">
       <div class="container mx-auto px-4 text-center">
-        <p>
-          <span data-lang="en">&copy; 2024 Fashion Hub. All rights reserved.</span>
-          <span data-lang="bn" class="lang-bn">&copy; 2024 ফ্যাশন হাব। সর্বস্বত্ব সংরক্ষিত।</span>
+        <div class="flex justify-center space-x-6 mb-6">
+          <a href="https://www.facebook.com/" target="_blank" class="text-gray-300 hover:text-white transition-colors duration-300">
+            <i class="fab fa-facebook-f text-2xl"></i>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" class="text-gray-300 hover:text-white transition-colors duration-300">
+            <i class="fab fa-instagram text-2xl"></i>
+          </a>
+          <a href="https://twitter.com/" target="_blank" class="text-gray-300 hover:text-white transition-colors duration-300">
+            <i class="fab fa-twitter text-2xl"></i>
+          </a>
+        </div>
+        <p class="text-lg">
+          <span data-lang="en">&copy; 2025 iTEX GLOBAL SOURCING. All rights reserved.</span>
+          <span data-lang="bn" class="lang-bn">&copy; 2025 iTEX GLOBAL সোর্সিং। সর্বস্বত্ব সংরক্ষিত।</span>
         </p>
       </div>
     </footer>
@@ -735,7 +818,7 @@
           );
         }
         document.documentElement.lang = lang;
-        renderProducts(lang);
+        renderProducts(lang, productsVisible);
       }
 
       langBnBtn.addEventListener("click", () => setLanguage("bn"));
@@ -979,15 +1062,17 @@
 
       const productList = document.getElementById("product-list");
 
-      function renderProducts(lang) {
+      let productsVisible = 6;
+      const seeMoreBtn = document.getElementById("see-more-btn");
+
+      function renderProducts(lang, limit) {
         productList.innerHTML = "";
-        products.forEach((product) => {
+        const productsToRender = products.slice(0, limit);
+        productsToRender.forEach((product) => {
           const productCard = document.createElement("div");
           productCard.classList.add(
-            "bg-gray-200",
             "p-6",
             "rounded-2xl",
-            "shadow-md",
             "transition-all",
             "duration-300",
             "transform",
@@ -995,13 +1080,13 @@
             "cursor-pointer",
             "animate-on-scroll"
           );
+
           const name = lang === "en" ? product.name_en : product.name_bn;
           const description =
             lang === "en" ? product.description_en : product.description_bn;
           productCard.innerHTML = `
-                      <img src="${product.image
-            }" alt="${name} Image" class="w-full h-64 object-cover rounded-xl mb-6 shadow-lg">
-                      <h3 class="text-2xl font-bold text-teal-600 mb-2">${name}</h3>
+                      <img src="${product.image}" alt="${name} Image" class="w-full h-64 object-cover rounded-xl mb-6">
+                      <h3 class="text-2xl font-bold text-gray-800 mb-2">${name}</h3>
                       <p class="text-gray-600">${description.split(".")[0]}.</p>
                   `;
           productCard.addEventListener("click", () =>
@@ -1014,7 +1099,19 @@
         document.querySelectorAll(".animate-on-scroll").forEach((section) => {
           observer.observe(section);
         });
+
+        if (limit >= products.length) {
+          seeMoreBtn.style.display = "none";
+        } else {
+          seeMoreBtn.style.display = "block";
+        }
       }
+
+      seeMoreBtn.addEventListener("click", () => {
+        const currentLang = document.documentElement.lang;
+        productsVisible = products.length;
+        renderProducts(currentLang, productsVisible);
+      });
 
       function showProductPage(productId, lang) {
         const product = products.find((p) => p.id === productId);
