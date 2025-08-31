@@ -11,10 +11,10 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
-      --primary-color: #008080;
-      /* Dark Teal */
-      --secondary-color: #ff6347;
-      /* Tomato Red */
+      --primary-color: #273372;
+      /* Dark Blue */
+      --secondary-color: #FFA500;
+      /* Orange */
       --background-light: #f3f4f6;
       /* Light Gray */
       --text-dark: #1f2937;
@@ -88,9 +88,9 @@
 
     .animate-on-scroll {
       opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 1s cubic-bezier(0.19, 1, 0.22, 1),
-        transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+      transform: translateY(100px);
+      transition: opacity 1.5s cubic-bezier(0.19, 1, 0.22, 1),
+        transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
     .animate-on-scroll.is-visible {
@@ -164,25 +164,10 @@
       cursor: pointer;
     }
 
-    /* Classes for language change */
-    .lang-bn {
-      display: none;
-    }
-
-    .active-lang {
-      background-color: var(--primary-color);
-      color: white;
-    }
-
-    .inactive-lang {
-      background-color: transparent;
-      color: #4b5563;
-    }
-
     .nav-link.active {
-      color: #047857;
+      color: var(--primary-color);
       font-weight: 600;
-      border-bottom: 2px solid #047857;
+      border-bottom: 2px solid var(--primary-color);
       padding-bottom: 4px;
     }
 
@@ -197,16 +182,16 @@
     }
 
     .partner-card.from-right {
-      animation: slideInRight 1s cubic-bezier(0.19, 1, 0.22, 1) both;
+      animation: slideInRight 1.5s cubic-bezier(0.19, 1, 0.22, 1) both;
     }
 
     .partner-card.from-left {
-      animation: slideInLeft 1s cubic-bezier(0.19, 1, 0.22, 1) both;
+      animation: slideInLeft 1.5s cubic-bezier(0.19, 1, 0.22, 1) both;
     }
 
     /* Modern background for partners section */
     #partners-section {
-      background: linear-gradient(135deg, #e0f7fa 0%, #f3e5f5 100%);
+      background: linear-gradient(135deg, #f0f9ff 0%, #e6e9f0 100%);
     }
 
     /* Custom style for banner background */
@@ -227,7 +212,7 @@
       background-image: url("assets/images/banner.jpg");
       background-size: cover;
       background-position: center;
-      opacity: 0.2;
+      opacity: 0.1;
       /* Image opacity */
       z-index: -1;
     }
@@ -236,55 +221,63 @@
       position: relative;
       z-index: 2;
     }
+#scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background: linear-gradient(45deg, var(--primary-color), #1a2352);
+    color: white;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#scrollTopBtn:hover {
+    background: linear-gradient(45deg, #1a2352, var(--primary-color));
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
   </style>
 </head>
 
 <body class="bg-gray-100 text-gray-800">
+  <button id="scrollTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
   <div id="main-content">
     <header class="bg-white shadow-xl sticky top-0 z-50">
       <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="#"
-          class="flex items-center space-x-2 text-2xl font-bold text-teal-600 hover:text-teal-500 transition-colors duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-            <path
-              d="M12.5 7H11c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h.5c.55 0 1 .45 1 1v2c0 .55.45 1 1 1h.5c.55 0 1-.45 1-1V9c0-1.66-1.34-3-3-3zM12 9h-1c-.55 0-1 .45-1 1s.45 1 1 1h1V9zm2.5 5h-1c-.55 0-1 .45-1 1s.45 1 1 1h1v-2zM16 11h-1c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h1c1.1 0 2-.9 2-2v-2c0-1.1-.9-2-2-2zm-3 4h-1.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5H13V15zM17 11c-1.66 0-3 1.34-3 3v2c0 1.66 1.34 3 3 3h1c1.66 0 3-1.34 3-3v-2c0-1.66-1.34-3-3-3z" />
-          </svg>
-          <span data-lang="en">iTEX GLOBAL</span>
-          <span data-lang="bn" class="lang-bn">iTEX GLOBAL</span>
+          class="flex items-center space-x-2 text-2xl font-bold" style="color: var(--primary-color);">
+          <img src="assets/images/itex logo.png" alt="iTEX GLOBAL Logo" class="h-8 w-auto">
+          <span>iTEX GLOBAL</span>
         </a>
         <div class="hidden md:flex items-center space-x-8 text-lg font-medium">
           <a href="#banner-section"
             class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">
-            <span data-lang="en">Our Services</span>
-            <span data-lang="bn" class="lang-bn">আমাদের সেবা</span>
+            Our Services
           </a>
           <a href="#partners-section"
             class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">
-            <span data-lang="en">Partners</span>
-            <span data-lang="bn" class="lang-bn">পার্টনার</span>
+            Partners
           </a>
           <a href="#certification-section"
             class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">
-            <span data-lang="en">Certification</span>
-            <span data-lang="bn" class="lang-bn">সার্টিফিকেশন</span>
+            Certification
           </a>
           <a href="#contact-section"
             class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">
-            <span data-lang="en">Contact Us</span>
-            <span data-lang="bn" class="lang-bn">যোগাযোগ</span>
+            Contact Us
           </a>
-          <div class="flex items-center space-x-2 bg-gray-300 rounded-full p-1">
-            <button id="lang-en-btn"
-              class="bg-teal-600 text-white px-3 py-1 rounded-full text-sm font-semibold active-lang">
-              EN
-            </button>
-            <button id="lang-bn-btn"
-              class="text-gray-600 hover:text-gray-900 px-3 py-1 rounded-full text-sm font-semibold">
-              BN
-            </button>
-          </div>
         </div>
         <button id="mobile-menu-btn" class="md:hidden text-gray-600 focus:outline-none">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -294,20 +287,16 @@
       </nav>
       <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg py-2">
         <a href="#banner-section" class="block px-4 py-3 text-gray-600 hover:bg-gray-100">
-          <span data-lang="en">Our Services</span>
-          <span data-lang="bn" class="lang-bn">আমাদের সেবা</span>
+          Our Services
         </a>
         <a href="#partners-section" class="block px-4 py-3 text-gray-600 hover:bg-gray-100">
-          <span data-lang="en">Partners</span>
-          <span data-lang="bn" class="lang-bn">পার্টনার</span>
+          Partners
         </a>
         <a href="#certification-section" class="block px-4 py-3 text-gray-600 hover:bg-gray-100">
-          <span data-lang="en">Certification</span>
-          <span data-lang="bn" class="lang-bn">সার্টিফিকেশন</span>
+          Certification
         </a>
         <a href="#contact-section" class="block px-4 py-3 text-gray-600 hover:bg-gray-100">
-          <span data-lang="en">Contact Us</span>
-          <span data-lang="bn" class="lang-bn">যোগাযোগ</span>
+          Contact Us
         </a>
       </div>
     </header>
@@ -319,38 +308,36 @@
           <h1
             class="text-4xl md:text-7xl font-extrabold mb-4 leading-tight tracking-tighter drop-shadow-lg text-gray-900"
             style="font-family: 'Poppins', sans-serif">
-            <span data-lang="en">No Compromise on <span class="text-teal-600">Quality</span>,
-              Style Must Be the <span class="text-teal-600">Best</span>.</span>
-            <span data-lang="bn" class="lang-bn">মানের সাথে আপোষ নয়, স্টাইল হোক
-              <span class="text-teal-600">সেরা</span>।</span>
+            No Compromise on <span style="color: var(--primary-color);">Quality</span>,
+              Style Must Be the <span style="color: var(--primary-color);">Best</span>.
           </h1>
           <p class="text-lg md:text-2xl max-w-3xl mx-auto mb-8 text-gray-600 animate-slideInUp"
             style="animation-delay: 0.5s">
-            <span data-lang="en">Our world-class garments blend innovation and tradition
-              seamlessly.</span>
-            <span data-lang="bn" class="lang-bn">আমাদের বিশ্বমানের পোশাকে নতুনত্ব এবং ঐতিহ্য মিলেমিশে
-              একাকার।</span>
+            Our world-class garments blend innovation and tradition
+              seamlessly.
           </p>
           <div class="flex flex-wrap justify-center gap-4 text-xl font-semibold mb-8 animate-slideInUp"
             style="animation-delay: 0.8s">
-            <span data-lang="en" class="text-gray-800">Our Services:</span>
-            <span data-lang="bn" class="lang-bn text-gray-800">আমাদের সেবা:</span>
+            <span class="text-gray-800">Our Services:</span>
             <ul class="list-none flex flex-wrap justify-center gap-x-4">
-              <li class="bg-teal-200 text-teal-800 px-3 py-1 rounded-full">
-                <span data-lang="en">Design</span><span data-lang="bn" class="lang-bn">ডিজাইন</span>
+              <li class="px-3 py-1 rounded-full text-white"
+                style="background-color: var(--primary-color);">
+                Design
               </li>
-              <li class="bg-teal-200 text-teal-800 px-3 py-1 rounded-full">
-                <span data-lang="en">Production</span><span data-lang="bn" class="lang-bn">উৎপাদন</span>
+              <li class="px-3 py-1 rounded-full text-white"
+                style="background-color: var(--primary-color);">
+                Production
               </li>
-              <li class="bg-teal-200 text-teal-800 px-3 py-1 rounded-full">
-                <span data-lang="en">Quality Control</span><span data-lang="bn" class="lang-bn">মান নিয়ন্ত্রণ</span>
+              <li class="px-3 py-1 rounded-full text-white"
+                style="background-color: var(--primary-color);">
+                Quality Control
               </li>
             </ul>
           </div>
           <button id="learn-more-btn"
-            class="bg-orange-500 text-white px-10 py-4 rounded-full font-bold shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-110">
-            <span data-lang="en">Learn More</span>
-            <span data-lang="bn" class="lang-bn">আরো জানুন</span>
+            class="text-white px-10 py-4 rounded-full font-bold shadow-lg transition-all duration-300 transform hover:scale-110"
+            style="background-color: var(--secondary-color);">
+            Learn More
           </button>
         </div>
       </div>
@@ -359,17 +346,14 @@
     <section id="partners-section" class="py-12 md:py-20 bg-gray-100 animate-on-scroll">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style="font-family: 'Poppins', sans-serif">
-          <span data-lang="en">Our Valued Partners</span>
-          <span data-lang="bn" class="lang-bn">আমাদের গর্বিত পার্টনারগণ</span>
+          Our Valued Partners
         </h2>
         <p class="text-lg text-gray-600 mb-16">
-          <span data-lang="en">We work with trust and quality.</span>
-          <span data-lang="bn" class="lang-bn">আমরা বিশ্বস্ততা এবং গুণগত মানের সাথে কাজ করি।</span>
+          We work with trust and quality.
         </p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-center">
           <div class="partner-card transform transition-transform duration-300 from-left lg:col-span-2 cursor-pointer"
-            data-partner-id="jeniuschem" data-partner-name-en="Jeniuschem" data-partner-name-bn="জেনিয়াসকেম"
-            style="animation-delay: 0.2s">
+            data-partner-id="jeniuschem" data-partner-name-en="Jeniuschem">
             <div class="p-6">
               <img src="assets/images/jeniuschem/jeniuschemlogo.svg" alt="Jeniuschem Logo"
                 class="mx-auto h-24 object-contain mb-4 rounded-full p-2" />
@@ -378,8 +362,7 @@
             </div>
           </div>
           <div class="partner-card transform transition-transform duration-300 from-right lg:col-span-2 cursor-pointer"
-            data-partner-id="verateks" data-partner-name-en="Verateks" data-partner-name-bn="ভেরাটিকাস"
-            style="animation-delay: 0.4s">
+            data-partner-id="verateks" data-partner-name-en="Verateks">
             <div class="p-6">
               <img src="assets/images/verateks/veratekslogo.png" alt="Verateks Logo"
                 class="mx-auto h-24 object-contain mb-4 rounded-full p-2" />
@@ -392,22 +375,20 @@
     </section>
 
     <section id="products-section" class="py-20 md:py-32 animate-on-scroll"
-      style="background: linear-gradient(135deg, #f0f9ff 0%, #cce7ff 100%);">
+      style="background: linear-gradient(135deg, #f0f9ff 0%, #e6e9f0 100%);">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style="font-family: 'Poppins', sans-serif">
-          <span data-lang="en">Our Top Products</span>
-          <span data-lang="bn" class="lang-bn">আমাদের সেরা পণ্য</span>
+          Our Top Products
         </h2>
         <p class="text-lg text-gray-600 mb-16">
-          <span data-lang="en">A unique blend of style and quality.</span>
-          <span data-lang="bn" class="lang-bn">শৈলী এবং গুণগত মানের এক অনন্য সংমিশ্রণ।</span>
+          A unique blend of style and quality.
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="product-list"></div>
         <div class="mt-16 flex justify-center">
           <button id="see-more-btn"
-            class="bg-orange-500 text-white px-10 py-4 rounded-full font-bold shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-110">
-            <span data-lang="en">See More</span>
-            <span data-lang="bn" class="lang-bn">আরো দেখুন</span>
+            class="text-white px-10 py-4 rounded-full font-bold shadow-lg transition-all duration-300 transform hover:scale-110"
+            style="background-color: var(--secondary-color);">
+            See More
           </button>
         </div>
       </div>
@@ -416,12 +397,10 @@
     <section id="certification-section" class="py-20 md:py-32 animate-on-scroll" style="background-color: #F8FAFC;">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style="font-family: 'Poppins', sans-serif">
-          <span data-lang="en">Our Certifications</span>
-          <span data-lang="bn" class="lang-bn">আমাদের সার্টিফিকেশন</span>
+          Our Certifications
         </h2>
         <p class="text-lg text-gray-600 mb-16">
-          <span data-lang="en">Proof of quality and environmental excellence.</span>
-          <span data-lang="bn" class="lang-bn">গুণগত মান এবং পরিবেশগত শ্রেষ্ঠত্বের প্রমাণ।</span>
+          Proof of quality and environmental excellence.
         </p>
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
           <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=ISO+9001:2025" alt="ISO 9001:2025 Certificate"
@@ -446,63 +425,55 @@
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
           <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style="font-family: 'Poppins', sans-serif">
-            <span data-lang="en">Contact Us</span>
-            <span data-lang="bn" class="lang-bn">যোগাযোগ করুন</span>
+            Contact Us
           </h2>
           <p class="text-lg text-gray-600">
-            <span data-lang="en">We'd love to hear from you. Send us a message.</span>
-            <span data-lang="bn" class="lang-bn">আমরা আপনার কাছ থেকে শুনতে চাই। আমাদের একটি বার্তা পাঠান.</span>
+            We'd love to hear from you. Send us a message.
           </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div class="bg-white p-8 rounded-2xl shadow-xl animate-on-scroll from-left">
             <h3 class="text-2xl font-bold text-gray-900 mb-6">
-              <span data-lang="en">Contact Information</span>
-              <span data-lang="bn" class="lang-bn">যোগাযোগের তথ্য</span>
+              Contact Information
             </h3>
             <div class="space-y-6">
               <div class="flex items-start space-x-4">
-                <i class="fas fa-map-marker-alt text-2xl text-teal-600 mt-1"></i>
+                <i class="fas fa-map-marker-alt text-2xl" style="color: var(--primary-color);"></i>
                 <div>
                   <h4 class="text-lg font-semibold text-gray-800">
-                    <span data-lang="en">Address</span>
-                    <span data-lang="bn" class="lang-bn">ঠিকানা</span>
+                    Address
                   </h4>
                   <p class="text-gray-600">9 Rangs Heritage, Flat-A5, House no-38, Shah Mokhdum avenue, Sector-13,
                     Uttara, Dhaka-1230,Bangladesh.</p>
                 </div>
               </div>
               <div class="flex items-start space-x-4">
-                <i class="fas fa-phone-alt text-2xl text-teal-600 mt-1"></i>
+                <i class="fas fa-phone-alt text-2xl" style="color: var(--primary-color);"></i>
                 <div>
                   <h4 class="text-lg font-semibold text-gray-800">
-                    <span data-lang="en">Mobile Number</span>
-                    <span data-lang="bn" class="lang-bn">মোবাইল নম্বর</span>
+                    Mobile Number
                   </h4>
                   <p class="text-gray-600">+8801716108470</p>
                 </div>
               </div>
               <div class="flex items-start space-x-4">
-                <i class="fas fa-envelope text-2xl text-teal-600 mt-1"></i>
+                <i class="fas fa-envelope text-2xl" style="color: var(--primary-color);"></i>
                 <div>
                   <h4 class="text-lg font-semibold text-gray-800">
-                    <span data-lang="en">Email</span>
-                    <span data-lang="bn" class="lang-bn">ইমেইল</span>
+                    Email
                   </h4>
                   <p class="text-gray-600">imdad1976.houqe@gmail.com</p>
                   <p class="text-gray-600">imdad@intexglobalsourcing.com</p>
                 </div>
               </div>
               <div class="flex items-start space-x-4">
-                <i class="fas fa-clock text-2xl text-teal-600 mt-1"></i>
+                <i class="fas fa-clock text-2xl" style="color: var(--primary-color);"></i>
                 <div>
                   <h4 class="text-lg font-semibold text-gray-800">
-                    <span data-lang="en">Office Hour</span>
-                    <span data-lang="bn" class="lang-bn">অফিসের সময়</span>
+                    Office Hour
                   </h4>
                   <p class="text-gray-600">
-                    <span data-lang="en">Monday - Friday: 9am - 6pm</span>
-                    <span data-lang="bn" class="lang-bn">সোমবার - শুক্রবার: সকাল ৯টা - সন্ধ্যা ৬টা</span>
+                    Monday - Friday: 9am - 6pm
                   </p>
                 </div>
               </div>
@@ -510,39 +481,35 @@
           </div>
           <div class="bg-white p-8 rounded-2xl shadow-xl animate-on-scroll from-right">
             <h3 class="text-2xl font-bold text-gray-900 mb-6">
-              <span data-lang="en">Send us a Message</span>
-              <span data-lang="bn" class="lang-bn">আমাদের একটি বার্তা পাঠান</span>
+              Send us a Message
             </h3>
             <form id="contact-form" class="grid grid-cols-1 gap-6">
               <div>
                 <label for="name" class="block text-gray-600 mb-2 sr-only">
-                  <span data-lang="en">Name</span>
-                  <span data-lang="bn" class="lang-bn">নাম</span>
+                  Name
                 </label>
                 <input type="text" id="name" name="name" required placeholder="Your Name"
-                  class="w-full px-4 py-3 bg-gray-200 text-gray-800 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-600" />
+                  class="w-full px-4 py-3 bg-gray-200 text-gray-800 border border-gray-300 rounded-lg focus:outline-none" style="border-color: var(--primary-color);" />
               </div>
               <div>
                 <label for="email" class="block text-gray-600 mb-2 sr-only">
-                  <span data-lang="en">Email</span>
-                  <span data-lang="bn" class="lang-bn">ইমেইল</span>
+                  Email
                 </label>
                 <input type="email" id="email" name="email" required placeholder="Your Email"
-                  class="w-full px-4 py-3 bg-gray-200 text-gray-800 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-600" />
+                  class="w-full px-4 py-3 bg-gray-200 text-gray-800 border border-gray-300 rounded-lg focus:outline-none" style="border-color: var(--primary-color);" />
               </div>
               <div>
                 <label for="contact-message" class="block text-gray-600 mb-2 sr-only">
-                  <span data-lang="en">Message</span>
-                  <span data-lang="bn" class="lang-bn">বার্তা</span>
+                  Message
                 </label>
                 <textarea id="contact-message" name="message" rows="4" required placeholder="Your Message"
-                  class="w-full px-4 py-3 bg-gray-200 text-gray-800 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-600"></textarea>
+                  class="w-full px-4 py-3 bg-gray-200 text-gray-800 border border-gray-300 rounded-lg focus:outline-none" style="border-color: var(--primary-color);"></textarea>
               </div>
               <div>
                 <button type="submit"
-                  class="bg-orange-500 text-white px-10 py-4 rounded-full font-bold shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-110 w-full">
-                  <span data-lang="en">Send Message</span>
-                  <span data-lang="bn" class="lang-bn">বার্তা পাঠান</span>
+                  class="text-white px-10 py-4 rounded-full font-bold shadow-lg transition-all duration-300 transform hover:scale-110 w-full"
+                  style="background-color: var(--secondary-color);">
+                  Send Message
                 </button>
               </div>
             </form>
@@ -551,25 +518,24 @@
       </div>
     </section>
 
-    <footer class="bg-gray-800 text-gray-300 py-6">
+    <footer class="text-white py-6" style="background-color: var(--primary-color);">
       <div class="container mx-auto px-4 text-center">
         <div class="flex justify-center space-x-6 mb-6">
           <a href="https://www.facebook.com/" target="_blank"
-            class="text-gray-300 hover:text-white transition-colors duration-300">
+            class="text-white hover:text-gray-300 transition-colors duration-300">
             <i class="fab fa-facebook-f text-2xl"></i>
           </a>
           <a href="https://www.instagram.com/" target="_blank"
-            class="text-gray-300 hover:text-white transition-colors duration-300">
+            class="text-white hover:text-gray-300 transition-colors duration-300">
             <i class="fab fa-instagram text-2xl"></i>
           </a>
           <a href="https://twitter.com/" target="_blank"
-            class="text-gray-300 hover:text-white transition-colors duration-300">
+            class="text-white hover:text-gray-300 transition-colors duration-300">
             <i class="fab fa-twitter text-2xl"></i>
           </a>
         </div>
         <p class="text-lg">
-          <span data-lang="en">&copy; 2025 iTEX GLOBAL SOURCING. All rights reserved.</span>
-          <span data-lang="bn" class="lang-bn">&copy; 2025 iTEX GLOBAL সোর্সিং। সর্বস্বত্ব সংরক্ষিত।</span>
+          &copy; 2025 iTEX GLOBAL SOURCING. All rights reserved.
         </p>
       </div>
     </footer>
@@ -579,12 +545,11 @@
     <header class="bg-slate-900 shadow-xl sticky top-0 z-50">
       <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="#" id="back-to-home"
-          class="flex items-center space-x-2 text-2xl font-bold text-teal-400 hover:text-teal-300 transition-colors duration-300">
+          class="flex items-center space-x-2 text-2xl font-bold transition-colors duration-300" style="color: var(--primary-color);">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
-          <span data-lang="bn">ফিরে যান</span>
-          <span data-lang="en" class="lang-en">Go Back</span>
+          <span>Go Back</span>
         </a>
       </nav>
     </header>
@@ -602,46 +567,42 @@
             <p id="product-description" class="text-lg text-gray-600 mb-8"></p>
             <ul id="service-list" class="list-disc list-inside text-gray-600 mb-8"></ul>
             <button id="get-quote-btn"
-              class="bg-orange-500 text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-105">
-              <span data-lang="en">Get Quote</span>
-              <span data-lang="bn" class="lang-bn">মূল্য জানতে যোগাযোগ করুন</span>
+              class="text-white px-8 py-4 rounded-xl font-bold shadow-lg transition-all duration-300 transform hover:scale-105"
+              style="background-color: var(--secondary-color);">
+              Get Quote
             </button>
             <div id="quote-form-container" class="mt-8 hidden animate-fadeIn">
               <form id="quote-form" class="bg-gray-200 p-8 rounded-xl shadow-md">
                 <h3 class="text-xl font-bold mb-4 text-gray-900" style="font-family: 'Poppins', sans-serif">
-                  <span data-lang="en">Contact Form</span>
-                  <span data-lang="bn" class="lang-bn">যোগাযোগ ফর্ম</span>
+                  Contact Form
                 </h3>
                 <div class="mb-4">
                   <label for="form-product-name" class="block text-gray-600 mb-2">
-                    <span data-lang="en">Product Name</span>
-                    <span data-lang="bn" class="lang-bn">পণ্যের নাম</span>
+                    Product Name
                   </label>
                   <input type="text" id="form-product-name" name="product-name"
                     class="w-full px-4 py-3 bg-white text-gray-800 border border-gray-400 rounded-lg" readonly />
                 </div>
                 <div class="mb-4">
                   <label for="contact-email" class="block text-gray-600 mb-2">
-                    <span data-lang="en">Contact Email</span>
-                    <span data-lang="bn" class="lang-bn">যোগাযোগের ইমেইল</span>
+                    Contact Email
                   </label>
                   <input type="email" id="contact-email" name="contact-email" required
-                    class="w-full px-4 py-3 bg-white text-gray-800 border border-gray-400 rounded-lg focus:outline-none focus:border-teal-600" />
+                    class="w-full px-4 py-3 bg-white text-gray-800 border border-gray-400 rounded-lg focus:outline-none" style="border-color: var(--primary-color);" />
                 </div>
                 <div class="mb-6">
                   <label for="message" class="block text-gray-600 mb-2">
-                    <span data-lang="en">Your Message</span>
-                    <span data-lang="bn" class="lang-bn">আপনার বার্তা</span>
+                    Your Message
                   </label>
                   <textarea id="message" name="message" rows="4" required
-                    class="w-full px-4 py-3 bg-white text-gray-800 border border-gray-400 rounded-lg focus:outline-none focus:border-teal-600"></textarea>
+                    class="w-full px-4 py-3 bg-white text-gray-800 border border-gray-400 rounded-lg focus:outline-none" style="border-color: var(--primary-color);"></textarea>
                 </div>
                 <button type="submit"
-                  class="bg-teal-600 text-white px-8 py-3 rounded-lg font-bold shadow-md hover:bg-teal-700 transition-all duration-300 float-right">
-                  <span data-lang="en">Send</span>
-                  <span data-lang="bn" class="lang-bn">পাঠান</span>
+                  class="text-white px-8 py-3 rounded-lg font-bold shadow-md transition-all duration-300 float-right"
+                  style="background-color: var(--primary-color);">
+                  Send
                 </button>
-                <div id="form-message" class="clear-both mt-12 text-center text-teal-600 hidden"></div>
+                <div id="form-message" class="clear-both mt-12 text-center" style="color: var(--primary-color);"></div>
               </form>
             </div>
           </div>
@@ -654,12 +615,11 @@
     <header class="bg-slate-900 shadow-xl sticky top-0 z-50">
       <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="#" id="back-to-main-content"
-          class="flex items-center space-x-2 text-2xl font-bold text-teal-400 hover:text-teal-300 transition-colors duration-300">
+          class="flex items-center space-x-2 text-2xl font-bold transition-colors duration-300" style="color: var(--primary-color);">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
-          <span data-lang="bn">ফিরে যান</span>
-          <span data-lang="en" class="lang-en">Go Back</span>
+          <span>Go Back</span>
         </a>
       </nav>
     </header>
@@ -676,108 +636,99 @@
     <div class="modal-content text-center">
       <span class="close-btn">&times;</span>
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style="font-family: 'Poppins', sans-serif">
-        <span data-lang="en">Our Comprehensive Services</span>
-        <span data-lang="bn" class="lang-bn">আমাদের বিস্তারিত পরিষেবা</span>
+        Our Comprehensive Services
       </h2>
       <p class="text-lg text-gray-600 mb-12">
-        <span data-lang="en">From design to delivery, we handle every step with precision and
-          care.</span>
-        <span data-lang="bn" class="lang-bn">ডিজাইন থেকে ডেলিভারি পর্যন্ত, আমরা প্রতিটি পদক্ষেপ যত্ন ও
-          নির্ভুলতার সাথে পরিচালনা করি।</span>
+        From design to delivery, we handle every step with precision and
+          care.
       </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <div
-          class="bg-white p-6 rounded-2xl shadow-xl border-t-4 border-orange-500 transform transition-transform hover:scale-105 duration-300">
-          <div class="flex items-center justify-center h-16 w-16 bg-orange-100 rounded-full mx-auto mb-4">
-            <i class="fas fa-pencil-ruler text-3xl text-orange-500"></i>
+          class="bg-white p-6 rounded-2xl shadow-xl border-t-4 transform transition-transform hover:scale-105 duration-300"
+          style="border-color: var(--secondary-color);">
+          <div class="flex items-center justify-center h-16 w-16 rounded-full mx-auto mb-4"
+            style="background-color: var(--secondary-color);">
+            <i class="fas fa-pencil-ruler text-3xl text-white"></i>
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            <span data-lang="en">Design & Pattern Making</span><span data-lang="bn" class="lang-bn">ডিজাইন ও প্যাটার্ন
-              মেকিং</span>
+            Design & Pattern Making
           </h3>
           <p class="text-gray-600">
-            <span data-lang="en">From concept to reality, our expert designers create innovative
-              and trendy apparel patterns.</span><span data-lang="bn" class="lang-bn">ধারণা থেকে বাস্তবতা, আমাদের
-              বিশেষজ্ঞ ডিজাইনাররা উদ্ভাবনী এবং
-              ট্রেন্ডি পোশাকের প্যাটার্ন তৈরি করেন।</span>
+            From concept to reality, our expert designers create innovative
+              and trendy apparel patterns.
           </p>
         </div>
         <div
-          class="bg-white p-6 rounded-2xl shadow-xl border-t-4 border-blue-500 transform transition-transform hover:scale-105 duration-300">
-          <div class="flex items-center justify-center h-16 w-16 bg-blue-100 rounded-full mx-auto mb-4">
-            <i class="fas fa-seedling text-3xl text-blue-500"></i>
+          class="bg-white p-6 rounded-2xl shadow-xl border-t-4 transform transition-transform hover:scale-105 duration-300"
+          style="border-color: var(--primary-color);">
+          <div class="flex items-center justify-center h-16 w-16 rounded-full mx-auto mb-4"
+            style="background-color: var(--primary-color);">
+            <i class="fas fa-seedling text-3xl text-white"></i>
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            <span data-lang="en">Material Sourcing</span><span data-lang="bn" class="lang-bn">উপাদান সংগ্রহ</span>
+            Material Sourcing
           </h3>
           <p class="text-gray-600">
-            <span data-lang="en">We source high-quality, sustainable fabrics and materials from
-              trusted global suppliers.</span><span data-lang="bn" class="lang-bn">আমরা বিশ্বস্ত বৈশ্বিক সরবরাহকারীদের
-              কাছ থেকে উচ্চ মানের, টেকসই
-              কাপড় এবং উপকরণ সংগ্রহ করি।</span>
+            We source high-quality, sustainable fabrics and materials from
+              trusted global suppliers.
           </p>
         </div>
         <div
-          class="bg-white p-6 rounded-2xl shadow-xl border-t-4 border-purple-500 transform transition-transform hover:scale-105 duration-300">
+          class="bg-white p-6 rounded-2xl shadow-xl border-t-4 transform transition-transform hover:scale-105 duration-300"
+          style="border-color: #8B5CF6;">
           <div class="flex items-center justify-center h-16 w-16 bg-purple-100 rounded-full mx-auto mb-4">
             <i class="fas fa-industry text-3xl text-purple-500"></i>
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            <span data-lang="en">Sampling & Production</span><span data-lang="bn" class="lang-bn">স্যাম্পলিং ও
-              উৎপাদন</span>
+            Sampling & Production
           </h3>
           <p class="text-gray-600">
-            <span data-lang="en">We provide precise sampling and efficient mass production
-              tailored to your specific needs.</span><span data-lang="bn" class="lang-bn">আমরা আপনার নির্দিষ্ট চাহিদা
-              অনুযায়ী নির্ভুল স্যাম্পলিং এবং
-              দক্ষ গণ উৎপাদন সরবরাহ করি।</span>
+            We provide precise sampling and efficient mass production
+              tailored to your specific needs.
           </p>
         </div>
         <div
-          class="bg-white p-6 rounded-2xl shadow-xl border-t-4 border-teal-500 transform transition-transform hover:scale-105 duration-300">
-          <div class="flex items-center justify-center h-16 w-16 bg-teal-100 rounded-full mx-auto mb-4">
-            <i class="fas fa-check-circle text-3xl text-teal-500"></i>
+          class="bg-white p-6 rounded-2xl shadow-xl border-t-4 transform transition-transform hover:scale-105 duration-300"
+          style="border-color: var(--primary-color);">
+          <div class="flex items-center justify-center h-16 w-16 rounded-full mx-auto mb-4"
+            style="background-color: var(--primary-color);">
+            <i class="fas fa-check-circle text-3xl text-white"></i>
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            <span data-lang="en">Quality Control</span><span data-lang="bn" class="lang-bn">মান নিয়ন্ত্রণ</span>
+            Quality Control
           </h3>
           <p class="text-600">
-            <span data-lang="en">Our rigorous quality control process ensures every garment
-              meets the highest international standards.</span><span data-lang="bn" class="lang-bn">আমাদের কঠোর মান
-              নিয়ন্ত্রণ প্রক্রিয়া নিশ্চিত করে যে প্রতিটি
-              পোশাক সর্বোচ্চ আন্তর্জাতিক মান পূরণ করে।</span>
+            Our rigorous quality control process ensures every garment
+              meets the highest international standards.
           </p>
         </div>
         <div
-          class="bg-white p-6 rounded-2xl shadow-xl border-t-4 border-yellow-500 transform transition-transform hover:scale-105 duration-300">
-          <div class="flex items-center justify-center h-16 w-16 bg-yellow-100 rounded-full mx-auto mb-4">
-            <i class="fas fa-box-open text-3xl text-yellow-500"></i>
+          class="bg-white p-6 rounded-2xl shadow-xl border-t-4 transform transition-transform hover:scale-105 duration-300"
+          style="border-color: var(--secondary-color);">
+          <div class="flex items-center justify-center h-16 w-16 rounded-full mx-auto mb-4"
+            style="background-color: var(--secondary-color);">
+            <i class="fas fa-box-open text-3xl text-white"></i>
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            <span data-lang="en">Finishing & Packaging</span><span data-lang="bn" class="lang-bn">ফিনিশিং ও
-              প্যাকেজিং</span>
+            Finishing & Packaging
           </h3>
           <p class="text-gray-600">
-            <span data-lang="en">We offer professional finishing and custom packaging services
-              to enhance your brand's appeal.</span><span data-lang="bn" class="lang-bn">আমরা আপনার ব্র্যান্ডের আবেদন
-              বাড়ানোর জন্য পেশাদার ফিনিশিং এবং
-              কাস্টম প্যাকেজিং পরিষেবা অফার করি।</span>
+            We offer professional finishing and custom packaging services
+              to enhance your brand's appeal.
           </p>
         </div>
         <div
-          class="bg-white p-6 rounded-2xl shadow-xl border-t-4 border-red-500 transform transition-transform hover:scale-105 duration-300">
+          class="bg-white p-6 rounded-2xl shadow-xl border-t-4 transform transition-transform hover:scale-105 duration-300"
+          style="border-color: #EF4444;">
           <div class="flex items-center justify-center h-16 w-16 bg-red-100 rounded-full mx-auto mb-4">
             <i class="fas fa-shipping-fast text-3xl text-red-500"></i>
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            <span data-lang="en">Logistics & Shipping</span><span data-lang="bn" class="lang-bn">লজিস্টিকস ও
-              শিপিং</span>
+            Logistics & Shipping
           </h3>
           <p class="text-gray-600">
-            <span data-lang="en">We manage all logistics to ensure your products are delivered
-              safely and on time, anywhere in the world.</span><span data-lang="bn" class="lang-bn">আপনার পণ্য বিশ্বের
-              যেকোনো প্রান্তে নিরাপদে এবং সময়মতো পৌঁছে
-              দিতে আমরা সমস্ত লজিস্টিকস পরিচালনা করি।</span>
+            We manage all logistics to ensure your products are delivered
+              safely and on time, anywhere in the world.
           </p>
         </div>
       </div>
@@ -791,6 +742,7 @@
       const learnMoreBtn = document.getElementById("learn-more-btn");
       const servicesModal = document.getElementById("services-modal");
       const closeBtn = document.querySelector(".close-btn");
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
       let previousPage = 'main';
 
       mobileMenuBtn.addEventListener("click", () => {
@@ -813,239 +765,130 @@
         }
       };
 
-      const langBnBtn = document.getElementById("lang-bn-btn");
-      const langEnBtn = document.getElementById("lang-en-btn");
+      window.onscroll = function() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+              scrollTopBtn.style.display = "flex";
+          } else {
+              scrollTopBtn.style.display = "none";
+          }
+      };
 
-      function setLanguage(lang) {
-        document.querySelectorAll("[data-lang]").forEach((el) => {
-          const isCurrentLang = el.getAttribute("data-lang") === lang;
-          el.style.display = isCurrentLang ? "inline" : "none";
-        });
-
-        document.querySelectorAll(".lang-bn").forEach((el) => {
-          el.style.display = lang === "bn" ? "inline" : "none";
-        });
-        document.querySelectorAll(".lang-en").forEach((el) => {
-          el.style.display = lang === "en" ? "inline" : "none";
-        });
-
-        // Remove active class from all buttons and add inactive class
-        langBnBtn.classList.remove("active-lang", "text-white", "bg-teal-600");
-        langBnBtn.classList.add(
-          "text-gray-600",
-          "hover:text-gray-900",
-          "inactive-lang"
-        );
-        langEnBtn.classList.remove("active-lang", "text-white", "bg-teal-600");
-        langEnBtn.classList.add(
-          "text-gray-600",
-          "hover:text-gray-900",
-          "inactive-lang"
-        );
-
-        // Add active class to the selected button and remove inactive class
-        if (lang === "bn") {
-          langBnBtn.classList.add("active-lang", "text-white", "bg-teal-600");
-          langBnBtn.classList.remove(
-            "text-gray-600",
-            "hover:text-gray-900",
-            "inactive-lang"
-          );
-        } else {
-          langEnBtn.classList.add("active-lang", "text-white", "bg-teal-600");
-          langEnBtn.classList.remove(
-            "text-gray-600",
-            "hover:text-gray-900",
-            "inactive-lang"
-          );
-        }
-        document.documentElement.lang = lang;
-        renderProducts(lang, productsVisible);
-      }
-
-      langBnBtn.addEventListener("click", () => setLanguage("bn"));
-      langEnBtn.addEventListener("click", () => setLanguage("en"));
+      scrollTopBtn.addEventListener("click", () => {
+          document.body.scrollTop = 0; // For Safari
+          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      });
 
       const products = [
         {
           id: "1",
-          name_bn: "ওয়ার্পিং এবং অক্সিলিয়ারি",
-          description_bn:
-            "ওয়ার্পিং প্রক্রিয়া এবং সহায়ক টেক্সটাইল অপারেশনের জন্য বিশেষায়িত পরিষেবা, যা বুননের জন্য উচ্চ মানের সুতা প্রস্তুতি নিশ্চিত করে।",
+          name: "Warping and Auxiliaries",
+          description:
+            "Specialized services for warping processes and auxiliary textile operations, ensuring high-quality yarn preparation for weaving.",
           image:
             "assets/images/jeniuschem/warping-and-auxiliaries.jpg",
-          name_en: "Warping and Auxiliaries",
-          description_en:
-            "Specialized services for warping processes and auxiliary textile operations, ensuring high-quality yarn preparation for weaving.",
-          services_en: [
+          services: [
             "Yarn Preparation",
             "Warping Machine Operation",
             "Beam Preparation",
             "Quality Inspection of Warped Beams",
             "Auxiliary Textile Services",
           ],
-          services_bn: [
-            "সুতা প্রস্তুতি",
-            "ওয়ার্পিং মেশিন পরিচালনা",
-            "বিম প্রস্তুতি",
-            "ওয়ার্পড বিমের মান পরিদর্শন",
-            "সহায়ক টেক্সটাইল পরিষেবা",
-          ],
           partnerId: "jeniuschem",
         },
         {
           id: "2",
-          name_bn: "কটন ফ্যাব্রিক",
-          description_bn:
-            "উচ্চ মানের কটন ফ্যাব্রিক, বিভিন্ন পোশাক তৈরির জন্য উপযুক্ত, যা আরাম এবং স্থায়িত্ব নিশ্চিত করে।",
+          name: "Cotton Fabric",
+          description:
+            "High-quality cotton fabric, perfect for various apparel applications, offering comfort and durability.",
           image:
             "assets/images/jeniuschem/cotton.jpg",
-          name_en: "Cotton Fabric",
-          description_en:
-            "High-quality cotton fabric, perfect for various apparel applications, offering comfort and durability.",
-          services_en: [
+          services: [
             "Raw Material Sourcing",
             "Fabric Quality Testing",
             "Sustainable Cotton Options",
             "Bulk Supply",
           ],
-          services_bn: [
-            "কাঁচামাল সংগ্রহ",
-            "ফ্যাব্রিক মান পরীক্ষা",
-            "টেকসই কটন বিকল্প",
-            "বাল্ক সরবরাহ",
-          ],
           partnerId: "jeniuschem",
         },
         {
           id: "3",
-          name_bn: "স্টেপল ফাইবার",
-          description_bn:
-            "টেক্সটাইল উৎপাদনের জন্য বহুমুখী স্টেপল ফাইবার, কটন, পলিয়েস্টার এবং মিশ্রণের মতো বিভিন্ন প্রকারে উপলব্ধ।",
+          name: "Staple Fiber",
+          description:
+            "Versatile staple fibers for textile production, available in various types like cotton, polyester, and blends.",
           image:
             "assets/images/jeniuschem/staple.jpg",
-          name_en: "Staple Fiber",
-          description_en:
-            "Versatile staple fibers for textile production, available in various types like cotton, polyester, and blends.",
-          services_en: [
+          services: [
             "Fiber Sourcing",
             "Fiber Quality Analysis",
             "Custom Fiber Blends",
             "Technical Support",
           ],
-          services_bn: [
-            "ফাইবার সংগ্রহ",
-            "ফাইবার মান বিশ্লেষণ",
-            "কাস্টম ফাইবার মিশ্রণ",
-            "প্রযুক্তিগত সহায়তা",
-          ],
           partnerId: "jeniuschem",
         },
         {
           id: "4",
-          name_bn: "কোল্ড সাইজিং এজেন্ট",
-          description_bn:
-            "দক্ষ এবং পরিবেশ-বান্ধব টেক্সটাইল প্রক্রিয়াকরণের জন্য উন্নত কোল্ড সাইজিং এজেন্ট, যা সুতার শক্তি এবং বুননযোগ্যতা উন্নত করে।",
+          name: "Cold Sizing Agent",
+          description:
+            "Advanced cold sizing agents for efficient and eco-friendly textile processing, improving yarn strength and weaveability.",
           image:
             "assets/images/jeniuschem/cold-sizing-agent.jpg",
-          name_en: "Cold Sizing Agent",
-          description_en:
-            "Advanced cold sizing agents for efficient and eco-friendly textile processing, improving yarn strength and weaveability.",
-          services_en: [
+          services: [
             "Sizing Agent Supply",
             "Application Guidance",
             "Performance Optimization",
             "Technical Consultation",
           ],
-          services_bn: [
-            "সাইজিং এজেন্ট সরবরাহ",
-            "ব্যবহারের নির্দেশিকা",
-            "কর্মক্ষমতা অপ্টিমাইজেশন",
-            "প্রযুক্তিগত পরামর্শ",
-          ],
           partnerId: "jeniuschem",
         },
         {
           id: "5",
-          name_bn: "কাঁচামাল",
-          description_bn:
-            "টেক্সটাইল এবং পোশাক তৈরির জন্য বিভিন্ন কাঁচামাল সংগ্রহ ও সরবরাহ, গুণমান এবং স্থায়িত্ব নিশ্চিত করা।",
-          image: "assets/images/jeniuschem/raw-materials.jpg",
-          name_en: "Raw Materials",
-          description_en:
+          name: "Raw Materials",
+          description:
             "Sourcing and supply of diverse raw materials for textile and apparel manufacturing, ensuring quality and sustainability.",
-          services_en: [
+          image: "assets/images/jeniuschem/raw-materials.jpg",
+          services: [
             "Material Sourcing & Procurement",
             "Quality Assurance",
             "Supply Chain Management",
             "Sustainable Material Options",
           ],
-          services_bn: [
-            "উপাদান সংগ্রহ ও ক্রয়",
-            "গুণমান নিশ্চিতকরণ",
-            "সরবরাহ চেইন ব্যবস্থাপনা",
-            "টেকসই উপাদান বিকল্প",
-          ],
           partnerId: "jeniuschem",
         },
         {
           id: "6",
-          name_bn: "উল ফ্যাব্রিক",
-          description_bn:
-            "বিলাসবহুল এবং আরামদায়ক পোশাকের জন্য প্রিমিয়াম উল ফ্যাব্রিক, যা তাদের উষ্ণতা এবং প্রাকৃতিক বৈশিষ্ট্যের জন্য পরিচিত।",
-          image: "assets/images/jeniuschem/wool.jpg",
-          name_en: "Wool Fabric",
-          description_en:
+          name: "Wool Fabric",
+          description:
             "Premium wool fabrics for luxurious and comfortable garments, known for their warmth and natural properties.",
-          services_en: [
+          image: "assets/images/jeniuschem/wool.jpg",
+          services: [
             "Wool Sourcing",
             "Fabric Blending",
             "Quality Control",
             "Custom Weaving",
           ],
-          services_bn: [
-            "উল সংগ্রহ",
-            "ফ্যাব্রিক মিশ্রণ",
-            "মান নিয়ন্ত্রণ",
-            "কাস্টম বুনন",
-          ],
           partnerId: "jeniuschem",
         },
         {
           id: "7",
-          name_bn: "সুতার বল",
-          description_bn: "উচ্চ মানের সুতার বল, বিভিন্ন বুনন এবং ক্রোশেট প্রকল্পের জন্য উপযুক্ত।",
+          name: "Ball of Yarn",
+          description: "High-quality ball of yarn, suitable for various knitting and crochet projects.",
           image: "assets/images/verateks/ball of yarn.jpg",
-          name_en: "Ball of Yarn",
-          description_en: "High-quality ball of yarn, suitable for various knitting and crochet projects.",
-          services_en: [
+          services: [
             "Yarn Supply",
             "Color Matching",
             "Custom Orders",
-          ],
-          services_bn: [
-            "সুতা সরবরাহ",
-            "রঙ মেলানো",
-            "কাস্টম অর্ডার",
           ],
           partnerId: "verateks",
         },
         {
           id: "8",
-          name_bn: "ম্যাটওয়েস প্যাড",
-          description_bn: "বিভিন্ন অ্যাপ্লিকেশনের জন্য উচ্চ-মানের ম্যাটওয়েস প্যাড।",
+          name: "Matweiss Pads",
+          description: "High-quality Matweiss pads for various applications.",
           image: "assets/images/verateks/Matweiss Pads.jpg",
-          name_en: "Matweiss Pads",
-          description_en: "High-quality Matweiss pads for various applications.",
-          services_en: [
+          services: [
             "Pad Supply",
             "Custom Sizing",
             "Bulk Orders",
-          ],
-          services_bn: [
-            "প্যাড সরবরাহ",
-            "কাস্টম সাইজিং",
-            "বাল্ক অর্ডার",
           ],
           partnerId: "verateks",
         }
@@ -1056,7 +899,7 @@
       let productsVisible = 6;
       const seeMoreBtn = document.getElementById("see-more-btn");
 
-      function renderProducts(lang, limit) {
+      function renderProducts(limit) {
         productList.innerHTML = "";
         const productsToRender = products.slice(0, limit);
         productsToRender.forEach((product) => {
@@ -1072,17 +915,14 @@
             "animate-on-scroll"
           );
 
-          const name = lang === "en" ? product.name_en : product.name_bn;
-          const description =
-            lang === "en" ? product.description_en : product.description_bn;
           productCard.innerHTML = `
-                      <img src="${product.image}" alt="${name} Image" class="w-full h-64 object-cover rounded-xl mb-6">
-                      <h3 class="text-2xl font-bold text-gray-800 mb-2">${name}</h3>
-                      <p class="text-gray-600">${description.split(".")[0]}.</p>
+                      <img src="${product.image}" alt="${product.name} Image" class="w-full h-64 object-cover rounded-xl mb-6">
+                      <h3 class="text-2xl font-bold text-gray-800 mb-2">${product.name}</h3>
+                      <p class="text-gray-600">${product.description.split(".")[0]}.</p>
                   `;
           productCard.addEventListener("click", () => {
             previousPage = 'main';
-            showProductPage(product.id, lang);
+            showProductPage(product.id);
           });
           productList.appendChild(productCard);
         });
@@ -1100,12 +940,11 @@
       }
 
       seeMoreBtn.addEventListener("click", () => {
-        const currentLang = document.documentElement.lang;
         productsVisible = products.length;
-        renderProducts(currentLang, productsVisible);
+        renderProducts(productsVisible);
       });
 
-      function showProductPage(productId, lang) {
+      function showProductPage(productId) {
         const product = products.find((p) => p.id === productId);
         if (product) {
           document.getElementById("main-content").classList.add("hidden");
@@ -1114,23 +953,18 @@
           productPage.classList.remove("hidden");
 
           document.getElementById("product-image").src = product.image;
-          document.getElementById("product-name").textContent =
-            lang === "en" ? product.name_en : product.name_bn;
-          document.getElementById("product-description").textContent =
-            lang === "en" ? product.description_en : product.description_bn;
+          document.getElementById("product-name").textContent = product.name;
+          document.getElementById("product-description").textContent = product.description;
 
           const serviceListEl = document.getElementById("service-list");
           serviceListEl.innerHTML = "";
-          const services =
-            lang === "en" ? product.services_en : product.services_bn;
-          services.forEach((service) => {
+          product.services.forEach((service) => {
             const li = document.createElement("li");
             li.textContent = service;
             serviceListEl.appendChild(li);
           });
 
-          document.getElementById("form-product-name").value =
-            lang === "en" ? product.name_en : product.name_bn;
+          document.getElementById("form-product-name").value = product.name;
         }
       }
 
@@ -1150,7 +984,7 @@
         document.getElementById("product-page").classList.add("hidden");
         document.getElementById("partner-products-section").classList.add("hidden");
         previousPage = 'main';
-        renderProducts(document.documentElement.lang, productsVisible);
+        renderProducts(productsVisible);
       });
 
       document.getElementById("get-quote-btn").addEventListener("click", () => {
@@ -1161,14 +995,7 @@
       document.getElementById("quote-form").addEventListener("submit", (e) => {
         e.preventDefault();
         const formMessage = document.getElementById("form-message");
-        const currentLang = document.documentElement.lang;
-        if (currentLang === "bn") {
-          formMessage.textContent =
-            "আপনার বার্তা সফলভাবে পাঠানো হয়েছে! আমরা খুব শীঘ্রই আপনার সাথে যোগাযোগ করব।";
-        } else {
-          formMessage.textContent =
-            "Your message has been sent successfully! We will contact you shortly.";
-        }
+        formMessage.textContent = "Your message has been sent successfully! We will contact you shortly.";
         formMessage.classList.remove("hidden");
         setTimeout(() => {
           formMessage.classList.add("hidden");
@@ -1216,35 +1043,31 @@
         sectionObserver.observe(section);
       });
 
-      setLanguage("en");
+      renderProducts(productsVisible);
 
       // New JavaScript for Partner Products
       const partnerProductsSection = document.getElementById("partner-products-section");
       const partnerProductList = document.getElementById("partner-product-list");
       const partnerProductsTitle = document.getElementById("partner-products-title");
-      // const backToPartnersBtn = document.getElementById("back-to-partners"); // This is now back-to-main-content
       const mainContent = document.getElementById("main-content");
 
       document.querySelectorAll(".partner-card").forEach(card => {
         card.addEventListener("click", () => {
           const partnerId = card.dataset.partnerId;
-          const partnerNameEn = card.dataset.partnerNameEn;
-          const partnerNameBn = card.dataset.partnerNameBn;
-          const currentLang = document.documentElement.lang;
+          const partnerName = card.dataset.partnerNameEn;
 
-          renderPartnerProducts(partnerId, currentLang, partnerNameEn, partnerNameBn);
+          renderPartnerProducts(partnerId, partnerName);
         });
       });
 
-      function renderPartnerProducts(partnerId, lang, partnerNameEn, partnerNameBn) {
+      function renderPartnerProducts(partnerId, partnerName) {
         previousPage = 'partner';
         document.getElementById("product-page").classList.add("hidden"); // Hide product detail page if open
         mainContent.classList.add("hidden");
         partnerProductsSection.classList.remove("hidden");
         partnerProductList.innerHTML = "";
 
-        const title = lang === "en" ? `${partnerNameEn}'s Products` : `${partnerNameBn} এর পণ্য`;
-        partnerProductsTitle.textContent = title;
+        partnerProductsTitle.textContent = `${partnerName}'s Products`;
 
         let filteredProducts;
         if (partnerId === 'jeniuschem') {
@@ -1255,7 +1078,7 @@
 
         if (filteredProducts.length === 0) {
           partnerProductList.innerHTML = `<p class="text-center text-gray-600 text-xl col-span-full">
-            ${lang === "en" ? "No products found for this partner." : "এই পার্টনারের জন্য কোন পণ্য পাওয়া যায়নি।"}
+            No products found for this partner.
           </p>`;
           return;
         }
@@ -1273,15 +1096,12 @@
             "animate-on-scroll"
           );
 
-          const name = lang === "en" ? product.name_en : product.name_bn;
-          const description = lang === "en" ? product.description_en : product.description_bn;
-
           productCard.innerHTML = `
-                      <img src="${product.image}" alt="${name} Image" class="w-full h-64 object-cover rounded-xl mb-6">
-                      <h3 class="text-2xl font-bold text-gray-800 mb-2">${name}</h3>
-                      <p class="text-gray-600">${description.split(".")[0]}.</p>
+                      <img src="${product.image}" alt="${product.name} Image" class="w-full h-64 object-cover rounded-xl mb-6">
+                      <h3 class="text-2xl font-bold text-gray-800 mb-2">${product.name}</h3>
+                      <p class="text-gray-600">${product.description.split(".")[0]}.</p>
                   `;
-          productCard.addEventListener("click", () => showProductPage(product.id, lang));
+          productCard.addEventListener("click", () => showProductPage(product.id));
           partnerProductList.appendChild(productCard);
         });
 
@@ -1292,9 +1112,6 @@
       }
     });
   </script>
-</body>
-
-</html>
 </body>
 
 </html>
