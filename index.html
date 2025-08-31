@@ -12,14 +12,14 @@
   <style>
     :root {
       --primary-color: #008080;
-      /* ডার্ক টিল (Dark Teal) */
+      /* Dark Teal */
       --secondary-color: #ff6347;
-      /* টমেটো রেড (Tomato Red) */
+      /* Tomato Red */
       --background-light: #f3f4f6;
-      /* লাইট গ্রে (Light Gray) */
+      /* Light Gray */
       --text-dark: #1f2937;
       --card-bg: #e5e7eb;
-      /* কার্ডের জন্য হালকা টোন */
+      /* Lighter tone for cards */
     }
 
     body {
@@ -27,9 +27,11 @@
       background-color: var(--background-light);
       color: var(--text-dark);
       overflow-x: hidden;
+      margin: 0;
+      padding: 0;
     }
 
-    /* কাস্টম কীফ্রেম এবং অ্যানিমেশন */
+    /* Custom keyframes and animations */
     @keyframes slideInUp {
       from {
         opacity: 0;
@@ -106,7 +108,20 @@
       box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.1);
     }
 
-    /* মোডাল স্টাইল */
+    .partner-product-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    .partner-product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Modal style */
     .modal {
       display: none;
       position: fixed;
@@ -149,7 +164,7 @@
       cursor: pointer;
     }
 
-    /* ভাষা পরিবর্তনের জন্য ক্লাস */
+    /* Classes for language change */
     .lang-bn {
       display: none;
     }
@@ -194,10 +209,10 @@
       background: linear-gradient(135deg, #e0f7fa 0%, #f3e5f5 100%);
     }
 
-    /* ব্যানার ব্যাকগ্রাউন্ডের জন্য কাস্টম স্টাইল */
+    /* Custom style for banner background */
     .banner-with-bg {
       background-color: #c6dee0;
-      /* আগের ব্যাকগ্রাউন্ড কালার */
+      /* Previous background color */
       position: relative;
       z-index: 1;
     }
@@ -213,7 +228,7 @@
       background-size: cover;
       background-position: center;
       opacity: 0.2;
-      /* ছবির অস্বচ্ছতা (opacity) */
+      /* Image opacity */
       z-index: -1;
     }
 
@@ -341,7 +356,7 @@
       </div>
     </section>
 
-            <section id="partners-section" class="py-12 md:py-20 bg-gray-100 animate-on-scroll">
+    <section id="partners-section" class="py-12 md:py-20 bg-gray-100 animate-on-scroll">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style="font-family: 'Poppins', sans-serif">
           <span data-lang="en">Our Valued Partners</span>
@@ -352,27 +367,23 @@
           <span data-lang="bn" class="lang-bn">আমরা বিশ্বস্ততা এবং গুণগত মানের সাথে কাজ করি।</span>
         </p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-center">
-          <div
-            class="partner-card transform transition-transform duration-300 from-left lg:col-span-2"
+          <div class="partner-card transform transition-transform duration-300 from-left lg:col-span-2 cursor-pointer"
+            data-partner-id="jeniuschem" data-partner-name-en="Jeniuschem" data-partner-name-bn="জেনিয়াসকেম"
             style="animation-delay: 0.2s">
             <div class="p-6">
-              <img
-                src="assets/images/jeniuschemlogo.svg"
-                alt="Jeniuschem Logo"
+              <img src="assets/images/jeniuschem/jeniuschemlogo.svg" alt="Jeniuschem Logo"
                 class="mx-auto h-24 object-contain mb-4 rounded-full p-2" />
               <p class="text-xl font-bold text-gray-800">Jeniuschem</p>
               <p class="text-sm text-gray-500 mt-1">Chemical Solutions</p>
             </div>
           </div>
-          <div
-            class="partner-card transform transition-transform duration-300 from-right lg:col-span-2"
+          <div class="partner-card transform transition-transform duration-300 from-right lg:col-span-2 cursor-pointer"
+            data-partner-id="verateks" data-partner-name-en="Verateks" data-partner-name-bn="ভেরাটিকাস"
             style="animation-delay: 0.4s">
             <div class="p-6">
-              <img
-                src="https://placehold.co/400x300/1A202C/FFFFFF?text=Veratekas"
-                alt="Veratekas Logo"
+              <img src="assets/images/verateks/veratekslogo.png" alt="Verateks Logo"
                 class="mx-auto h-24 object-contain mb-4 rounded-full p-2" />
-              <p class="text-lg font-bold text-gray-800">Veratekas</p>
+              <p class="text-lg font-bold text-gray-800">Verateks</p>
               <p class="text-sm text-gray-500 mt-1">Textile Innovations</p>
             </div>
           </div>
@@ -413,21 +424,25 @@
           <span data-lang="bn" class="lang-bn">গুণগত মান এবং পরিবেশগত শ্রেষ্ঠত্বের প্রমাণ।</span>
         </p>
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
-          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=ISO+9001" alt="ISO 9001 Certificate"
+          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=ISO+9001:2025" alt="ISO 9001:2025 Certificate"
+            class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" />
+          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=ZDHC" alt="ZDHC Certificate"
+            class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" />
+          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=GOTS+7.0" alt="GOTS 7.0 Certificate"
             class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" />
           <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=OEKO-TEX" alt="OEKO-TEX Certificate"
             class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" />
           <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=WRAP+Certified" alt="WRAP Certified"
             class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" />
-          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=GOTS" alt="GOTS Certificate"
+          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=ISO+9001:2008" alt="ISO 9001:2008 Certificate"
             class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" />
-          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=Fair+Trade" alt="Fair Trade Certificate"
+          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=REACH" alt="REACH Certificate"
             class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" />
         </div>
       </div>
     </section>
 
-        <section id="contact-section" class="py-20 md:py-32 animate-on-scroll bg-blue-50">
+    <section id="contact-section" class="py-20 md:py-32 animate-on-scroll bg-blue-50">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
           <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style="font-family: 'Poppins', sans-serif">
@@ -453,7 +468,8 @@
                     <span data-lang="en">Address</span>
                     <span data-lang="bn" class="lang-bn">ঠিকানা</span>
                   </h4>
-                  <p class="text-gray-600">9 Rangs Heritage, Flat-A5, House no-38, Shah Mokhdum avenue, Sector-13, Uttara, Dhaka-1230,Bangladesh.</p>
+                  <p class="text-gray-600">9 Rangs Heritage, Flat-A5, House no-38, Shah Mokhdum avenue, Sector-13,
+                    Uttara, Dhaka-1230,Bangladesh.</p>
                 </div>
               </div>
               <div class="flex items-start space-x-4">
@@ -538,13 +554,16 @@
     <footer class="bg-gray-800 text-gray-300 py-6">
       <div class="container mx-auto px-4 text-center">
         <div class="flex justify-center space-x-6 mb-6">
-          <a href="https://www.facebook.com/" target="_blank" class="text-gray-300 hover:text-white transition-colors duration-300">
+          <a href="https://www.facebook.com/" target="_blank"
+            class="text-gray-300 hover:text-white transition-colors duration-300">
             <i class="fab fa-facebook-f text-2xl"></i>
           </a>
-          <a href="https://www.instagram.com/" target="_blank" class="text-gray-300 hover:text-white transition-colors duration-300">
+          <a href="https://www.instagram.com/" target="_blank"
+            class="text-gray-300 hover:text-white transition-colors duration-300">
             <i class="fab fa-instagram text-2xl"></i>
           </a>
-          <a href="https://twitter.com/" target="_blank" class="text-gray-300 hover:text-white transition-colors duration-300">
+          <a href="https://twitter.com/" target="_blank"
+            class="text-gray-300 hover:text-white transition-colors duration-300">
             <i class="fab fa-twitter text-2xl"></i>
           </a>
         </div>
@@ -570,8 +589,8 @@
       </nav>
     </header>
 
-    <section class="py-16 md:py-24 bg-white">
-      <div class="container mx-auto px-4">
+    <section class="bg-white">
+      <div class="container mx-auto px-4 py-16 md:py-24">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div class="flex items-center justify-center">
             <img id="product-image" src="" alt="Product Image"
@@ -630,6 +649,28 @@
       </div>
     </section>
   </div>
+
+  <section id="partner-products-section" class="bg-white hidden">
+    <header class="bg-slate-900 shadow-xl sticky top-0 z-50">
+      <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="#" id="back-to-main-content"
+          class="flex items-center space-x-2 text-2xl font-bold text-teal-400 hover:text-teal-300 transition-colors duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          <span data-lang="bn">ফিরে যান</span>
+          <span data-lang="en" class="lang-en">Go Back</span>
+        </a>
+      </nav>
+    </header>
+    <div class="container mx-auto px-4 py-16 md:py-24">
+      <h1 id="partner-products-title" class="text-4xl md:text-5xl font-bold mb-8 text-gray-900"
+        style="font-family: 'Poppins', sans-serif"></h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="partner-product-list">
+        <!-- Partner-specific products will be loaded here -->
+      </div>
+    </div>
+  </section>
 
   <div id="services-modal" class="modal">
     <div class="modal-content text-center">
@@ -750,6 +791,7 @@
       const learnMoreBtn = document.getElementById("learn-more-btn");
       const servicesModal = document.getElementById("services-modal");
       const closeBtn = document.querySelector(".close-btn");
+      let previousPage = 'main';
 
       mobileMenuBtn.addEventListener("click", () => {
         mobileMenu.classList.toggle("hidden");
@@ -787,7 +829,7 @@
           el.style.display = lang === "en" ? "inline" : "none";
         });
 
-        // সকল বোতাম থেকে সক্রিয় ক্লাস সরানো এবং নিষ্ক্রিয় ক্লাস যোগ করা
+        // Remove active class from all buttons and add inactive class
         langBnBtn.classList.remove("active-lang", "text-white", "bg-teal-600");
         langBnBtn.classList.add(
           "text-gray-600",
@@ -801,7 +843,7 @@
           "inactive-lang"
         );
 
-        // নির্বাচিত বোতামে সক্রিয় ক্লাস যোগ করা এবং নিষ্ক্রিয় ক্লাস সরানো
+        // Add active class to the selected button and remove inactive class
         if (lang === "bn") {
           langBnBtn.classList.add("active-lang", "text-white", "bg-teal-600");
           langBnBtn.classList.remove(
@@ -831,7 +873,7 @@
           description_bn:
             "ওয়ার্পিং প্রক্রিয়া এবং সহায়ক টেক্সটাইল অপারেশনের জন্য বিশেষায়িত পরিষেবা, যা বুননের জন্য উচ্চ মানের সুতা প্রস্তুতি নিশ্চিত করে।",
           image:
-            "assets/images/warping-and-auxiliaries.jpg",
+            "assets/images/jeniuschem/warping-and-auxiliaries.jpg",
           name_en: "Warping and Auxiliaries",
           description_en:
             "Specialized services for warping processes and auxiliary textile operations, ensuring high-quality yarn preparation for weaving.",
@@ -849,6 +891,7 @@
             "ওয়ার্পড বিমের মান পরিদর্শন",
             "সহায়ক টেক্সটাইল পরিষেবা",
           ],
+          partnerId: "jeniuschem",
         },
         {
           id: "2",
@@ -856,7 +899,7 @@
           description_bn:
             "উচ্চ মানের কটন ফ্যাব্রিক, বিভিন্ন পোশাক তৈরির জন্য উপযুক্ত, যা আরাম এবং স্থায়িত্ব নিশ্চিত করে।",
           image:
-            "assets/images/cotton.jpg",
+            "assets/images/jeniuschem/cotton.jpg",
           name_en: "Cotton Fabric",
           description_en:
             "High-quality cotton fabric, perfect for various apparel applications, offering comfort and durability.",
@@ -872,6 +915,7 @@
             "টেকসই কটন বিকল্প",
             "বাল্ক সরবরাহ",
           ],
+          partnerId: "jeniuschem",
         },
         {
           id: "3",
@@ -879,7 +923,7 @@
           description_bn:
             "টেক্সটাইল উৎপাদনের জন্য বহুমুখী স্টেপল ফাইবার, কটন, পলিয়েস্টার এবং মিশ্রণের মতো বিভিন্ন প্রকারে উপলব্ধ।",
           image:
-            "assets/images/staple.jpg",
+            "assets/images/jeniuschem/staple.jpg",
           name_en: "Staple Fiber",
           description_en:
             "Versatile staple fibers for textile production, available in various types like cotton, polyester, and blends.",
@@ -895,6 +939,7 @@
             "কাস্টম ফাইবার মিশ্রণ",
             "প্রযুক্তিগত সহায়তা",
           ],
+          partnerId: "jeniuschem",
         },
         {
           id: "4",
@@ -902,7 +947,7 @@
           description_bn:
             "দক্ষ এবং পরিবেশ-বান্ধব টেক্সটাইল প্রক্রিয়াকরণের জন্য উন্নত কোল্ড সাইজিং এজেন্ট, যা সুতার শক্তি এবং বুননযোগ্যতা উন্নত করে।",
           image:
-            "assets/images/cold-sizing-agent.jpg",
+            "assets/images/jeniuschem/cold-sizing-agent.jpg",
           name_en: "Cold Sizing Agent",
           description_en:
             "Advanced cold sizing agents for efficient and eco-friendly textile processing, improving yarn strength and weaveability.",
@@ -918,13 +963,14 @@
             "কর্মক্ষমতা অপ্টিমাইজেশন",
             "প্রযুক্তিগত পরামর্শ",
           ],
+          partnerId: "jeniuschem",
         },
         {
           id: "5",
           name_bn: "কাঁচামাল",
           description_bn:
             "টেক্সটাইল এবং পোশাক তৈরির জন্য বিভিন্ন কাঁচামাল সংগ্রহ ও সরবরাহ, গুণমান এবং স্থায়িত্ব নিশ্চিত করা।",
-          image: "assets/images/raw-materials.jpg",
+          image: "assets/images/jeniuschem/raw-materials.jpg",
           name_en: "Raw Materials",
           description_en:
             "Sourcing and supply of diverse raw materials for textile and apparel manufacturing, ensuring quality and sustainability.",
@@ -940,13 +986,14 @@
             "সরবরাহ চেইন ব্যবস্থাপনা",
             "টেকসই উপাদান বিকল্প",
           ],
+          partnerId: "jeniuschem",
         },
         {
           id: "6",
           name_bn: "উল ফ্যাব্রিক",
           description_bn:
             "বিলাসবহুল এবং আরামদায়ক পোশাকের জন্য প্রিমিয়াম উল ফ্যাব্রিক, যা তাদের উষ্ণতা এবং প্রাকৃতিক বৈশিষ্ট্যের জন্য পরিচিত।",
-          image: "assets/images/wool.jpg",
+          image: "assets/images/jeniuschem/wool.jpg",
           name_en: "Wool Fabric",
           description_en:
             "Premium wool fabrics for luxurious and comfortable garments, known for their warmth and natural properties.",
@@ -962,98 +1009,46 @@
             "মান নিয়ন্ত্রণ",
             "কাস্টম বুনন",
           ],
+          partnerId: "jeniuschem",
         },
         {
           id: "7",
-          name_bn: "কটন ফ্যাব্রিক",
-          description_bn:
-            "উচ্চ মানের কটন ফ্যাব্রিক, বিভিন্ন পোশাক তৈরির জন্য উপযুক্ত, যা আরাম এবং স্থায়িত্ব নিশ্চিত করে।",
-          image:
-            "assets/images/cotton.jpg",
-          name_en: "Cotton Fabric",
-          description_en:
-            "High-quality cotton fabric, perfect for various apparel applications, offering comfort and durability.",
+          name_bn: "সুতার বল",
+          description_bn: "উচ্চ মানের সুতার বল, বিভিন্ন বুনন এবং ক্রোশেট প্রকল্পের জন্য উপযুক্ত।",
+          image: "assets/images/verateks/ball of yarn.jpg",
+          name_en: "Ball of Yarn",
+          description_en: "High-quality ball of yarn, suitable for various knitting and crochet projects.",
           services_en: [
-            "Raw Material Sourcing",
-            "Fabric Quality Testing",
-            "Sustainable Cotton Options",
-            "Bulk Supply",
+            "Yarn Supply",
+            "Color Matching",
+            "Custom Orders",
           ],
           services_bn: [
-            "কাঁচামাল সংগ্রহ",
-            "ফ্যাব্রিক মান পরীক্ষা",
-            "টেকসই কটন বিকল্প",
-            "বাল্ক সরবরাহ",
+            "সুতা সরবরাহ",
+            "রঙ মেলানো",
+            "কাস্টম অর্ডার",
           ],
+          partnerId: "verateks",
         },
         {
           id: "8",
-          name_bn: "স্টেপল ফাইবার",
-          description_bn:
-            "টেক্সটাইল উৎপাদনের জন্য বহুমুখী স্টেপল ফাইবার, কটন, পলিয়েস্টার এবং মিশ্রণের মতো বিভিন্ন প্রকারে উপলব্ধ।",
-          image:
-            "assets/images/staple.jpg",
-          name_en: "Staple Fiber",
-          description_en:
-            "Versatile staple fibers for textile production, available in various types like cotton, polyester, and blends.",
+          name_bn: "ম্যাটওয়েস প্যাড",
+          description_bn: "বিভিন্ন অ্যাপ্লিকেশনের জন্য উচ্চ-মানের ম্যাটওয়েস প্যাড।",
+          image: "assets/images/verateks/Matweiss Pads.jpg",
+          name_en: "Matweiss Pads",
+          description_en: "High-quality Matweiss pads for various applications.",
           services_en: [
-            "Fiber Sourcing",
-            "Fiber Quality Analysis",
-            "Custom Fiber Blends",
-            "Technical Support",
+            "Pad Supply",
+            "Custom Sizing",
+            "Bulk Orders",
           ],
           services_bn: [
-            "ফাইবার সংগ্রহ",
-            "ফাইবার মান বিশ্লেষণ",
-            "কাস্টম ফাইবার মিশ্রণ",
-            "প্রযুক্তিগত সহায়তা",
+            "প্যাড সরবরাহ",
+            "কাস্টম সাইজিং",
+            "বাল্ক অর্ডার",
           ],
-        },
-        {
-          id: "9",
-          name_bn: "কোল্ড সাইজিং এজেন্ট",
-          description_bn:
-            "দক্ষ এবং পরিবেশ-বান্ধব টেক্সটাইল প্রক্রিয়াকরণের জন্য উন্নত কোল্ড সাইজিং এজেন্ট, যা সুতার শক্তি এবং বুননযোগ্যতা উন্নত করে।",
-          image:
-            "assets/images/cold-sizing-agent.jpg",
-          name_en: "Cold Sizing Agent",
-          description_en:
-            "Advanced cold sizing agents for efficient and eco-friendly textile processing, improving yarn strength and weaveability.",
-          services_en: [
-            "Sizing Agent Supply",
-            "Application Guidance",
-            "Performance Optimization",
-            "Technical Consultation",
-          ],
-          services_bn: [
-            "সাইজিং এজেন্ট সরবরাহ",
-            "ব্যবহারের নির্দেশিকা",
-            "কর্মক্ষমতা অপ্টিমাইজেশন",
-            "প্রযুক্তিগত পরামর্শ",
-          ],
-        },
-        {
-          id: "10",
-          name_bn: "উল ফ্যাব্রিক",
-          description_bn:
-            "বিলাসবহুল এবং আরামদায়ক পোশাকের জন্য প্রিমিয়াম উল ফ্যাব্রিক, যা তাদের উষ্ণতা এবং প্রাকৃতিক বৈশিষ্ট্যের জন্য পরিচিত।",
-          image: "assets/images/wool.jpg",
-          name_en: "Wool Fabric",
-          description_en:
-            "Premium wool fabrics for luxurious and comfortable garments, known for their warmth and natural properties.",
-          services_en: [
-            "Wool Sourcing",
-            "Fabric Blending",
-            "Quality Control",
-            "Custom Weaving",
-          ],
-          services_bn: [
-            "উল সংগ্রহ",
-            "ফ্যাব্রিক মিশ্রণ",
-            "মান নিয়ন্ত্রণ",
-            "কাস্টম বুনন",
-          ],
-        },
+          partnerId: "verateks",
+        }
       ];
 
       const productList = document.getElementById("product-list");
@@ -1085,9 +1080,10 @@
                       <h3 class="text-2xl font-bold text-gray-800 mb-2">${name}</h3>
                       <p class="text-gray-600">${description.split(".")[0]}.</p>
                   `;
-          productCard.addEventListener("click", () =>
-            showProductPage(product.id, lang)
-          );
+          productCard.addEventListener("click", () => {
+            previousPage = 'main';
+            showProductPage(product.id, lang);
+          });
           productList.appendChild(productCard);
         });
 
@@ -1113,6 +1109,7 @@
         const product = products.find((p) => p.id === productId);
         if (product) {
           document.getElementById("main-content").classList.add("hidden");
+          document.getElementById("partner-products-section").classList.add("hidden");
           const productPage = document.getElementById("product-page");
           productPage.classList.remove("hidden");
 
@@ -1139,8 +1136,21 @@
 
       document.getElementById("back-to-home").addEventListener("click", (e) => {
         e.preventDefault();
+        document.getElementById("product-page").classList.add("hidden");
+        if (previousPage === 'main') {
+          document.getElementById("main-content").classList.remove("hidden");
+        } else {
+          document.getElementById("partner-products-section").classList.remove("hidden");
+        }
+      });
+
+      document.getElementById("back-to-main-content").addEventListener("click", (e) => {
+        e.preventDefault();
         document.getElementById("main-content").classList.remove("hidden");
         document.getElementById("product-page").classList.add("hidden");
+        document.getElementById("partner-products-section").classList.add("hidden");
+        previousPage = 'main';
+        renderProducts(document.documentElement.lang, productsVisible);
       });
 
       document.getElementById("get-quote-btn").addEventListener("click", () => {
@@ -1171,7 +1181,7 @@
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add("is-visible");
-              // অ্যানিমেশন একবার চলার পর আন-অবজার্ভ করা হয়েছে
+              // Unobserve after the animation has run once
               observer.unobserve(entry.target);
             }
           });
@@ -1207,8 +1217,84 @@
       });
 
       setLanguage("en");
+
+      // New JavaScript for Partner Products
+      const partnerProductsSection = document.getElementById("partner-products-section");
+      const partnerProductList = document.getElementById("partner-product-list");
+      const partnerProductsTitle = document.getElementById("partner-products-title");
+      // const backToPartnersBtn = document.getElementById("back-to-partners"); // This is now back-to-main-content
+      const mainContent = document.getElementById("main-content");
+
+      document.querySelectorAll(".partner-card").forEach(card => {
+        card.addEventListener("click", () => {
+          const partnerId = card.dataset.partnerId;
+          const partnerNameEn = card.dataset.partnerNameEn;
+          const partnerNameBn = card.dataset.partnerNameBn;
+          const currentLang = document.documentElement.lang;
+
+          renderPartnerProducts(partnerId, currentLang, partnerNameEn, partnerNameBn);
+        });
+      });
+
+      function renderPartnerProducts(partnerId, lang, partnerNameEn, partnerNameBn) {
+        previousPage = 'partner';
+        document.getElementById("product-page").classList.add("hidden"); // Hide product detail page if open
+        mainContent.classList.add("hidden");
+        partnerProductsSection.classList.remove("hidden");
+        partnerProductList.innerHTML = "";
+
+        const title = lang === "en" ? `${partnerNameEn}'s Products` : `${partnerNameBn} এর পণ্য`;
+        partnerProductsTitle.textContent = title;
+
+        let filteredProducts;
+        if (partnerId === 'jeniuschem') {
+          filteredProducts = products;
+        } else {
+          filteredProducts = products.filter(product => product.partnerId === partnerId);
+        }
+
+        if (filteredProducts.length === 0) {
+          partnerProductList.innerHTML = `<p class="text-center text-gray-600 text-xl col-span-full">
+            ${lang === "en" ? "No products found for this partner." : "এই পার্টনারের জন্য কোন পণ্য পাওয়া যায়নি।"}
+          </p>`;
+          return;
+        }
+
+        filteredProducts.forEach(product => {
+          const productCard = document.createElement("div");
+          productCard.classList.add(
+            "p-6",
+            "rounded-2xl",
+            "transition-all",
+            "duration-300",
+            "transform",
+            "hover:scale-105",
+            "cursor-pointer",
+            "animate-on-scroll"
+          );
+
+          const name = lang === "en" ? product.name_en : product.name_bn;
+          const description = lang === "en" ? product.description_en : product.description_bn;
+
+          productCard.innerHTML = `
+                      <img src="${product.image}" alt="${name} Image" class="w-full h-64 object-cover rounded-xl mb-6">
+                      <h3 class="text-2xl font-bold text-gray-800 mb-2">${name}</h3>
+                      <p class="text-gray-600">${description.split(".")[0]}.</p>
+                  `;
+          productCard.addEventListener("click", () => showProductPage(product.id, lang));
+          partnerProductList.appendChild(productCard);
+        });
+
+        // Re-observe new product cards for scroll animation
+        document.querySelectorAll(".animate-on-scroll").forEach((section) => {
+          observer.observe(section);
+        });
+      }
     });
   </script>
+</body>
+
+</html>
 </body>
 
 </html>
