@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clothing Factory Website</title>
+  <title>iTEX GLOBAL</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -196,7 +196,7 @@
 
     /* Custom style for banner background */
     .banner-with-bg {
-      background-color: #c6dee0;
+      background-color: #e0e8e9;
       /* Previous background color */
       position: relative;
       z-index: 1;
@@ -209,12 +209,13 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url("assets/images/banner.jpg");
       background-size: cover;
       background-position: center;
-      opacity: 0.1;
+      opacity: 1;
       /* Image opacity */
       z-index: -1;
+      transition: background-image 1s ease-in-out;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), var(--banner-image);
     }
 
     .banner-content {
@@ -248,6 +249,57 @@
     transform: scale(1.1);
     box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
+
+.cta-contact-button:hover {
+    background-color: var(--secondary-color);
+    color: white;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transform: scale(1.1);
+}
+
+.certification-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.certificate-item {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+  transform: translateY(30px) scale(0.9);
+}
+
+.certificate-item.in-view {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.certificate-item i {
+  color: var(--secondary-color);
+  font-size: 1.8rem;
+  transition: transform 0.4s ease;
+}
+
+.certificate-item:hover {
+  color: var(--secondary-color);
+  transform: translateY(-10px) scale(1.1);
+  text-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.certificate-item:hover i {
+  transform: scale(1.3) rotate(-15deg);
+}
   </style>
 </head>
 
@@ -256,7 +308,7 @@
   <div id="main-content">
     <header class="bg-white shadow-xl sticky top-0 z-50">
       <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="#"
+        <a href="#" id="main-page-logo"
           class="flex items-center space-x-2 text-2xl font-bold" style="color: var(--primary-color);">
           <img src="assets/images/itex logo.png" alt="iTEX GLOBAL Logo" class="h-8 w-auto">
           <span>iTEX GLOBAL</span>
@@ -306,31 +358,30 @@
         class="container mx-auto px-4 relative z-10 h-full flex items-center justify-center text-center py-16 md:py-0 animate-fadeIn banner-content">
         <div class="p-8 md:p-12 rounded-2xl">
           <h1
-            class="text-4xl md:text-7xl font-extrabold mb-4 leading-tight tracking-tighter drop-shadow-lg text-gray-900"
+            class="text-4xl md:text-7xl font-extrabold mb-4 leading-tight tracking-tighter drop-shadow-lg text-white"
             style="font-family: 'Poppins', sans-serif">
-            No Compromise on <span style="color: var(--primary-color);">Quality</span>,
-              Style Must Be the <span style="color: var(--primary-color);">Best</span>.
+            Pioneering <span style="color: var(--primary-color);">Chemical Solutions</span>,
+    Innovating for a <span style="color: var(--primary-color);">Better Future</span>.
           </h1>
-          <p class="text-lg md:text-2xl max-w-3xl mx-auto mb-8 text-gray-600 animate-slideInUp"
+          <p class="text-lg md:text-2xl max-w-3xl mx-auto mb-8 text-white animate-slideInUp"
             style="animation-delay: 0.5s">
-            Our world-class garments blend innovation and tradition
-              seamlessly.
+            Driving progress with cutting-edge chemistry and sustainable practices.
           </p>
           <div class="flex flex-wrap justify-center gap-4 text-xl font-semibold mb-8 animate-slideInUp"
             style="animation-delay: 0.8s">
-            <span class="text-gray-800">Our Services:</span>
+            <span class="text-white">Our Services:</span>
             <ul class="list-none flex flex-wrap justify-center gap-x-4">
               <li class="px-3 py-1 rounded-full text-white"
                 style="background-color: var(--primary-color);">
-                Design
+                R&D
               </li>
               <li class="px-3 py-1 rounded-full text-white"
                 style="background-color: var(--primary-color);">
-                Production
+                Manufacturing
               </li>
               <li class="px-3 py-1 rounded-full text-white"
                 style="background-color: var(--primary-color);">
-                Quality Control
+                Quality Assurance
               </li>
             </ul>
           </div>
@@ -378,10 +429,10 @@
       style="background: linear-gradient(135deg, #f0f9ff 0%, #e6e9f0 100%);">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style="font-family: 'Poppins', sans-serif">
-          Our Top Products
+          Our Key Products
         </h2>
         <p class="text-lg text-gray-600 mb-16">
-          A unique blend of style and quality.
+          High-purity chemicals for a wide range of industrial applications.
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="product-list"></div>
         <div class="mt-16 flex justify-center">
@@ -394,7 +445,7 @@
       </div>
     </section>
 
-    <section id="certification-section" class="py-20 md:py-32 animate-on-scroll" style="background-color: #F8FAFC;">
+    <section id="certification-section" class="py-20 md:py-32" style="background-color: #F8FAFC;">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style="font-family: 'Poppins', sans-serif">
           Our Certifications
@@ -402,21 +453,16 @@
         <p class="text-lg text-gray-600 mb-16">
           Proof of quality and environmental excellence.
         </p>
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
-          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=ISO+9001:2025" alt="ISO 9001:2025 Certificate"
-            class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" />
-          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=ZDHC" alt="ZDHC Certificate"
-            class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" />
-          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=GOTS+7.0" alt="GOTS 7.0 Certificate"
-            class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" />
-          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=OEKO-TEX" alt="OEKO-TEX Certificate"
-            class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" />
-          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=WRAP+Certified" alt="WRAP Certified"
-            class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" />
-          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=ISO+9001:2008" alt="ISO 9001:2008 Certificate"
-            class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" />
-          <img src="https://placehold.co/400x300/1E293B/FFFFFF?text=REACH" alt="REACH Certificate"
-            class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-105" />
+        <div class="certification-list-container">
+          <ul class="certification-list">
+            <li class="certificate-item"><i class="fas fa-award"></i> ISO 9001:2025</li>
+            <li class="certificate-item"><i class="fas fa-award"></i> ZDHC</li>
+            <li class="certificate-item"><i class="fas fa-award"></i> GOTS 7.0</li>
+            <li class="certificate-item"><i class="fas fa-award"></i> OEKO-TEX</li>
+            <li class="certificate-item"><i class="fas fa-award"></i> WRAP Certified</li>
+            <li class="certificate-item"><i class="fas fa-award"></i> ISO 9001:2008</li>
+            <li class="certificate-item"><i class="fas fa-award"></i> REACH</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -542,22 +588,42 @@
   </div>
 
   <div id="product-page" class="hidden">
-    <header class="bg-slate-900 shadow-xl sticky top-0 z-50">
+    <header class="bg-white shadow-xl sticky top-0 z-50">
       <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="#" id="back-to-home"
-          class="flex items-center space-x-2 text-2xl font-bold transition-colors duration-300" style="color: var(--primary-color);">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          <span>Go Back</span>
+        <a href="#" id="product-page-logo"
+          class="flex items-center space-x-2 text-2xl font-bold" style="color: var(--primary-color);">
+          <img src="assets/images/itex logo.png" alt="iTEX GLOBAL Logo" class="h-8 w-auto">
+          <span>iTEX GLOBAL</span>
         </a>
+        <div class="hidden md:flex items-center space-x-8 text-lg font-medium">
+          <a href="#"
+            class="nav-link-product text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">
+            Home
+          </a>
+          <a href="#banner-section"
+            class="nav-link-product text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">
+            Our Services
+          </a>
+          <a href="#partners-section"
+            class="nav-link-product text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">
+            Partners
+          </a>
+          <a href="#certification-section"
+            class="nav-link-product text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">
+            Certification
+          </a>
+          <a href="#contact-section"
+            class="nav-link-product text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">
+            Contact Us
+          </a>
+        </div>
       </nav>
     </header>
 
     <section class="bg-white">
       <div class="container mx-auto px-4 py-16 md:py-24">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div class="flex items-center justify-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:items-start">
+          <div class="flex items-start justify-center">
             <img id="product-image" src="" alt="Product Image"
               class="w-full h-auto rounded-xl shadow-2xl animate-fadeIn" />
           </div>
@@ -587,14 +653,14 @@
                   <label for="contact-email" class="block text-gray-600 mb-2">
                     Contact Email
                   </label>
-                  <input type="email" id="contact-email" name="contact-email" required
+                  <input type="email" id="contact-email" name="contact-email" required placeholder="Enter your email"
                     class="w-full px-4 py-3 bg-white text-gray-800 border border-gray-400 rounded-lg focus:outline-none" style="border-color: var(--primary-color);" />
                 </div>
                 <div class="mb-6">
                   <label for="message" class="block text-gray-600 mb-2">
                     Your Message
                   </label>
-                  <textarea id="message" name="message" rows="4" required
+                  <textarea id="message" name="message" rows="4" required placeholder="Enter your message"
                     class="w-full px-4 py-3 bg-white text-gray-800 border border-gray-400 rounded-lg focus:outline-none" style="border-color: var(--primary-color);"></textarea>
                 </div>
                 <button type="submit"
@@ -609,38 +675,107 @@
         </div>
       </div>
     </section>
+
+    <section id="product-contact-section" class="py-20 bg-gray-800 text-white animate-on-scroll">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-4">Have a question?</h2>
+            <p class="text-lg mb-8">Our team is ready to help. Contact us now.</p>
+            <a href="#contact-section" id="product-contact-link" class="cta-contact-button bg-white text-gray-800 font-bold py-3 px-8 rounded-full transition-all duration-300 ease-in-out transform animate-pulse">
+                Contact Us
+            </a>
+        </div>
+    </section>
+
+    <footer class="text-white py-6" style="background-color: var(--primary-color);">
+      <div class="container mx-auto px-4 text-center">
+        <div class="flex justify-center space-x-6 mb-6">
+          <a href="https://www.facebook.com/" target="_blank"
+            class="text-white hover:text-gray-300 transition-colors duration-300">
+            <i class="fab fa-facebook-f text-2xl"></i>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank"
+            class="text-white hover:text-gray-300 transition-colors duration-300">
+            <i class="fab fa-instagram text-2xl"></i>
+          </a>
+          <a href="https://twitter.com/" target="_blank"
+            class="text-white hover:text-gray-300 transition-colors duration-300">
+            <i class="fab fa-twitter text-2xl"></i>
+          </a>
+        </div>
+        <p class="text-lg">
+          &copy; 2025 iTEX GLOBAL SOURCING. All rights reserved.
+        </p>
+      </div>
+    </footer>
   </div>
 
-  <section id="partner-products-section" class="bg-white hidden">
-    <header class="bg-slate-900 shadow-xl sticky top-0 z-50">
+  <div id="partner-products-page" class="hidden">
+    <header class="bg-white shadow-xl sticky top-0 z-50">
       <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="#" id="back-to-main-content"
-          class="flex items-center space-x-2 text-2xl font-bold transition-colors duration-300" style="color: var(--primary-color);">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          <span>Go Back</span>
+        <a href="#" id="partner-page-logo" class="flex items-center space-x-2 text-2xl font-bold" style="color: var(--primary-color);">
+          <img src="assets/images/itex logo.png" alt="iTEX GLOBAL Logo" class="h-8 w-auto">
+          <span>iTEX GLOBAL</span>
         </a>
+        <div class="hidden md:flex items-center space-x-8 text-lg font-medium">
+          <a href="#" class="nav-link-partner text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">Home</a>
+          <a href="#banner-section" class="nav-link-partner text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">Our Services</a>
+          <a href="#partners-section" class="nav-link-partner text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">Partners</a>
+          <a href="#certification-section" class="nav-link-partner text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">Certification</a>
+          <a href="#contact-section" class="nav-link-partner text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">Contact Us</a>
+        </div>
       </nav>
     </header>
-    <div class="container mx-auto px-4 py-16 md:py-24">
-      <h1 id="partner-products-title" class="text-4xl md:text-5xl font-bold mb-8 text-gray-900"
-        style="font-family: 'Poppins', sans-serif"></h1>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="partner-product-list">
-        <!-- Partner-specific products will be loaded here -->
+
+    <section class="bg-white">
+      <div class="container mx-auto px-4 py-16 md:py-24">
+        <h1 id="partner-products-title" class="text-4xl md:text-5xl font-bold mb-8 text-gray-900 text-center" style="font-family: 'Poppins', sans-serif"></h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="partner-product-list">
+          <!-- Partner-specific products will be loaded here -->
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="py-20 bg-gray-800 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-4">Have a question?</h2>
+            <p class="text-lg mb-8">Our team is ready to help. Contact us now.</p>
+            <a href="#contact-section" class="cta-contact-button bg-white text-gray-800 font-bold py-3 px-8 rounded-full transition-all duration-300 ease-in-out transform animate-pulse">
+                Contact Us
+            </a>
+        </div>
+    </section>
+
+    <footer class="text-white py-6" style="background-color: var(--primary-color);">
+      <div class="container mx-auto px-4 text-center">
+        <div class="flex justify-center space-x-6 mb-6">
+          <a href="https://www.facebook.com/" target="_blank"
+            class="text-white hover:text-gray-300 transition-colors duration-300">
+            <i class="fab fa-facebook-f text-2xl"></i>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank"
+            class="text-white hover:text-gray-300 transition-colors duration-300">
+            <i class="fab fa-instagram text-2xl"></i>
+          </a>
+          <a href="https://twitter.com/" target="_blank"
+            class="text-white hover:text-gray-300 transition-colors duration-300">
+            <i class="fab fa-twitter text-2xl"></i>
+          </a>
+        </div>
+        <p class="text-lg">
+          &copy; 2025 iTEX GLOBAL SOURCING. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </div>
 
   <div id="services-modal" class="modal">
     <div class="modal-content text-center">
       <span class="close-btn">&times;</span>
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style="font-family: 'Poppins', sans-serif">
-        Our Comprehensive Services
+        Our Chemical Services
       </h2>
       <p class="text-lg text-gray-600 mb-12">
-        From design to delivery, we handle every step with precision and
-          care.
+        From research to delivery, we handle every step with precision and care.
       </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <div
@@ -648,14 +783,13 @@
           style="border-color: var(--secondary-color);">
           <div class="flex items-center justify-center h-16 w-16 rounded-full mx-auto mb-4"
             style="background-color: var(--secondary-color);">
-            <i class="fas fa-pencil-ruler text-3xl text-white"></i>
+            <i class="fas fa-flask text-3xl text-white"></i>
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            Design & Pattern Making
+            Research & Development
           </h3>
           <p class="text-gray-600">
-            From concept to reality, our expert designers create innovative
-              and trendy apparel patterns.
+            Innovating new compounds and processes to meet market demands.
           </p>
         </div>
         <div
@@ -663,14 +797,13 @@
           style="border-color: var(--primary-color);">
           <div class="flex items-center justify-center h-16 w-16 rounded-full mx-auto mb-4"
             style="background-color: var(--primary-color);">
-            <i class="fas fa-seedling text-3xl text-white"></i>
+            <i class="fas fa-atom text-3xl text-white"></i>
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            Material Sourcing
+            Custom Synthesis
           </h3>
           <p class="text-gray-600">
-            We source high-quality, sustainable fabrics and materials from
-              trusted global suppliers.
+            Tailor-made chemical synthesis to your exact specifications.
           </p>
         </div>
         <div
@@ -680,11 +813,10 @@
             <i class="fas fa-industry text-3xl text-purple-500"></i>
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            Sampling & Production
+            Bulk Manufacturing
           </h3>
           <p class="text-gray-600">
-            We provide precise sampling and efficient mass production
-              tailored to your specific needs.
+            Large-scale production of chemicals with consistent quality.
           </p>
         </div>
         <div
@@ -695,11 +827,10 @@
             <i class="fas fa-check-circle text-3xl text-white"></i>
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            Quality Control
+            Quality Assurance
           </h3>
           <p class="text-600">
-            Our rigorous quality control process ensures every garment
-              meets the highest international standards.
+            Rigorous testing and quality control to meet the highest standards.
           </p>
         </div>
         <div
@@ -707,14 +838,13 @@
           style="border-color: var(--secondary-color);">
           <div class="flex items-center justify-center h-16 w-16 rounded-full mx-auto mb-4"
             style="background-color: var(--secondary-color);">
-            <i class="fas fa-box-open text-3xl text-white"></i>
+            <i class="fas fa-search-dollar text-3xl text-white"></i>
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            Finishing & Packaging
+            Chemical Sourcing
           </h3>
           <p class="text-gray-600">
-            We offer professional finishing and custom packaging services
-              to enhance your brand's appeal.
+            Global sourcing of raw materials from trusted suppliers.
           </p>
         </div>
         <div
@@ -724,11 +854,10 @@
             <i class="fas fa-shipping-fast text-3xl text-red-500"></i>
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            Logistics & Shipping
+            Logistical Support
           </h3>
           <p class="text-gray-600">
-            We manage all logistics to ensure your products are delivered
-              safely and on time, anywhere in the world.
+            Managing logistics to ensure your products are delivered safely.
           </p>
         </div>
       </div>
@@ -945,12 +1074,16 @@
       });
 
       function showProductPage(productId) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         const product = products.find((p) => p.id === productId);
         if (product) {
           document.getElementById("main-content").classList.add("hidden");
-          document.getElementById("partner-products-section").classList.add("hidden");
+          document.getElementById("partner-products-page").classList.add("hidden");
           const productPage = document.getElementById("product-page");
           productPage.classList.remove("hidden");
+
+          // Hide the quote form by default
+          document.getElementById("quote-form-container").classList.add("hidden");
 
           document.getElementById("product-image").src = product.image;
           document.getElementById("product-name").textContent = product.name;
@@ -968,23 +1101,35 @@
         }
       }
 
-      document.getElementById("back-to-home").addEventListener("click", (e) => {
-        e.preventDefault();
+      function goToHomePage(e, sectionId = '#') {
+        if(e) e.preventDefault();
         document.getElementById("product-page").classList.add("hidden");
-        if (previousPage === 'main') {
-          document.getElementById("main-content").classList.remove("hidden");
-        } else {
-          document.getElementById("partner-products-section").classList.remove("hidden");
-        }
-      });
-
-      document.getElementById("back-to-main-content").addEventListener("click", (e) => {
-        e.preventDefault();
+        document.getElementById("partner-products-page").classList.add("hidden");
         document.getElementById("main-content").classList.remove("hidden");
-        document.getElementById("product-page").classList.add("hidden");
-        document.getElementById("partner-products-section").classList.add("hidden");
-        previousPage = 'main';
-        renderProducts(productsVisible);
+
+        if (sectionId && sectionId !== '#') {
+            setTimeout(() => {
+                const targetSection = document.querySelector(sectionId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }
+
+      // Logo clicks
+      document.getElementById("main-page-logo").addEventListener("click", (e) => goToHomePage(e));
+      document.getElementById("product-page-logo").addEventListener("click", (e) => goToHomePage(e));
+      document.getElementById("partner-page-logo").addEventListener("click", (e) => goToHomePage(e));
+
+      // Nav link clicks on product and partner pages
+      document.querySelectorAll('.nav-link-product, .nav-link-partner').forEach(link => {
+          link.addEventListener('click', (e) => {
+              const sectionId = link.getAttribute('href');
+              goToHomePage(e, sectionId);
+          });
       });
 
       document.getElementById("get-quote-btn").addEventListener("click", () => {
@@ -1001,6 +1146,16 @@
           formMessage.classList.add("hidden");
           e.target.reset();
         }, 5000);
+      });
+
+      document.getElementById("product-contact-link").addEventListener("click", (e) => {
+        e.preventDefault();
+        document.getElementById("product-page").classList.add("hidden");
+        document.getElementById("main-content").classList.remove("hidden");
+        const contactSection = document.getElementById("contact-section");
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: "smooth" });
+        }
       });
 
       const observer = new IntersectionObserver(
@@ -1029,7 +1184,9 @@
             if (entry.isIntersecting) {
               navLinks.forEach((link) => {
                 link.classList.remove("active");
-                if (link.href.includes(entry.target.id)) {
+                if (link.getAttribute('href') === '#' && entry.target.id === 'main-content') {
+                  link.classList.add("active");
+                } else if (link.href.includes(entry.target.id)) {
                   link.classList.add("active");
                 }
               });
@@ -1045,8 +1202,52 @@
 
       renderProducts(productsVisible);
 
+      // Staggered animation for certificate items
+      const certificationSection = document.querySelector('#certification-section');
+      const certificates = document.querySelectorAll('.certificate-item');
+
+      const certObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  certificates.forEach((cert, index) => {
+                      setTimeout(() => {
+                          cert.classList.add('in-view');
+                      }, index * 150);
+                  });
+                  certObserver.unobserve(certificationSection);
+              }
+          });
+      }, { threshold: 0.2 });
+
+      if (certificationSection) {
+        certObserver.observe(certificationSection);
+      }
+
+      // Banner Slideshow
+      const bannerImages = [
+        "assets/images/banners/banner.jpg",
+        "assets/images/banners/lab-1.jpg",
+        "assets/images/banners/product_zone_2.jpg",
+        "assets/images/banners/product_zone.jpg",
+        "assets/images/banners/products_out.jpg"
+      ];
+
+      let currentBannerImage = 0;
+      const bannerElement = document.querySelector('.banner-with-bg'); // Get the banner element
+
+      function nextBannerImage() {
+        currentBannerImage = (currentBannerImage + 1) % bannerImages.length;
+        // Set the CSS variable on the banner element
+        bannerElement.style.setProperty('--banner-image', `url(${bannerImages[currentBannerImage]})`);
+      }
+
+      // Call it once to set the initial image
+      nextBannerImage();
+
+      setInterval(nextBannerImage, 5000);
+
+
       // New JavaScript for Partner Products
-      const partnerProductsSection = document.getElementById("partner-products-section");
       const partnerProductList = document.getElementById("partner-product-list");
       const partnerProductsTitle = document.getElementById("partner-products-title");
       const mainContent = document.getElementById("main-content");
@@ -1061,10 +1262,11 @@
       });
 
       function renderPartnerProducts(partnerId, partnerName) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         previousPage = 'partner';
         document.getElementById("product-page").classList.add("hidden"); // Hide product detail page if open
         mainContent.classList.add("hidden");
-        partnerProductsSection.classList.remove("hidden");
+        document.getElementById("partner-products-page").classList.remove("hidden");
         partnerProductList.innerHTML = "";
 
         partnerProductsTitle.textContent = `${partnerName}'s Products`;
