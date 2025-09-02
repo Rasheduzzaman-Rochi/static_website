@@ -1,0 +1,238 @@
+:root {
+  --primary-color: #273372;
+  /* Dark Blue */
+  --secondary-color: #FFA500;
+  /* Orange */
+  --background-light: #f3f4f6;
+  /* Light Gray */
+  --text-dark: #1f2937;
+  --card-bg: #e5e7eb;
+  /* Lighter tone for cards */
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom keyframes and animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slideInUp {
+  animation: slideInUp 1s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1.5s ease-out;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1.5s cubic-bezier(0.19, 1, 0.22, 1),
+    transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.card-3d:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.05);
+  box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.1);
+}
+
+.partner-product-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.partner-product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+
+
+.nav-link.active {
+  color: var(--primary-color);
+  font-weight: 600;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 4px;
+}
+
+.partner-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.partner-card:hover {
+  transform: scale(1.2);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+.partner-card.from-right {
+  animation: slideInRight 1.5s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
+.partner-card.from-left {
+  animation: slideInLeft 1.5s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
+/* Modern background for partners section */
+#partners-section {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e6e9f0 100%);
+}
+
+/* Custom style for banner background */
+.banner-with-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
+}
+
+.banner-with-bg.active {
+  opacity: 1;
+}
+
+#scrollTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background: linear-gradient(45deg, var(--primary-color), #1a2352);
+  color: white;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#scrollTopBtn:hover {
+  background: linear-gradient(45deg, #1a2352, var(--primary-color));
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.cta-contact-button:hover {
+  background-color: var(--secondary-color);
+  color: white;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
+}
+
+.certification-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.certificate-item {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+  transform: translateY(30px) scale(0.9);
+}
+
+.certificate-item.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.certificate-item i {
+  color: var(--secondary-color);
+  font-size: 1.8rem;
+  transition: transform 0.4s ease;
+}
+
+.certificate-item:hover {
+  color: var(--secondary-color);
+  transform: translateY(-10px) scale(1.1);
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.certificate-item:hover i {
+  transform: scale(1.3) rotate(-15deg);
+}

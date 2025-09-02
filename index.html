@@ -9,298 +9,7 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root {
-      --primary-color: #273372;
-      /* Dark Blue */
-      --secondary-color: #FFA500;
-      /* Orange */
-      --background-light: #f3f4f6;
-      /* Light Gray */
-      --text-dark: #1f2937;
-      --card-bg: #e5e7eb;
-      /* Lighter tone for cards */
-    }
-
-    body {
-      font-family: "Inter", sans-serif;
-      background-color: var(--background-light);
-      color: var(--text-dark);
-      overflow-x: hidden;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* Custom keyframes and animations */
-    @keyframes slideInUp {
-      from {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideInRight {
-      from {
-        opacity: 0;
-        transform: translateX(100%);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes slideInLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-100%);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    .animate-slideInUp {
-      animation: slideInUp 1s cubic-bezier(0.19, 1, 0.22, 1) both;
-    }
-
-    .animate-fadeIn {
-      animation: fadeIn 1.5s ease-out;
-    }
-
-    .animate-on-scroll {
-      opacity: 0;
-      transform: translateY(100px);
-      transition: opacity 1.5s cubic-bezier(0.19, 1, 0.22, 1),
-        transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
-    }
-
-    .animate-on-scroll.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card-3d {
-      transform-style: preserve-3d;
-      transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-    }
-
-    .card-3d:hover {
-      transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.05);
-      box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.1);
-    }
-
-    .partner-product-card {
-      background-color: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 0.75rem;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      transition: all 0.3s ease;
-    }
-
-    .partner-product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    }
-
-    /* Modal style */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 100;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgb(0, 0, 0);
-      background-color: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
-    .modal-content {
-      background-color: #fefefe;
-      margin: 5% auto;
-      padding: 32px;
-      border: none;
-      width: 90%;
-      max-width: 1000px;
-      border-radius: 12px;
-      position: relative;
-      animation: fadeIn 0.5s;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    .close-btn {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .close-btn:hover,
-    .close-btn:focus {
-      color: black;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .nav-link.active {
-      color: var(--primary-color);
-      font-weight: 600;
-      border-bottom: 2px solid var(--primary-color);
-      padding-bottom: 4px;
-    }
-
-    .partner-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      transform-style: preserve-3d;
-    }
-
-    .partner-card:hover {
-      transform: scale(1.2);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-    }
-
-    .partner-card.from-right {
-      animation: slideInRight 1.5s cubic-bezier(0.19, 1, 0.22, 1) both;
-    }
-
-    .partner-card.from-left {
-      animation: slideInLeft 1.5s cubic-bezier(0.19, 1, 0.22, 1) both;
-    }
-
-    /* Modern background for partners section */
-    #partners-section {
-      background: linear-gradient(135deg, #f0f9ff 0%, #e6e9f0 100%);
-    }
-
-    /* Custom style for banner background */
-    .banner-with-bg {
-      background-color: #e0e8e9;
-      /* Previous background color */
-      position: relative;
-      z-index: 1;
-    }
-
-    .banner-with-bg::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      opacity: 1;
-      /* Image opacity */
-      z-index: -1;
-      transition: background-image 1s ease-in-out;
-      background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), var(--banner-image);
-    }
-
-    .banner-content {
-      position: relative;
-      z-index: 2;
-    }
-#scrollTopBtn {
-    display: none;
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 99;
-    border: none;
-    outline: none;
-    background: linear-gradient(45deg, var(--primary-color), #1a2352);
-    color: white;
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 24px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: all 0.3s ease-in-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#scrollTopBtn:hover {
-    background: linear-gradient(45deg, #1a2352, var(--primary-color));
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-}
-
-.cta-contact-button:hover {
-    background-color: var(--secondary-color);
-    color: white;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-    transform: scale(1.1);
-}
-
-.certification-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.certificate-item {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  opacity: 0;
-  transform: translateY(30px) scale(0.9);
-}
-
-.certificate-item.in-view {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-.certificate-item i {
-  color: var(--secondary-color);
-  font-size: 1.8rem;
-  transition: transform 0.4s ease;
-}
-
-.certificate-item:hover {
-  color: var(--secondary-color);
-  transform: translateY(-10px) scale(1.1);
-  text-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.certificate-item:hover i {
-  transform: scale(1.3) rotate(-15deg);
-}
-  </style>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body class="bg-gray-100 text-gray-800">
@@ -353,23 +62,25 @@
       </div>
     </header>
 
-    <section id="banner-section" class="relative h-auto md:h-[80vh] overflow-hidden banner-with-bg">
+    <section id="banner-section" class="relative h-auto md:h-[80vh] overflow-hidden">
+      <div class="banner-with-bg active"></div>
+      <div class="banner-with-bg"></div>
       <div
         class="container mx-auto px-4 relative z-10 h-full flex items-center justify-center text-center py-16 md:py-0 animate-fadeIn banner-content">
         <div class="p-8 md:p-12 rounded-2xl">
           <h1
-            class="text-4xl md:text-7xl font-extrabold mb-4 leading-tight tracking-tighter drop-shadow-lg text-white"
+            class="text-4xl md:text-7xl font-extrabold mb-4 leading-tight tracking-tighter drop-shadow-lg text-gray-900"
             style="font-family: 'Poppins', sans-serif">
             Pioneering <span style="color: var(--primary-color);">Chemical Solutions</span>,
     Innovating for a <span style="color: var(--primary-color);">Better Future</span>.
           </h1>
-          <p class="text-lg md:text-2xl max-w-3xl mx-auto mb-8 text-white animate-slideInUp"
+          <p class="text-lg md:text-2xl max-w-3xl mx-auto mb-8 text-gray-600 animate-slideInUp"
             style="animation-delay: 0.5s">
             Driving progress with cutting-edge chemistry and sustainable practices.
           </p>
           <div class="flex flex-wrap justify-center gap-4 text-xl font-semibold mb-8 animate-slideInUp"
             style="animation-delay: 0.8s">
-            <span class="text-white">Our Services:</span>
+            <span class="text-gray-900">Our Services:</span>
             <ul class="list-none flex flex-wrap justify-center gap-x-4">
               <li class="px-3 py-1 rounded-full text-white"
                 style="background-color: var(--primary-color);">
@@ -392,6 +103,57 @@
           </button>
         </div>
       </div>
+    </section>
+
+    <section id="our-services-details" class="py-20 bg-gray-50 hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style="font-family: 'Poppins', sans-serif">
+                    Our Core Services
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Driving innovation and excellence in the chemical industry.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1: R&D -->
+                <div class="text-center p-6 rounded-2xl shadow-xl transform hover:scale-105 transition-transform duration-300 animate-on-scroll" style="background-color: #fff;">
+                    <div class="mb-4">
+                        <i class="fas fa-flask text-4xl text-white p-4 rounded-full" style="background-color: var(--primary-color);"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">
+                        Research & Development
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        Our dedicated R&D team is at the forefront of chemical innovation, constantly exploring new frontiers to develop groundbreaking products and solutions. We leverage the latest technologies and methodologies to stay ahead of industry trends.
+                    </p>
+                </div>
+                <!-- Service 2: Manufacturing -->
+                <div class="text-center p-6 rounded-2xl shadow-xl transform hover:scale-105 transition-transform duration-300 animate-on-scroll" style="background-color: #fff;">
+                    <div class="mb-4">
+                        <i class="fas fa-industry text-4xl text-white p-4 rounded-full" style="background-color: var(--primary-color);"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">
+                        Manufacturing
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        We operate state-of-the-art manufacturing facilities that adhere to the highest standards of safety and efficiency. Our flexible production capabilities allow us to handle both large-scale orders and custom formulations with precision and reliability.
+                    </p>
+                </div>
+                <!-- Service 3: Quality Assurance -->
+                <div class="text-center p-6 rounded-2xl shadow-xl transform hover:scale-105 transition-transform duration-300 animate-on-scroll" style="background-color: #fff;">
+                    <div class="mb-4">
+                        <i class="fas fa-check-circle text-4xl text-white p-4 rounded-full" style="background-color: var(--primary-color);"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">
+                        Quality Assurance
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        Quality is at the heart of everything we do. Our rigorous quality assurance processes ensure that every product that leaves our facility meets the most stringent industry specifications and our clients' exacting requirements.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="partners-section" class="py-12 md:py-20 bg-gray-100 animate-on-scroll">
@@ -739,7 +501,7 @@
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold mb-4">Have a question?</h2>
             <p class="text-lg mb-8">Our team is ready to help. Contact us now.</p>
-            <a href="#contact-section" class="cta-contact-button bg-white text-gray-800 font-bold py-3 px-8 rounded-full transition-all duration-300 ease-in-out transform animate-pulse">
+            <a href="#contact-section" id="partner-products-contact-link" class="cta-contact-button bg-white text-gray-800 font-bold py-3 px-8 rounded-full transition-all duration-300 ease-in-out transform animate-pulse">
                 Contact Us
             </a>
         </div>
@@ -768,552 +530,9 @@
     </footer>
   </div>
 
-  <div id="services-modal" class="modal">
-    <div class="modal-content text-center">
-      <span class="close-btn">&times;</span>
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style="font-family: 'Poppins', sans-serif">
-        Our Chemical Services
-      </h2>
-      <p class="text-lg text-gray-600 mb-12">
-        From research to delivery, we handle every step with precision and care.
-      </p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div
-          class="bg-white p-6 rounded-2xl shadow-xl border-t-4 transform transition-transform hover:scale-105 duration-300"
-          style="border-color: var(--secondary-color);">
-          <div class="flex items-center justify-center h-16 w-16 rounded-full mx-auto mb-4"
-            style="background-color: var(--secondary-color);">
-            <i class="fas fa-flask text-3xl text-white"></i>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            Research & Development
-          </h3>
-          <p class="text-gray-600">
-            Innovating new compounds and processes to meet market demands.
-          </p>
-        </div>
-        <div
-          class="bg-white p-6 rounded-2xl shadow-xl border-t-4 transform transition-transform hover:scale-105 duration-300"
-          style="border-color: var(--primary-color);">
-          <div class="flex items-center justify-center h-16 w-16 rounded-full mx-auto mb-4"
-            style="background-color: var(--primary-color);">
-            <i class="fas fa-atom text-3xl text-white"></i>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            Custom Synthesis
-          </h3>
-          <p class="text-gray-600">
-            Tailor-made chemical synthesis to your exact specifications.
-          </p>
-        </div>
-        <div
-          class="bg-white p-6 rounded-2xl shadow-xl border-t-4 transform transition-transform hover:scale-105 duration-300"
-          style="border-color: #8B5CF6;">
-          <div class="flex items-center justify-center h-16 w-16 bg-purple-100 rounded-full mx-auto mb-4">
-            <i class="fas fa-industry text-3xl text-purple-500"></i>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            Bulk Manufacturing
-          </h3>
-          <p class="text-gray-600">
-            Large-scale production of chemicals with consistent quality.
-          </p>
-        </div>
-        <div
-          class="bg-white p-6 rounded-2xl shadow-xl border-t-4 transform transition-transform hover:scale-105 duration-300"
-          style="border-color: var(--primary-color);">
-          <div class="flex items-center justify-center h-16 w-16 rounded-full mx-auto mb-4"
-            style="background-color: var(--primary-color);">
-            <i class="fas fa-check-circle text-3xl text-white"></i>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            Quality Assurance
-          </h3>
-          <p class="text-600">
-            Rigorous testing and quality control to meet the highest standards.
-          </p>
-        </div>
-        <div
-          class="bg-white p-6 rounded-2xl shadow-xl border-t-4 transform transition-transform hover:scale-105 duration-300"
-          style="border-color: var(--secondary-color);">
-          <div class="flex items-center justify-center h-16 w-16 rounded-full mx-auto mb-4"
-            style="background-color: var(--secondary-color);">
-            <i class="fas fa-search-dollar text-3xl text-white"></i>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            Chemical Sourcing
-          </h3>
-          <p class="text-gray-600">
-            Global sourcing of raw materials from trusted suppliers.
-          </p>
-        </div>
-        <div
-          class="bg-white p-6 rounded-2xl shadow-xl border-t-4 transform transition-transform hover:scale-105 duration-300"
-          style="border-color: #EF4444;">
-          <div class="flex items-center justify-center h-16 w-16 bg-red-100 rounded-full mx-auto mb-4">
-            <i class="fas fa-shipping-fast text-3xl text-red-500"></i>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-2">
-            Logistical Support
-          </h3>
-          <p class="text-gray-600">
-            Managing logistics to ensure your products are delivered safely.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const learnMoreBtn = document.getElementById("learn-more-btn");
-      const servicesModal = document.getElementById("services-modal");
-      const closeBtn = document.querySelector(".close-btn");
-      const scrollTopBtn = document.getElementById("scrollTopBtn");
-      let previousPage = 'main';
-
-      mobileMenuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-
-      learnMoreBtn.addEventListener("click", () => {
-        servicesModal.style.display = "flex";
-        servicesModal.style.alignItems = "center";
-        servicesModal.style.justifyContent = "center";
-      });
-
-      closeBtn.addEventListener("click", () => {
-        servicesModal.style.display = "none";
-      });
-
-      window.onclick = function (event) {
-        if (event.target == servicesModal) {
-          servicesModal.style.display = "none";
-        }
-      };
-
-      window.onscroll = function() {
-          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-              scrollTopBtn.style.display = "flex";
-          } else {
-              scrollTopBtn.style.display = "none";
-          }
-      };
-
-      scrollTopBtn.addEventListener("click", () => {
-          document.body.scrollTop = 0; // For Safari
-          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-      });
-
-      const products = [
-        {
-          id: "1",
-          name: "Warping and Auxiliaries",
-          description:
-            "Specialized services for warping processes and auxiliary textile operations, ensuring high-quality yarn preparation for weaving.",
-          image:
-            "assets/images/jeniuschem/warping-and-auxiliaries.jpg",
-          services: [
-            "Yarn Preparation",
-            "Warping Machine Operation",
-            "Beam Preparation",
-            "Quality Inspection of Warped Beams",
-            "Auxiliary Textile Services",
-          ],
-          partnerId: "jeniuschem",
-        },
-        {
-          id: "2",
-          name: "Cotton Fabric",
-          description:
-            "High-quality cotton fabric, perfect for various apparel applications, offering comfort and durability.",
-          image:
-            "assets/images/jeniuschem/cotton.jpg",
-          services: [
-            "Raw Material Sourcing",
-            "Fabric Quality Testing",
-            "Sustainable Cotton Options",
-            "Bulk Supply",
-          ],
-          partnerId: "jeniuschem",
-        },
-        {
-          id: "3",
-          name: "Staple Fiber",
-          description:
-            "Versatile staple fibers for textile production, available in various types like cotton, polyester, and blends.",
-          image:
-            "assets/images/jeniuschem/staple.jpg",
-          services: [
-            "Fiber Sourcing",
-            "Fiber Quality Analysis",
-            "Custom Fiber Blends",
-            "Technical Support",
-          ],
-          partnerId: "jeniuschem",
-        },
-        {
-          id: "4",
-          name: "Cold Sizing Agent",
-          description:
-            "Advanced cold sizing agents for efficient and eco-friendly textile processing, improving yarn strength and weaveability.",
-          image:
-            "assets/images/jeniuschem/cold-sizing-agent.jpg",
-          services: [
-            "Sizing Agent Supply",
-            "Application Guidance",
-            "Performance Optimization",
-            "Technical Consultation",
-          ],
-          partnerId: "jeniuschem",
-        },
-        {
-          id: "5",
-          name: "Raw Materials",
-          description:
-            "Sourcing and supply of diverse raw materials for textile and apparel manufacturing, ensuring quality and sustainability.",
-          image: "assets/images/jeniuschem/raw-materials.jpg",
-          services: [
-            "Material Sourcing & Procurement",
-            "Quality Assurance",
-            "Supply Chain Management",
-            "Sustainable Material Options",
-          ],
-          partnerId: "jeniuschem",
-        },
-        {
-          id: "6",
-          name: "Wool Fabric",
-          description:
-            "Premium wool fabrics for luxurious and comfortable garments, known for their warmth and natural properties.",
-          image: "assets/images/jeniuschem/wool.jpg",
-          services: [
-            "Wool Sourcing",
-            "Fabric Blending",
-            "Quality Control",
-            "Custom Weaving",
-          ],
-          partnerId: "jeniuschem",
-        },
-        {
-          id: "7",
-          name: "Ball of Yarn",
-          description: "High-quality ball of yarn, suitable for various knitting and crochet projects.",
-          image: "assets/images/verateks/ball of yarn.jpg",
-          services: [
-            "Yarn Supply",
-            "Color Matching",
-            "Custom Orders",
-          ],
-          partnerId: "verateks",
-        },
-        {
-          id: "8",
-          name: "Matweiss Pads",
-          description: "High-quality Matweiss pads for various applications.",
-          image: "assets/images/verateks/Matweiss Pads.jpg",
-          services: [
-            "Pad Supply",
-            "Custom Sizing",
-            "Bulk Orders",
-          ],
-          partnerId: "verateks",
-        }
-      ];
-
-      const productList = document.getElementById("product-list");
-
-      let productsVisible = 6;
-      const seeMoreBtn = document.getElementById("see-more-btn");
-
-      function renderProducts(limit) {
-        productList.innerHTML = "";
-        const productsToRender = products.slice(0, limit);
-        productsToRender.forEach((product) => {
-          const productCard = document.createElement("div");
-          productCard.classList.add(
-            "p-6",
-            "rounded-2xl",
-            "transition-all",
-            "duration-300",
-            "transform",
-            "hover:scale-105",
-            "cursor-pointer",
-            "animate-on-scroll"
-          );
-
-          productCard.innerHTML = `
-                      <img src="${product.image}" alt="${product.name} Image" class="w-full h-64 object-cover rounded-xl mb-6">
-                      <h3 class="text-2xl font-bold text-gray-800 mb-2">${product.name}</h3>
-                      <p class="text-gray-600">${product.description.split(".")[0]}.</p>
-                  `;
-          productCard.addEventListener("click", () => {
-            previousPage = 'main';
-            showProductPage(product.id);
-          });
-          productList.appendChild(productCard);
-        });
-
-        // Re-observe new product cards for scroll animation
-        document.querySelectorAll(".animate-on-scroll").forEach((section) => {
-          observer.observe(section);
-        });
-
-        if (limit >= products.length) {
-          seeMoreBtn.style.display = "none";
-        } else {
-          seeMoreBtn.style.display = "block";
-        }
-      }
-
-      seeMoreBtn.addEventListener("click", () => {
-        productsVisible = products.length;
-        renderProducts(productsVisible);
-      });
-
-      function showProductPage(productId) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        const product = products.find((p) => p.id === productId);
-        if (product) {
-          document.getElementById("main-content").classList.add("hidden");
-          document.getElementById("partner-products-page").classList.add("hidden");
-          const productPage = document.getElementById("product-page");
-          productPage.classList.remove("hidden");
-
-          // Hide the quote form by default
-          document.getElementById("quote-form-container").classList.add("hidden");
-
-          document.getElementById("product-image").src = product.image;
-          document.getElementById("product-name").textContent = product.name;
-          document.getElementById("product-description").textContent = product.description;
-
-          const serviceListEl = document.getElementById("service-list");
-          serviceListEl.innerHTML = "";
-          product.services.forEach((service) => {
-            const li = document.createElement("li");
-            li.textContent = service;
-            serviceListEl.appendChild(li);
-          });
-
-          document.getElementById("form-product-name").value = product.name;
-        }
-      }
-
-      function goToHomePage(e, sectionId = '#') {
-        if(e) e.preventDefault();
-        document.getElementById("product-page").classList.add("hidden");
-        document.getElementById("partner-products-page").classList.add("hidden");
-        document.getElementById("main-content").classList.remove("hidden");
-
-        if (sectionId && sectionId !== '#') {
-            setTimeout(() => {
-                const targetSection = document.querySelector(sectionId);
-                if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 100);
-        } else {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      }
-
-      // Logo clicks
-      document.getElementById("main-page-logo").addEventListener("click", (e) => goToHomePage(e));
-      document.getElementById("product-page-logo").addEventListener("click", (e) => goToHomePage(e));
-      document.getElementById("partner-page-logo").addEventListener("click", (e) => goToHomePage(e));
-
-      // Nav link clicks on product and partner pages
-      document.querySelectorAll('.nav-link-product, .nav-link-partner').forEach(link => {
-          link.addEventListener('click', (e) => {
-              const sectionId = link.getAttribute('href');
-              goToHomePage(e, sectionId);
-          });
-      });
-
-      document.getElementById("get-quote-btn").addEventListener("click", () => {
-        const formContainer = document.getElementById("quote-form-container");
-        formContainer.classList.toggle("hidden");
-      });
-
-      document.getElementById("quote-form").addEventListener("submit", (e) => {
-        e.preventDefault();
-        const formMessage = document.getElementById("form-message");
-        formMessage.textContent = "Your message has been sent successfully! We will contact you shortly.";
-        formMessage.classList.remove("hidden");
-        setTimeout(() => {
-          formMessage.classList.add("hidden");
-          e.target.reset();
-        }, 5000);
-      });
-
-      document.getElementById("product-contact-link").addEventListener("click", (e) => {
-        e.preventDefault();
-        document.getElementById("product-page").classList.add("hidden");
-        document.getElementById("main-content").classList.remove("hidden");
-        const contactSection = document.getElementById("contact-section");
-        if (contactSection) {
-          contactSection.scrollIntoView({ behavior: "smooth" });
-        }
-      });
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              // Unobserve after the animation has run once
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.2 }
-      );
-
-      document.querySelectorAll(".animate-on-scroll").forEach((section) => {
-        observer.observe(section);
-      });
-
-      const sections = document.querySelectorAll("section[id]");
-      const navLinks = document.querySelectorAll(".nav-link");
-
-      const sectionObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              navLinks.forEach((link) => {
-                link.classList.remove("active");
-                if (link.getAttribute('href') === '#' && entry.target.id === 'main-content') {
-                  link.classList.add("active");
-                } else if (link.href.includes(entry.target.id)) {
-                  link.classList.add("active");
-                }
-              });
-            }
-          });
-        },
-        { threshold: 0.5 }
-      );
-
-      sections.forEach((section) => {
-        sectionObserver.observe(section);
-      });
-
-      renderProducts(productsVisible);
-
-      // Staggered animation for certificate items
-      const certificationSection = document.querySelector('#certification-section');
-      const certificates = document.querySelectorAll('.certificate-item');
-
-      const certObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                  certificates.forEach((cert, index) => {
-                      setTimeout(() => {
-                          cert.classList.add('in-view');
-                      }, index * 150);
-                  });
-                  certObserver.unobserve(certificationSection);
-              }
-          });
-      }, { threshold: 0.2 });
-
-      if (certificationSection) {
-        certObserver.observe(certificationSection);
-      }
-
-      // Banner Slideshow
-      const bannerImages = [
-        "assets/images/banners/banner.jpg",
-        "assets/images/banners/lab-1.jpg",
-        "assets/images/banners/product_zone_2.jpg",
-        "assets/images/banners/product_zone.jpg",
-        "assets/images/banners/products_out.jpg"
-      ];
-
-      let currentBannerImage = 0;
-      const bannerElement = document.querySelector('.banner-with-bg'); // Get the banner element
-
-      function nextBannerImage() {
-        currentBannerImage = (currentBannerImage + 1) % bannerImages.length;
-        // Set the CSS variable on the banner element
-        bannerElement.style.setProperty('--banner-image', `url(${bannerImages[currentBannerImage]})`);
-      }
-
-      // Call it once to set the initial image
-      nextBannerImage();
-
-      setInterval(nextBannerImage, 5000);
-
-
-      // New JavaScript for Partner Products
-      const partnerProductList = document.getElementById("partner-product-list");
-      const partnerProductsTitle = document.getElementById("partner-products-title");
-      const mainContent = document.getElementById("main-content");
-
-      document.querySelectorAll(".partner-card").forEach(card => {
-        card.addEventListener("click", () => {
-          const partnerId = card.dataset.partnerId;
-          const partnerName = card.dataset.partnerNameEn;
-
-          renderPartnerProducts(partnerId, partnerName);
-        });
-      });
-
-      function renderPartnerProducts(partnerId, partnerName) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        previousPage = 'partner';
-        document.getElementById("product-page").classList.add("hidden"); // Hide product detail page if open
-        mainContent.classList.add("hidden");
-        document.getElementById("partner-products-page").classList.remove("hidden");
-        partnerProductList.innerHTML = "";
-
-        partnerProductsTitle.textContent = `${partnerName}'s Products`;
-
-        let filteredProducts;
-        if (partnerId === 'jeniuschem') {
-          filteredProducts = products;
-        } else {
-          filteredProducts = products.filter(product => product.partnerId === partnerId);
-        }
-
-        if (filteredProducts.length === 0) {
-          partnerProductList.innerHTML = `<p class="text-center text-gray-600 text-xl col-span-full">
-            No products found for this partner.
-          </p>`;
-          return;
-        }
-
-        filteredProducts.forEach(product => {
-          const productCard = document.createElement("div");
-          productCard.classList.add(
-            "p-6",
-            "rounded-2xl",
-            "transition-all",
-            "duration-300",
-            "transform",
-            "hover:scale-105",
-            "cursor-pointer",
-            "animate-on-scroll"
-          );
-
-          productCard.innerHTML = `
-                      <img src="${product.image}" alt="${product.name} Image" class="w-full h-64 object-cover rounded-xl mb-6">
-                      <h3 class="text-2xl font-bold text-gray-800 mb-2">${product.name}</h3>
-                      <p class="text-gray-600">${product.description.split(".")[0]}.</p>
-                  `;
-          productCard.addEventListener("click", () => showProductPage(product.id));
-          partnerProductList.appendChild(productCard);
-        });
-
-        // Re-observe new product cards for scroll animation
-        document.querySelectorAll(".animate-on-scroll").forEach((section) => {
-          observer.observe(section);
-        });
-      }
-    });
-  </script>
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>
