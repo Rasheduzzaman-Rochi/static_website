@@ -454,5 +454,21 @@ document.addEventListener("DOMContentLoaded", function () {
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
     }
+    // Newsletter Form Handler for all footers
+    document.querySelectorAll("#newsletter-form").forEach(form => {
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const emailInput = e.target.querySelector("input[type='email']");
+        const messageEl = e.target.querySelector("p");
+
+        messageEl.textContent = "Thank you for subscribing!";
+        messageEl.style.color = "#48bb78";
+
+        setTimeout(() => {
+          messageEl.textContent = "";
+          emailInput.value = "";
+        }, 5000);
+      });
+    });
   });
 });
