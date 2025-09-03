@@ -1,8 +1,8 @@
 :root {
   --primary-color: #273372;
   /* Dark Blue */
-  --secondary-color: #FFA500;
-  /* Orange */
+  --secondary-color: #008080;
+  /* Teal */
   --background-light: #f3f4f6;
   /* Light Gray */
   --text-dark: #1f2937;
@@ -166,7 +166,7 @@ body {
   z-index: 99;
   border: none;
   outline: none;
-  background: linear-gradient(45deg, var(--primary-color), #1a2352);
+  background: #000080;
   color: white;
   cursor: pointer;
   width: 50px;
@@ -181,16 +181,18 @@ body {
 }
 
 #scrollTopBtn:hover {
-  background: linear-gradient(45deg, #1a2352, var(--primary-color));
+  background: #0000CD;
   transform: scale(1.1);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+.cta-contact-button {
+  background-color: #000080 !important;
+  color: white !important;
+}
+
 .cta-contact-button:hover {
-  background-color: var(--secondary-color);
-  color: white;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  transform: scale(1.1);
+  background-color: #0000CD !important;
 }
 
 .certification-list {
@@ -203,15 +205,7 @@ body {
 }
 
 .certificate-item {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Increased transition duration for smoother animation */
   opacity: 0;
   transform: translateY(30px) scale(0.9);
 }
@@ -221,18 +215,16 @@ body {
   transform: translateY(0) scale(1);
 }
 
-.certificate-item i {
-  color: var(--secondary-color);
-  font-size: 1.8rem;
-  transition: transform 0.4s ease;
+#learn-more-btn,
+#see-more-btn,
+#get-quote-btn,
+#contact-form button[type="submit"] {
+  background-color: #1A2B5B !important;
 }
 
-.certificate-item:hover {
-  color: var(--secondary-color);
-  transform: translateY(-10px) scale(1.1);
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.certificate-item:hover i {
-  transform: scale(1.3) rotate(-15deg);
+#learn-more-btn:hover,
+#see-more-btn:hover,
+#get-quote-btn:hover,
+#contact-form button[type="submit"]:hover {
+  background-color: #000080 !important;
 }

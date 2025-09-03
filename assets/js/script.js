@@ -409,12 +409,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     partnerProductsTitle.textContent = `${partnerName}'s Products`;
 
-    let filteredProducts;
-    if (partnerId === 'jeniuschem') {
-      filteredProducts = products;
-    } else {
-      filteredProducts = products.filter(product => product.partnerId === partnerId);
-    }
+    let filteredProducts = products.filter(product => product.partnerId === partnerId);
 
     if (filteredProducts.length === 0) {
       partnerProductList.innerHTML = `<p class="text-center text-gray-600 text-xl col-span-full">

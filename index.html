@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iTEX GLOBAL</title>
+  <title>iTEX GLOBAL SOURCING</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -16,13 +16,13 @@
   <button id="scrollTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
   <div id="main-content">
     <header class="bg-white shadow-xl sticky top-0 z-50">
-      <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <nav class="container mx-auto px-4 py-6 flex justify-between items-center">
         <a href="#" id="main-page-logo"
           class="flex items-center space-x-2 text-2xl font-bold" style="color: var(--primary-color);">
           <img src="assets/images/itex logo.png" alt="iTEX GLOBAL Logo" class="h-8 w-auto">
-          <span>iTEX GLOBAL</span>
+          <span>iTEX GLOBAL SOURCING</span>
         </a>
-        <div class="hidden md:flex items-center space-x-8 text-lg font-medium">
+        <div class="hidden md:flex items-center space-x-8 text-lg font-bold">
           <a href="#banner-section"
             class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">
             Our Services
@@ -97,7 +97,7 @@
             </ul>
           </div>
           <button id="learn-more-btn"
-            class="text-white px-10 py-4 rounded-full font-bold shadow-lg transition-all duration-300 transform hover:scale-110"
+            class="text-white px-10 py-4 rounded-full font-bold shadow-lg transition-all duration-300 transform hover:scale-110 mt-8"
             style="background-color: var(--secondary-color);">
             Learn More
           </button>
@@ -209,22 +209,19 @@
 
     <section id="certification-section" class="py-20 md:py-32" style="background-color: #F8FAFC;">
       <div class="container mx-auto px-4 text-center">
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style="font-family: 'Poppins', sans-serif">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-slideInUp" style="font-family: 'Poppins', sans-serif">
           Our Certifications
         </h2>
-        <p class="text-lg text-gray-600 mb-16">
+        <p class="text-lg text-gray-600 mb-16 animate-slideInUp">
           Proof of quality and environmental excellence.
         </p>
-        <div class="certification-list-container">
-          <ul class="certification-list">
-            <li class="certificate-item"><i class="fas fa-award"></i> ISO 9001:2025</li>
-            <li class="certificate-item"><i class="fas fa-award"></i> ZDHC</li>
-            <li class="certificate-item"><i class="fas fa-award"></i> GOTS 7.0</li>
-            <li class="certificate-item"><i class="fas fa-award"></i> OEKO-TEX</li>
-            <li class="certificate-item"><i class="fas fa-award"></i> WRAP Certified</li>
-            <li class="certificate-item"><i class="fas fa-award"></i> ISO 9001:2008</li>
-            <li class="certificate-item"><i class="fas fa-award"></i> REACH</li>
-          </ul>
+        <div id="certificate-images-container" class="flex flex-wrap justify-center items-center gap-8">
+          <img src="assets/images/certificates_logo/iso-9001.png" alt="ISO 9001 Certification" class="h-32 object-contain certificate-item">
+          <img src="assets/images/certificates_logo/gots.avif" alt="GOTS Certification" class="h-32 object-contain certificate-item">
+          <img src="assets/images/certificates_logo/Oeko_tex.png" alt="Oeko-Tex Certification" class="h-32 object-contain certificate-item">
+          <img src="assets/images/certificates_logo/reach-logo.webp" alt="REACH Certification" class="h-32 object-contain certificate-item">
+          <img src="assets/images/certificates_logo/WRAP_Logo.webp" alt="WRAP Certification" class="h-32 object-contain certificate-item">
+          <img src="assets/images/certificates_logo/ZDHC.png" alt="ZDHC Certification" class="h-32 object-contain certificate-item">
         </div>
       </div>
     </section>
@@ -326,38 +323,32 @@
       </div>
     </section>
 
-    <footer class="text-white py-6" style="background-color: var(--primary-color);">
-      <div class="container mx-auto px-4 text-center">
-        <div class="flex justify-center space-x-6 mb-6">
-          <a href="https://www.facebook.com/" target="_blank"
-            class="text-white hover:text-gray-300 transition-colors duration-300">
-            <i class="fab fa-facebook-f text-2xl"></i>
-          </a>
-          <a href="https://www.instagram.com/" target="_blank"
-            class="text-white hover:text-gray-300 transition-colors duration-300">
-            <i class="fab fa-instagram text-2xl"></i>
-          </a>
-          <a href="https://twitter.com/" target="_blank"
-            class="text-white hover:text-gray-300 transition-colors duration-300">
-            <i class="fab fa-twitter text-2xl"></i>
-          </a>
+    <footer class="text-white py-10" style="background-color: var(--primary-color);">
+      <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+        <div class="text-base text-center md:text-left space-y-2">
+          <p class="font-bold text-gray-200 text-base">9 Rangs Heritage, Flat-A5, House no-38, Shah Mokhdum avenue, Sector-13, Uttara, Dhaka-1230,Bangladesh.</p>
+          <p class="font-bold text-gray-200 text-base">Email: imdad@intexglobalsourcing.com</p>
+          <div class="flex justify-center md:justify-start mt-8">
+            <a href="https://www.linkedin.com/" target="_blank"
+              class="text-white hover:text-gray-300 transition-colors duration-300">
+              <i class="fab fa-linkedin-in text-2xl"></i>
+            </a>
+          </div>
         </div>
-        <p class="text-lg">
-          &copy; 2025 iTEX GLOBAL SOURCING. All rights reserved.
-        </p>
+        <p class="text-xs text-center md:text-right mt-4">&copy; 2025 iTEX GLOBAL SOURCING. All rights reserved.</p>
       </div>
     </footer>
   </div>
 
   <div id="product-page" class="hidden">
     <header class="bg-white shadow-xl sticky top-0 z-50">
-      <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <nav class="container mx-auto px-4 py-6 flex justify-between items-center">
         <a href="#" id="product-page-logo"
           class="flex items-center space-x-2 text-2xl font-bold" style="color: var(--primary-color);">
           <img src="assets/images/itex logo.png" alt="iTEX GLOBAL Logo" class="h-8 w-auto">
           <span>iTEX GLOBAL</span>
         </a>
-        <div class="hidden md:flex items-center space-x-8 text-lg font-medium">
+        <div class="hidden md:flex items-center space-x-8 text-lg font-bold">
           <a href="#"
             class="nav-link-product text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">
             Home
@@ -448,37 +439,31 @@
         </div>
     </section>
 
-    <footer class="text-white py-6" style="background-color: var(--primary-color);">
-      <div class="container mx-auto px-4 text-center">
-        <div class="flex justify-center space-x-6 mb-6">
-          <a href="https://www.facebook.com/" target="_blank"
-            class="text-white hover:text-gray-300 transition-colors duration-300">
-            <i class="fab fa-facebook-f text-2xl"></i>
-          </a>
-          <a href="https://www.instagram.com/" target="_blank"
-            class="text-white hover:text-gray-300 transition-colors duration-300">
-            <i class="fab fa-instagram text-2xl"></i>
-          </a>
-          <a href="https://twitter.com/" target="_blank"
-            class="text-white hover:text-gray-300 transition-colors duration-300">
-            <i class="fab fa-twitter text-2xl"></i>
-          </a>
+    <footer class="text-white py-10" style="background-color: var(--primary-color);">
+      <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+        <div class="text-base text-center md:text-left space-y-2">
+          <p class="font-bold text-gray-200 text-base">9 Rangs Heritage, Flat-A5, House no-38, Shah Mokhdum avenue, Sector-13, Uttara, Dhaka-1230,Bangladesh.</p>
+          <p class="font-bold text-gray-200 text-base">Email: imdad@intexglobalsourcing.com</p>
+          <div class="flex justify-center md:justify-start mt-8">
+            <a href="https://www.linkedin.com/" target="_blank"
+              class="text-white hover:text-gray-300 transition-colors duration-300">
+              <i class="fab fa-linkedin-in text-2xl"></i>
+            </a>
+          </div>
         </div>
-        <p class="text-lg">
-          &copy; 2025 iTEX GLOBAL SOURCING. All rights reserved.
-        </p>
+        <p class="text-xs text-center md:text-right mt-4">&copy; 2025 iTEX GLOBAL SOURCING. All rights reserved.</p>
       </div>
     </footer>
   </div>
 
   <div id="partner-products-page" class="hidden">
     <header class="bg-white shadow-xl sticky top-0 z-50">
-      <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <nav class="container mx-auto px-4 py-6 flex justify-between items-center">
         <a href="#" id="partner-page-logo" class="flex items-center space-x-2 text-2xl font-bold" style="color: var(--primary-color);">
           <img src="assets/images/itex logo.png" alt="iTEX GLOBAL Logo" class="h-8 w-auto">
           <span>iTEX GLOBAL</span>
         </a>
-        <div class="hidden md:flex items-center space-x-8 text-lg font-medium">
+        <div class="hidden md:flex items-center space-x-8 text-lg font-bold">
           <a href="#" class="nav-link-partner text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">Home</a>
           <a href="#banner-section" class="nav-link-partner text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">Our Services</a>
           <a href="#partners-section" class="nav-link-partner text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">Partners</a>
@@ -507,25 +492,19 @@
         </div>
     </section>
 
-    <footer class="text-white py-6" style="background-color: var(--primary-color);">
-      <div class="container mx-auto px-4 text-center">
-        <div class="flex justify-center space-x-6 mb-6">
-          <a href="https://www.facebook.com/" target="_blank"
-            class="text-white hover:text-gray-300 transition-colors duration-300">
-            <i class="fab fa-facebook-f text-2xl"></i>
-          </a>
-          <a href="https://www.instagram.com/" target="_blank"
-            class="text-white hover:text-gray-300 transition-colors duration-300">
-            <i class="fab fa-instagram text-2xl"></i>
-          </a>
-          <a href="https://twitter.com/" target="_blank"
-            class="text-white hover:text-gray-300 transition-colors duration-300">
-            <i class="fab fa-twitter text-2xl"></i>
-          </a>
+    <footer class="text-white py-10" style="background-color: var(--primary-color);">
+      <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+        <div class="text-base text-center md:text-left space-y-2">
+          <p class="font-bold text-gray-200 text-base">9 Rangs Heritage, Flat-A5, House no-38, Shah Mokhdum avenue, Sector-13, Uttara, Dhaka-1230,Bangladesh.</p>
+          <p class="font-bold text-gray-200 text-base">Email: imdad@intexglobalsourcing.com</p>
+          <div class="flex justify-center md:justify-start mt-8">
+            <a href="https://www.linkedin.com/" target="_blank"
+              class="text-white hover:text-gray-300 transition-colors duration-300">
+              <i class="fab fa-linkedin-in text-2xl"></i>
+            </a>
+          </div>
         </div>
-        <p class="text-lg">
-          &copy; 2025 iTEX GLOBAL SOURCING. All rights reserved.
-        </p>
+        <p class="text-xs text-center md:text-right mt-4">&copy; 2025 iTEX GLOBAL SOURCING. All rights reserved.</p>
       </div>
     </footer>
   </div>
