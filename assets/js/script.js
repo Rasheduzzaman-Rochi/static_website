@@ -145,12 +145,74 @@ document.addEventListener("DOMContentLoaded", function () {
         "Bulk Orders",
       ],
       partnerId: "verateks",
+    },
+    // Duplicated products to ensure "See More" always shows more
+    {
+      id: "1-dup", // Changed ID to avoid conflicts if product ID is used elsewhere for unique identification
+      name: "Warping and Auxiliaries",
+      description:
+        "Specialized services for warping processes and auxiliary textile operations, ensuring high-quality yarn preparation for weaving.",
+      image:
+        "assets/images/jeniuschem/warping-and-auxiliaries.jpg",
+      services: [
+        "Yarn Preparation",
+        "Warping Machine Operation",
+        "Beam Preparation",
+        "Quality Inspection of Warped Beams",
+        "Auxiliary Textile Services",
+      ],
+      partnerId: "jeniuschem",
+    },
+    {
+      id: "2-dup",
+      name: "Cotton Fabric",
+      description:
+        "High-quality cotton fabric, perfect for various apparel applications, offering comfort and durability.",
+      image:
+        "assets/images/jeniuschem/cotton.jpg",
+      services: [
+        "Raw Material Sourcing",
+        "Fabric Quality Testing",
+        "Sustainable Cotton Options",
+        "Bulk Supply",
+      ],
+      partnerId: "jeniuschem",
+    },
+    {
+      id: "3-dup",
+      name: "Staple Fiber",
+      description:
+        "Versatile staple fibers for textile production, available in various types like cotton, polyester, and blends.",
+      image:
+        "assets/images/jeniuschem/staple.jpg",
+      services: [
+        "Fiber Sourcing",
+        "Fiber Quality Analysis",
+        "Custom Fiber Blends",
+        "Technical Support",
+      ],
+      partnerId: "jeniuschem",
+    },
+    {
+      id: "4-dup",
+      name: "Cold Sizing Agent",
+      description:
+        "Advanced cold sizing agents for efficient and eco-friendly textile processing, improving yarn strength and weaveability.",
+      image:
+        "assets/images/jeniuschem/cold-sizing-agent.jpg",
+      services: [
+        "Sizing Agent Supply",
+        "Application Guidance",
+        "Performance Optimization",
+        "Technical Consultation",
+      ],
+      partnerId: "jeniuschem",
     }
   ];
 
   const productList = document.getElementById("product-list");
 
-  let productsVisible = 6;
+  let productsVisible = 8;
   const seeMoreBtn = document.getElementById("see-more-btn");
 
   function renderProducts(limit) {
