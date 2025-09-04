@@ -335,14 +335,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 5000);
   });
 
-  document.getElementById("product-contact-link").addEventListener("click", (e) => {
-    e.preventDefault();
-    document.getElementById("product-page").classList.add("hidden");
-    document.getElementById("main-content").classList.remove("hidden");
-    const contactSection = document.getElementById("contact-section");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
+  // --- NEW --- Embedded Contact Form Handler
+  document.querySelectorAll(".embedded-contact-form").forEach(form => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const messageEl = form.querySelector(".form-success-message");
+      if (messageEl) {
+        messageEl.textContent = "Thank you! Your message has been sent.";
+        setTimeout(() => {
+          messageEl.textContent = "";
+          form.reset();
+        }, 5000);
+      }
+    });
   });
 
   const observer = new IntersectionObserver(
@@ -516,21 +521,5 @@ document.addEventListener("DOMContentLoaded", function () {
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
     }
-    // Newsletter Form Handler for all footers
-    document.querySelectorAll("#newsletter-form").forEach(form => {
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const emailInput = e.target.querySelector("input[type='email']");
-        const messageEl = e.target.querySelector("p");
-
-        messageEl.textContent = "Thank you for subscribing!";
-        messageEl.style.color = "#48bb78";
-
-        setTimeout(() => {
-          messageEl.textContent = "";
-          emailInput.value = "";
-        }, 5000);
-      });
-    });
   });
 });

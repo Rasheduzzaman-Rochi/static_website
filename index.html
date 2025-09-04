@@ -513,14 +513,38 @@
       </div>
     </section>
 
-    <section id="product-contact-section" class="py-20 bg-gray-800 text-white animate-on-scroll">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-4xl font-bold mb-4">Have a question?</h2>
-        <p class="text-lg mb-8">Our team is ready to help. Contact us now.</p>
-        <a href="#contact-section" id="product-contact-link"
-          class="cta-contact-button bg-white text-gray-800 font-bold py-3 px-8 rounded-full transition-all duration-300 ease-in-out transform animate-pulse">
-          Contact Us
-        </a>
+    <section class="embedded-contact-section">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="text-white">
+            <h2 class="text-4xl font-bold mb-4" style="font-family: 'Poppins', sans-serif;">Have a Specific Question?
+            </h2>
+            <p class="text-lg text-gray-300 mb-6">
+              Our team is ready to help with any inquiries about this product. Fill out the form and we'll get back to
+              you shortly.
+            </p>
+            <div class="flex items-center gap-4 text-lg">
+              <i class="fas fa-headset text-3xl"></i>
+              <span>Dedicated Support Team</span>
+            </div>
+          </div>
+          <div>
+            <form class="embedded-contact-form p-8 bg-white/10 rounded-2xl backdrop-blur-sm">
+              <div class="mb-4">
+                <input name="name" type="text" placeholder="Your Name" class="embedded-form-input" required>
+              </div>
+              <div class="mb-4">
+                <input name="email" type="email" placeholder="Your Email" class="embedded-form-input" required>
+              </div>
+              <div class="mb-4">
+                <textarea name="message" placeholder="Your Message" rows="4" class="embedded-form-input"
+                  required></textarea>
+              </div>
+              <button type="submit" class="embedded-form-button">Send Inquiry</button>
+              <p class="form-success-message mt-4 h-5 text-center"></p>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -636,14 +660,34 @@
       </div>
     </section>
 
-    <section class="py-20 bg-gray-800 text-white">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-4xl font-bold mb-4">Have a question?</h2>
-        <p class="text-lg mb-8">Our team is ready to help. Contact us now.</p>
-        <a href="#contact-section" id="partner-products-contact-link"
-          class="cta-contact-button bg-white text-gray-800 font-bold py-3 px-8 rounded-full transition-all duration-300 ease-in-out transform animate-pulse">
-          Contact Us
-        </a>
+    <section class="embedded-contact-section">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="text-white">
+          <h2 class="text-4xl font-bold mb-4" style="font-family: 'Poppins', sans-serif;">Interested in Our Partner's Products?</h2>
+          <p class="text-lg text-gray-300 mb-6">
+            Let us know your requirements. We facilitate communication and ensure you get the best solutions from our trusted partners.
+          </p>
+          <div class="flex items-center gap-4 text-lg">
+            <i class="fas fa-handshake text-3xl"></i>
+            <span>Seamless Partner Coordination</span>
+          </div>
+        </div>
+        <div>
+          <form class="embedded-contact-form p-8 bg-white/10 rounded-2xl backdrop-blur-sm">
+            <div class="mb-4">
+              <input name="name" type="text" placeholder="Your Name" class="embedded-form-input" required>
+            </div>
+            <div class="mb-4">
+              <input name="email" type="email" placeholder="Your Email" class="embedded-form-input" required>
+            </div>
+            <div class="mb-4">
+              <textarea name="message" placeholder="Your Message" rows="4" class="embedded-form-input" required></textarea>
+            </div>
+            <button type="submit" class="embedded-form-button">Submit Request</button>
+            <p class="form-success-message mt-4 h-5 text-center"></p>
+          </form>
+        </div>
       </div>
     </section>
 
@@ -723,7 +767,6 @@
       </div>
     </footer>
   </div>
-
 
 
   <script src="assets/js/script.js"></script>
