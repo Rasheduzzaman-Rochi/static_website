@@ -15,90 +15,87 @@
 <body class="bg-gray-100 text-gray-800">
   <button id="scrollTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
   <div id="main-content">
-    <header class="bg-white shadow-xl sticky top-0 z-50">
-      <nav class="container mx-auto px-4 py-6 flex justify-between items-center">
-        <a href="#" id="main-page-logo" class="flex items-center space-x-2 text-2xl font-bold"
-          style="color: var(--primary-color);">
-          <img src="assets/images/itex logo.png" alt="iTEX GLOBAL Logo" class="h-8 w-auto">
-          <span>iTEX GLOBAL SOURCING</span>
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out">
+      <nav class="container mx-auto px-4 flex justify-between items-center transition-all duration-500 ease-in-out"
+        id="navbar-container">
+        <a href="#" id="main-page-logo"
+          class="flex items-center space-x-3 text-white transition-all duration-500 ease-in-out">
+          <img src="assets/images/itex logo.png" alt="iTAX GLOBAL SOURCING Logo" id="logo-img"
+            class="h-12 w-auto transition-all duration-500 ease-in-out">
+          <span id="logo-text" class="text-2xl font-bold transition-all duration-500 ease-in-out">iTAX GLOBAL
+            SOURCING</span>
         </a>
-        <div class="hidden md:flex items-center space-x-8 text-lg font-bold">
-          <a href="#banner-section"
-            class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">
-            Our Services
+
+        <div class="hidden md:flex items-center space-x-10 text-lg font-medium relative" id="desktop-nav">
+          <a href="#banner-section" class="nav-link"><span>Our Services</span></a>
+          <a href="#partners-section" class="nav-link"><span>Partners</span></a>
+          <a href="#certification-section" class="nav-link"><span>Certification</span></a>
+          <a href="#contact-section" class="nav-link"><span>Contact Us</span></a>
+          <div id="magic-line"
+            class="absolute bottom-0 h-0.5 bg-[var(--secondary-color)] rounded-full transition-all duration-500 ease-in-out">
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-4">
+          <a href="#contact-section" class="hidden md:inline-block cta-button group">
+            <span>Get a Quote</span>
+            <i class="fas fa-arrow-right transform transition-transform duration-300 group-hover:translate-x-1"></i>
           </a>
-          <a href="#partners-section"
-            class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">
-            Partners
-          </a>
-          <a href="#certification-section"
-            class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">
-            Certification
-          </a>
+          <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none z-50">
+            <svg xmlns="http://www.w.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0_0_24_24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md shadow-lg">
+        <a href="#banner-section" class="block px-6 py-3 text-gray-800 hover:bg-gray-200">Our Services</a>
+        <a href="#partners-section" class="block px-6 py-3 text-gray-800 hover:bg-gray-200">Partners</a>
+        <a href="#certification-section" class="block px-6 py-3 text-gray-800 hover:bg-gray-200">Certification</a>
+        <a href="#contact-section" class="block px-6 py-3 text-gray-800 hover:bg-gray-200">Contact Us</a>
+        <div class="px-6 py-4">
           <a href="#contact-section"
-            class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-300 transform hover:scale-110">
-            Contact Us
+            class="block w-full text-center bg-[var(--primary-color)] text-white px-6 py-3 rounded-full font-bold shadow-lg">
+            Get a Quote
           </a>
         </div>
-        <button id="mobile-menu-btn" class="md:hidden text-gray-600 focus:outline-none">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-          </svg>
-        </button>
-      </nav>
-      <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg py-2">
-        <a href="#banner-section" class="block px-4 py-3 text-gray-600 hover:bg-gray-100">
-          Our Services
-        </a>
-        <a href="#partners-section" class="block px-4 py-3 text-gray-600 hover:bg-gray-100">
-          Partners
-        </a>
-        <a href="#certification-section" class="block px-4 py-3 text-gray-600 hover:bg-gray-100">
-          Certification
-        </a>
-        <a href="#contact-section" class="block px-4 py-3 text-gray-600 hover:bg-gray-100">
-          Contact Us
-        </a>
       </div>
     </header>
 
-    <section id="banner-section" class="relative h-auto md:h-[80vh] overflow-hidden">
-      <div class="banner-with-bg active"></div>
-      <div class="banner-with-bg"></div>
-      <div
-        class="container mx-auto px-4 relative z-10 h-full flex items-center justify-center text-center py-16 md:py-0 animate-fadeIn banner-content">
-        <div class="p-8 md:p-12 rounded-2xl">
-          <h1
-            class="text-4xl md:text-7xl font-extrabold mb-4 leading-tight tracking-tighter drop-shadow-lg text-gray-900"
-            style="font-family: 'Poppins', sans-serif">
-            Pioneering <span style="color: var(--primary-color);">Chemical Solutions</span>,
-            Innovating for a <span style="color: var(--primary-color);">Better Future</span>.
-          </h1>
-          <p class="text-lg md:text-2xl max-w-3xl mx-auto mb-8 text-gray-600 animate-slideInUp"
-            style="animation-delay: 0.5s">
-            Driving progress with cutting-edge chemistry and sustainable practices.
-          </p>
-          <div class="flex flex-wrap justify-center gap-4 text-xl font-semibold mb-8 animate-slideInUp"
-            style="animation-delay: 0.8s">
-            <span class="text-gray-900">Our Services:</span>
-            <ul class="list-none flex flex-wrap justify-center gap-x-4">
-              <li class="px-3 py-1 rounded-full text-white" style="background-color: var(--primary-color);">
-                R&D
-              </li>
-              <li class="px-3 py-1 rounded-full text-white" style="background-color: var(--primary-color);">
-                Manufacturing
-              </li>
-              <li class="px-3 py-1 rounded-full text-white" style="background-color: var(--primary-color);">
-                Quality Assurance
-              </li>
-            </ul>
-          </div>
-          <button id="learn-more-btn"
-            class="text-white px-10 py-4 rounded-full font-bold shadow-lg transition-all duration-300 transform hover:scale-110 mt-8"
-            style="background-color: var(--secondary-color);">
-            Learn More
-          </button>
+    <section id="banner-section" class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+      <div id="banner-slideshow" class="absolute inset-0 w-full h-full">
+      </div>
+
+      <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
+
+      <div class="container mx-auto px-4 relative z-20 text-center text-white">
+        <h1
+          class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)]"
+          style="font-family: 'Poppins', sans-serif;">
+          Pioneering <span class="text-[#60a5fa]">Chemical Solutions</span>,
+          <br class="hidden md:block">
+          Innovating for a <span class="text-[#60a5fa]">Better Future</span>.
+        </h1>
+        <p class="text-lg md:text-2xl max-w-3xl mx-auto mb-10 text-gray-200 drop-shadow-lg animate-fadeIn"
+          style="animation-delay: 0.5s;">
+          Driving progress with cutting-edge chemistry and sustainable practices that redefine industries.
+        </p>
+        <div class="flex flex-wrap justify-center items-center gap-4 text-xl font-semibold mb-12 animate-fadeIn"
+          style="animation-delay: 0.8s;">
+          <span class="text-gray-100">Core Expertise:</span>
+          <ul class="list-none flex flex-wrap justify-center gap-3">
+            <li class="px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30">R&D</li>
+            <li class="px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30">Manufacturing</li>
+            <li class="px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30">Quality Assurance
+            </li>
+          </ul>
         </div>
+        <button id="learn-more-btn"
+          class="bg-[var(--secondary-color)] text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl transition-all duration-300 transform hover:scale-110 hover:shadow-2xl">
+          Explore Our Services
+        </button>
       </div>
     </section>
 
@@ -661,34 +658,37 @@
     </section>
 
     <section class="embedded-contact-section">
-    <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div class="text-white">
-          <h2 class="text-4xl font-bold mb-4" style="font-family: 'Poppins', sans-serif;">Interested in Our Partner's Products?</h2>
-          <p class="text-lg text-gray-300 mb-6">
-            Let us know your requirements. We facilitate communication and ensure you get the best solutions from our trusted partners.
-          </p>
-          <div class="flex items-center gap-4 text-lg">
-            <i class="fas fa-handshake text-3xl"></i>
-            <span>Seamless Partner Coordination</span>
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="text-white">
+            <h2 class="text-4xl font-bold mb-4" style="font-family: 'Poppins', sans-serif;">Interested in Our Partner's
+              Products?</h2>
+            <p class="text-lg text-gray-300 mb-6">
+              Let us know your requirements. We facilitate communication and ensure you get the best solutions from our
+              trusted partners.
+            </p>
+            <div class="flex items-center gap-4 text-lg">
+              <i class="fas fa-handshake text-3xl"></i>
+              <span>Seamless Partner Coordination</span>
+            </div>
+          </div>
+          <div>
+            <form class="embedded-contact-form p-8 bg-white/10 rounded-2xl backdrop-blur-sm">
+              <div class="mb-4">
+                <input name="name" type="text" placeholder="Your Name" class="embedded-form-input" required>
+              </div>
+              <div class="mb-4">
+                <input name="email" type="email" placeholder="Your Email" class="embedded-form-input" required>
+              </div>
+              <div class="mb-4">
+                <textarea name="message" placeholder="Your Message" rows="4" class="embedded-form-input"
+                  required></textarea>
+              </div>
+              <button type="submit" class="embedded-form-button">Submit Request</button>
+              <p class="form-success-message mt-4 h-5 text-center"></p>
+            </form>
           </div>
         </div>
-        <div>
-          <form class="embedded-contact-form p-8 bg-white/10 rounded-2xl backdrop-blur-sm">
-            <div class="mb-4">
-              <input name="name" type="text" placeholder="Your Name" class="embedded-form-input" required>
-            </div>
-            <div class="mb-4">
-              <input name="email" type="email" placeholder="Your Email" class="embedded-form-input" required>
-            </div>
-            <div class="mb-4">
-              <textarea name="message" placeholder="Your Message" rows="4" class="embedded-form-input" required></textarea>
-            </div>
-            <button type="submit" class="embedded-form-button">Submit Request</button>
-            <p class="form-success-message mt-4 h-5 text-center"></p>
-          </form>
-        </div>
-      </div>
     </section>
 
     <footer class="bg-gray-900 text-gray-400">
