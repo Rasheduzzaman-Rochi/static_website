@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   // --- GLOBAL VARIABLES ---
+  const header = document.getElementById("header");
   const mobileMenuBtn = document.getElementById("mobile-menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
   const learnMoreBtn = document.getElementById("learn-more-btn");
@@ -269,7 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   
-  // --- PAGE NAVIGATION LOGIC ---
+  // --- PAGE NAVIGATION LOGIC (UPDATED) ---
   function showProductPage(productId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     const product = products.find((p) => p.id === productId);
@@ -278,6 +279,8 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("partner-products-page").classList.add("hidden");
       const productPage = document.getElementById("product-page");
       productPage.classList.remove("hidden");
+      
+      header.classList.add('scrolled'); // Force scrolled (white) header on sub-pages
 
       document.getElementById("quote-form-container").classList.add("hidden");
       document.getElementById("product-image").src = product.image;
@@ -300,6 +303,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("product-page").classList.add("hidden");
     document.getElementById("partner-products-page").classList.add("hidden");
     document.getElementById("main-content").classList.remove("hidden");
+    
+    // Let the scroll handler manage the header state
+    handleScroll(); 
 
     if (sectionId && sectionId !== '#') {
       setTimeout(() => {
@@ -313,36 +319,59 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Logo clicks
-  document.getElementById("main-page-logo")?.addEventListener("click", (e) => goToHomePage(e));
-  document.getElementById("product-page-logo")?.addEventListener("click", (e) => goToHomePage(e));
-  document.getElementById("partner-page-logo")?.addEventListener("click", (e) => goToHomePage(e));
-
-  // Nav link clicks on product and partner pages
-  document.querySelectorAll('.nav-link-product, .nav-link-partner').forEach(link => {
+  // --- UNIVERSAL NAVIGATION LOGIC (NEW) ---
+  // This handles clicks on the logo and nav links from ANY page
+  document.querySelectorAll('#main-page-logo, .nav-link, #mobile-menu a').forEach(link => {
     link.addEventListener('click', (e) => {
-      const sectionId = link.getAttribute('href');
-      goToHomePage(e, sectionId);
+      const isMainContentHidden = document.getElementById("main-content").classList.contains('hidden');
+      
+      // If we are on a sub-page, always switch to the home page view first
+      if (isMainContentHidden) {
+        const sectionId = link.getAttribute('href');
+        goToHomePage(e, sectionId);
+      } else {
+        // We are already on the main page, so let the default scroll behavior happen
+        const sectionId = link.getAttribute('href');
+        if (sectionId && sectionId.startsWith('#')) {
+            const targetSection = document.querySelector(sectionId);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+      }
     });
   });
 
   
-  // --- FORM HANDLING ---
-  document.getElementById("get-quote-btn")?.addEventListener("click", () => {
-    document.getElementById("quote-form-container").classList.toggle("hidden");
-  });
+  // --- FORM HANDLING (FIXED) ---
 
-  document.getElementById("quote-form")?.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const formMessage = document.getElementById("form-message");
-    formMessage.textContent = "Your message has been sent successfully! We will contact you shortly.";
-    formMessage.classList.remove("hidden");
-    setTimeout(() => {
-      formMessage.classList.add("hidden");
-      e.target.reset();
-    }, 5000);
-  });
+  // Get Quote button on the Product Page
+  const getQuoteBtn = document.getElementById("get-quote-btn");
+  const quoteFormContainer = document.getElementById("quote-form-container");
 
+  if (getQuoteBtn && quoteFormContainer) {
+    getQuoteBtn.addEventListener("click", () => {
+      console.log("'Get Quote' button clicked!"); // Debugging line
+      quoteFormContainer.classList.toggle("hidden");
+    });
+  }
+
+  // Quote form submission
+  const quoteForm = document.getElementById("quote-form");
+  if (quoteForm) {
+    quoteForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const formMessage = document.getElementById("form-message");
+      formMessage.textContent = "Your message has been sent successfully! We will contact you shortly.";
+      formMessage.classList.remove("hidden");
+      setTimeout(() => {
+        formMessage.classList.add("hidden");
+        e.target.reset();
+      }, 5000);
+    });
+  }
+
+  // Embedded contact forms submission
   document.querySelectorAll(".embedded-contact-form").forEach(form => {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -375,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
   // --- ACTIVE NAV LINK OBSERVER ---
   const sections = document.querySelectorAll("section[id]");
-  const mainNavLinks = document.querySelectorAll("#desktop-nav .nav-link"); // Use the new navbar's links
+  const mainNavLinks = document.querySelectorAll("#desktop-nav .nav-link");
 
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -389,7 +418,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }
     });
-  }, { rootMargin: '-50% 0px -50% 0px' }); // Adjusted rootMargin for better accuracy
+  }, { rootMargin: '-50% 0px -50% 0px' });
 
   sections.forEach((section) => {
     sectionObserver.observe(section);
@@ -421,16 +450,21 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   
-  // --- BANNER SLIDESHOW ---
+  // --- BANNER SLIDESHOW (FIXED & CLEANED) ---
   const bannerImages = [
-    "assets/images/banners/factory_outlook.jpg", "assets/images/banners/lab_1.jpg", 
-    "assets/images/banners/lab_2.jpg", "assets/images/banners/automation.jpg", 
-    "assets/images/banners/lab_3.jpg", "assets/images/banners/worker_work.jpg",
+    "assets/images/banners/factory_outlook.jpg", 
+    "assets/images/banners/lab_1.jpg", 
+    "assets/images/banners/lab_2.jpg", 
+    "assets/images/banners/automation.jpg", 
+    "assets/images/banners/lab_3.jpg", 
+    "assets/images/banners/worker_work.jpg",
   ];
   const bannerSlideshowContainer = document.getElementById('banner-slideshow');
 
   if (bannerSlideshowContainer) {
     let currentImageIndex = 0;
+
+    // Create and add all image elements to the banner
     bannerImages.forEach(src => {
       const img = document.createElement('img');
       img.src = src;
@@ -441,21 +475,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const bannerImageElements = document.querySelectorAll('#banner-slideshow .banner-image');
     
+    // Function to start the slideshow loop
     function startImageSlideshow() {
-      if (bannerImageElements.length === 0) return;
-      bannerImageElements.forEach(img => img.classList.remove('active'));
-      bannerImageElements[currentImageIndex].classList.add('active');
-      setInterval(() => {
-        bannerImageElements[currentImageIndex].classList.remove('active');
-        currentImageIndex = (currentImageIndex + 1) % bannerImageElements.length;
-        bannerImageElements[currentImageIndex].classList.add('active');
-      }, 5000);
+      if (bannerImageElements.length > 0) {
+        // Make the first image active immediately
+        bannerImageElements[0].classList.add('active');
+        
+        // Set an interval to change the active image
+        setInterval(() => {
+          // Remove 'active' class from the current image
+          bannerImageElements[currentImageIndex].classList.remove('active');
+          
+          // Move to the next image, looping back to the start if necessary
+          currentImageIndex = (currentImageIndex + 1) % bannerImageElements.length;
+          
+          // Add 'active' class to the new current image
+          bannerImageElements[currentImageIndex].classList.add('active');
+        }, 5000); // Change image every 5 seconds
+      }
     }
-    startImageSlideshow();
+    
+    // CRITICAL FIX: Wait for the very first image to load before starting the animation.
+    // This prevents the slideshow from starting with unloaded images.
+    const firstImage = bannerImageElements[0];
+    if (firstImage) {
+        // If the image is already cached and loaded, start immediately.
+        if (firstImage.complete) {
+            startImageSlideshow();
+        } else {
+            // Otherwise, wait for the 'onload' event before starting.
+            firstImage.onload = startImageSlideshow;
+        }
+    }
   }
-
   
-  // --- PARTNER PRODUCTS LOGIC ---
+  // --- PARTNER PRODUCTS LOGIC (UPDATED) ---
   const partnerProductList = document.getElementById("partner-product-list");
   const partnerProductsTitle = document.getElementById("partner-products-title");
   
@@ -471,6 +525,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("main-content").classList.add("hidden");
     document.getElementById("product-page").classList.add("hidden");
     document.getElementById("partner-products-page").classList.remove("hidden");
+    
+    header.classList.add('scrolled'); // Force scrolled (white) header on sub-pages
     
     partnerProductList.innerHTML = "";
     partnerProductsTitle.textContent = `${partnerName}'s Products`;
@@ -501,13 +557,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   
 
-  // --- ENHANCED NAVBAR SCRIPT ---
-  const header = document.getElementById("header");
+  // --- ENHANCED NAVBAR SCRIPT (UPDATED) ---
   const desktopNav = document.getElementById("desktop-nav");
   const magicLine = document.getElementById("magic-line");
 
-  // Function for Shrink on Scroll
   function handleScroll() {
+      // Only apply transparent/scrolled logic if we are on the main page
+      if (document.getElementById("main-content").classList.contains('hidden')) {
+          header.classList.add('scrolled');
+          return;
+      }
       if (window.scrollY > 50) {
           header.classList.add('scrolled');
       } else {
@@ -515,7 +574,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
   }
 
-  // Function for Magic Line
   function handleMagicLine() {
       if (!magicLine || !desktopNav) return;
 
@@ -555,7 +613,6 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener('scroll', handleScroll);
   window.addEventListener('resize', handleMagicLine);
 
-  // Re-run magic line logic when active link changes
   const magicLineObserver = new MutationObserver(() => {
     handleMagicLine();
   });
