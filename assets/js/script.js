@@ -250,7 +250,6 @@ document.addEventListener("DOMContentLoaded", function () {
       productList.appendChild(productCard);
     });
 
-    // Re-observe new product cards for scroll animation
     document.querySelectorAll(".animate-on-scroll").forEach((section) => {
       observer.observe(section);
     });
@@ -270,7 +269,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   
-  // --- PAGE NAVIGATION LOGIC (UPDATED) ---
+  // --- PAGE NAVIGATION LOGIC ---
   function showProductPage(productId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     const product = products.find((p) => p.id === productId);
@@ -280,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const productPage = document.getElementById("product-page");
       productPage.classList.remove("hidden");
       
-      header.classList.add('scrolled'); // Force scrolled (white) header on sub-pages
+      header.classList.add('scrolled');
 
       document.getElementById("quote-form-container").classList.add("hidden");
       document.getElementById("product-image").src = product.image;
@@ -304,7 +303,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("partner-products-page").classList.add("hidden");
     document.getElementById("main-content").classList.remove("hidden");
     
-    // Let the scroll handler manage the header state
     handleScroll(); 
 
     if (sectionId && sectionId !== '#') {
@@ -319,20 +317,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // --- UNIVERSAL NAVIGATION LOGIC (NEW) ---
-  // This handles clicks on the logo and nav links from ANY page
   document.querySelectorAll('#main-page-logo, .nav-link, #mobile-menu a').forEach(link => {
     link.addEventListener('click', (e) => {
       const isMainContentHidden = document.getElementById("main-content").classList.contains('hidden');
       
-      // If we are on a sub-page, always switch to the home page view first
       if (isMainContentHidden) {
         const sectionId = link.getAttribute('href');
         goToHomePage(e, sectionId);
       } else {
-        // We are already on the main page, so let the default scroll behavior happen
         const sectionId = link.getAttribute('href');
         if (sectionId && sectionId.startsWith('#')) {
+            e.preventDefault();
             const targetSection = document.querySelector(sectionId);
             if (targetSection) {
                 targetSection.scrollIntoView({ behavior: 'smooth' });
@@ -343,20 +338,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   
-  // --- FORM HANDLING (FIXED) ---
-
-  // Get Quote button on the Product Page
+  // --- FORM HANDLING ---
   const getQuoteBtn = document.getElementById("get-quote-btn");
   const quoteFormContainer = document.getElementById("quote-form-container");
 
   if (getQuoteBtn && quoteFormContainer) {
     getQuoteBtn.addEventListener("click", () => {
-      console.log("'Get Quote' button clicked!"); // Debugging line
       quoteFormContainer.classList.toggle("hidden");
     });
   }
 
-  // Quote form submission
   const quoteForm = document.getElementById("quote-form");
   if (quoteForm) {
     quoteForm.addEventListener("submit", (e) => {
@@ -371,7 +362,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Embedded contact forms submission
   document.querySelectorAll(".embedded-contact-form").forEach(form => {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -411,8 +401,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (entry.isIntersecting) {
         mainNavLinks.forEach((link) => {
           link.classList.remove("active");
-          let sectionId = entry.target.id;
-          if (link.getAttribute('href') === `#${sectionId}`) {
+          if (link.getAttribute('href') === `#${entry.target.id}`) {
             link.classList.add("active");
           }
         });
@@ -423,34 +412,8 @@ document.addEventListener("DOMContentLoaded", function () {
   sections.forEach((section) => {
     sectionObserver.observe(section);
   });
-
   
-  // --- INITIAL PRODUCT RENDER ---
-  renderProducts(productsVisible);
-
-  
-  // --- CERTIFICATE ANIMATION ---
-  const certificationSection = document.querySelector('#certification-section');
-  const certificates = document.querySelectorAll('.certificate-item');
-
-  if (certificationSection && certificates.length > 0) {
-    const certObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          certificates.forEach((cert, index) => {
-            setTimeout(() => {
-              cert.classList.add('in-view');
-            }, index * 150);
-          });
-          certObserver.unobserve(certificationSection);
-        }
-      });
-    }, { threshold: 0.2 });
-    certObserver.observe(certificationSection);
-  }
-
-  
-  // --- BANNER SLIDESHOW (FIXED & CLEANED) ---
+  // --- BANNER SLIDESHOW ---
   const bannerImages = [
     "assets/images/banners/factory_outlook.jpg", 
     "assets/images/banners/lab_1.jpg", 
@@ -464,7 +427,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (bannerSlideshowContainer) {
     let currentImageIndex = 0;
 
-    // Create and add all image elements to the banner
     bannerImages.forEach(src => {
       const img = document.createElement('img');
       img.src = src;
@@ -475,41 +437,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const bannerImageElements = document.querySelectorAll('#banner-slideshow .banner-image');
     
-    // Function to start the slideshow loop
     function startImageSlideshow() {
       if (bannerImageElements.length > 0) {
-        // Make the first image active immediately
         bannerImageElements[0].classList.add('active');
         
-        // Set an interval to change the active image
         setInterval(() => {
-          // Remove 'active' class from the current image
           bannerImageElements[currentImageIndex].classList.remove('active');
-          
-          // Move to the next image, looping back to the start if necessary
           currentImageIndex = (currentImageIndex + 1) % bannerImageElements.length;
-          
-          // Add 'active' class to the new current image
           bannerImageElements[currentImageIndex].classList.add('active');
-        }, 5000); // Change image every 5 seconds
+        }, 5000);
       }
     }
     
-    // CRITICAL FIX: Wait for the very first image to load before starting the animation.
-    // This prevents the slideshow from starting with unloaded images.
     const firstImage = bannerImageElements[0];
     if (firstImage) {
-        // If the image is already cached and loaded, start immediately.
         if (firstImage.complete) {
             startImageSlideshow();
         } else {
-            // Otherwise, wait for the 'onload' event before starting.
             firstImage.onload = startImageSlideshow;
         }
     }
   }
   
-  // --- PARTNER PRODUCTS LOGIC (UPDATED) ---
+  // --- PARTNER PRODUCTS LOGIC ---
   const partnerProductList = document.getElementById("partner-product-list");
   const partnerProductsTitle = document.getElementById("partner-products-title");
   
@@ -526,7 +476,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("product-page").classList.add("hidden");
     document.getElementById("partner-products-page").classList.remove("hidden");
     
-    header.classList.add('scrolled'); // Force scrolled (white) header on sub-pages
+    header.classList.add('scrolled'); 
     
     partnerProductList.innerHTML = "";
     partnerProductsTitle.textContent = `${partnerName}'s Products`;
@@ -556,13 +506,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".animate-on-scroll").forEach(section => observer.observe(section));
   }
   
-
-  // --- ENHANCED NAVBAR SCRIPT (UPDATED) ---
-  const desktopNav = document.getElementById("desktop-nav");
-  const magicLine = document.getElementById("magic-line");
-
+  // --- NAVBAR SCROLL BEHAVIOR ---
   function handleScroll() {
-      // Only apply transparent/scrolled logic if we are on the main page
       if (document.getElementById("main-content").classList.contains('hidden')) {
           header.classList.add('scrolled');
           return;
@@ -574,51 +519,10 @@ document.addEventListener("DOMContentLoaded", function () {
       }
   }
 
-  function handleMagicLine() {
-      if (!magicLine || !desktopNav) return;
-
-      function updateMagicLine(element) {
-          if (element) {
-              magicLine.style.width = `${element.offsetWidth}px`;
-              magicLine.style.left = `${element.offsetLeft}px`;
-              magicLine.style.opacity = '1';
-          }
-      }
-      
-      mainNavLinks.forEach(link => {
-          link.addEventListener('mouseenter', () => updateMagicLine(link));
-      });
-
-      desktopNav.addEventListener('mouseleave', () => {
-          const activeLink = document.querySelector("#desktop-nav .nav-link.active");
-          if (activeLink) {
-              updateMagicLine(activeLink);
-          } else {
-              magicLine.style.opacity = '0';
-          }
-      });
-
-      const activeLink = document.querySelector("#desktop-nav .nav-link.active");
-      if (activeLink) {
-          updateMagicLine(activeLink);
-      } else {
-          magicLine.style.opacity = '0';
-      }
-  }
-
-  // Initialize all navbar functionalities
+  // Initial call and listeners
   handleScroll();
-  handleMagicLine();
-  
   window.addEventListener('scroll', handleScroll);
-  window.addEventListener('resize', handleMagicLine);
 
-  const magicLineObserver = new MutationObserver(() => {
-    handleMagicLine();
-  });
-
-  mainNavLinks.forEach(link => {
-    magicLineObserver.observe(link, { attributes: true, attributeFilter: ['class'] });
-  });
-
+  // Initial Render
+  renderProducts(productsVisible);
 });

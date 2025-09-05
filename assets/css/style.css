@@ -118,11 +118,37 @@ h2 {
 
 .nav-link span {
   transition: color 0.4s ease;
+  position: relative; /* This is important for the new underline */
+}
+
+/* NEW UNDERLINE STYLE using ::after pseudo-element */
+.nav-link span::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--secondary-color);
+  left: 0;
+  bottom: -0.4rem; /* Adjust distance from text */
+  transform: scaleX(0);
+  transform-origin: center; /* You can change this to 'left' or 'right' */
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Show underline on hover */
+.nav-link:hover span::after {
+  transform: scaleX(1);
+}
+
+/* Keep underline visible for the active link */
+.nav-link.active span::after {
+  transform: scaleX(1);
 }
 
 #header.scrolled .nav-link:hover span {
   color: var(--primary-color);
 }
+
 
 /* --- CTA Button Styling --- */
 /* CTA button will have a different initial style to stand out on the transparent header */
@@ -154,6 +180,11 @@ h2 {
 /* ==============================================
    SECTION STYLING (To fix "Naked" look)
    ============================================== */
+
+/* FIX: This rule prevents content from hiding behind the fixed navbar on anchor link clicks. */
+section[id] {
+  scroll-margin-top: 5rem; /* 80px */
+}
 
 /* Applying a general style to all sections for padding and consistency */
 section:not(#banner-section) {
