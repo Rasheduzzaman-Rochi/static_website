@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   
-  // --- PRODUCT DATA ---
+  // --- PRODUCT DATA (2 NEW PRODUCTS ADDED) ---
   const products = [
     {
       id: "1",
@@ -159,83 +159,50 @@ document.addEventListener("DOMContentLoaded", function () {
       partnerId: "verateks",
     },
     {
-      id: "1-dup",
-      name: "Warping and Auxiliaries",
-      description:
-        "Specialized services for warping processes and auxiliary textile operations, ensuring high-quality yarn preparation for weaving.",
-      image:
-        "assets/images/jeniuschem/warping-and-auxiliaries.jpg",
+      id: "9",
+      name: "Paint Auxiliary",
+      description: "High-performance auxiliaries for paint and coating formulations, ensuring optimal pigment dispersion, stability, and application properties.",
+      image: "assets/images/verateks/PAINT_AUXILIARY.jpg",
       services: [
-        "Yarn Preparation",
-        "Warping Machine Operation",
-        "Beam Preparation",
-        "Quality Inspection of Warped Beams",
-        "Auxiliary Textile Services",
+        "Pigment Wetting & Dispersion",
+        "Foam Control Agents",
+        "Rheology Modifiers",
+        "Surface Additives",
       ],
-      partnerId: "jeniuschem",
+      partnerId: "verateks",
     },
     {
-      id: "2-dup",
-      name: "Cotton Fabric",
-      description:
-        "High-quality cotton fabric, perfect for various apparel applications, offering comfort and durability.",
-      image:
-        "assets/images/jeniuschem/cotton.jpg",
+      id: "10",
+      name: "Pre-treatment & Finishing",
+      description: "Comprehensive solutions for textile pre-treatment and finishing, enhancing fabric quality, feel, and functionality from start to finish.",
+      image: "assets/images/verateks/pre_finish.jpg",
       services: [
-        "Raw Material Sourcing",
-        "Fabric Quality Testing",
-        "Sustainable Cotton Options",
-        "Bulk Supply",
+        "Scouring & Bleaching Agents",
+        "Dyeing Auxiliaries",
+        "Softener Application",
+        "Functional Finishes (e.g., water-repellent)",
       ],
-      partnerId: "jeniuschem",
-    },
-    {
-      id: "3-dup",
-      name: "Staple Fiber",
-      description:
-        "Versatile staple fibers for textile production, available in various types like cotton, polyester, and blends.",
-      image:
-        "assets/images/jeniuschem/staple.jpg",
-      services: [
-        "Fiber Sourcing",
-        "Fiber Quality Analysis",
-        "Custom Fiber Blends",
-        "Technical Support",
-      ],
-      partnerId: "jeniuschem",
-    },
-    {
-      id: "4-dup",
-      name: "Cold Sizing Agent",
-      description:
-        "Advanced cold sizing agents for efficient and eco-friendly textile processing, improving yarn strength and weaveability.",
-      image:
-        "assets/images/jeniuschem/cold-sizing-agent.jpg",
-      services: [
-        "Sizing Agent Supply",
-        "Application Guidance",
-        "Performance Optimization",
-        "Technical Consultation",
-      ],
-      partnerId: "jeniuschem",
+      partnerId: "verateks",
     }
   ];
 
   
-  // --- PRODUCT RENDERING LOGIC ---
+  // --- PRODUCT RENDERING LOGIC FOR MAIN PAGE ---
   const productList = document.getElementById("product-list");
-  let productsVisible = 8;
   const seeMoreBtn = document.getElementById("see-more-btn");
+  let productsVisibleOnMain = 4; // Show 1 row (4 items) initially
 
-  function renderProducts(limit) {
+  function renderProductsOnMain(limit) {
     if (!productList) return;
     productList.innerHTML = "";
     const productsToRender = products.slice(0, limit);
+
     productsToRender.forEach((product) => {
       const productCard = document.createElement("div");
+      // NO-CARD STYLE: Removed padding, background, shadow etc. Added text-center.
       productCard.classList.add(
-        "p-6", "rounded-2xl", "transition-all", "duration-300", 
-        "transform", "hover:scale-105", "cursor-pointer", "animate-on-scroll"
+        "text-center", "transition-all", "duration-300", "transform", 
+        "hover:scale-105", "cursor-pointer", "animate-on-scroll"
       );
 
       productCard.innerHTML = `
@@ -250,10 +217,12 @@ document.addEventListener("DOMContentLoaded", function () {
       productList.appendChild(productCard);
     });
 
+    // Re-apply observer to newly created elements
     document.querySelectorAll(".animate-on-scroll").forEach((section) => {
       observer.observe(section);
     });
 
+    // See More button visibility
     if (limit >= products.length) {
       seeMoreBtn.style.display = "none";
     } else {
@@ -263,12 +232,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (seeMoreBtn) {
     seeMoreBtn.addEventListener("click", () => {
-      productsVisible = products.length;
-      renderProducts(productsVisible);
+      productsVisibleOnMain += 4; // Load the next row
+      renderProductsOnMain(productsVisibleOnMain);
     });
   }
 
-  
   // --- PAGE NAVIGATION LOGIC ---
   function showProductPage(productId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -276,6 +244,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (product) {
       document.getElementById("main-content").classList.add("hidden");
       document.getElementById("partner-products-page").classList.add("hidden");
+      document.getElementById("all-products-page").classList.add("hidden");
       const productPage = document.getElementById("product-page");
       productPage.classList.remove("hidden");
       
@@ -301,6 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (e) e.preventDefault();
     document.getElementById("product-page").classList.add("hidden");
     document.getElementById("partner-products-page").classList.add("hidden");
+    document.getElementById("all-products-page").classList.add("hidden");
     document.getElementById("main-content").classList.remove("hidden");
     
     handleScroll(); 
@@ -319,13 +289,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelectorAll('#main-page-logo, .nav-link, #mobile-menu a').forEach(link => {
     link.addEventListener('click', (e) => {
-      const isMainContentHidden = document.getElementById("main-content").classList.contains('hidden');
+      const sectionId = link.getAttribute('href');
       
-      if (isMainContentHidden) {
-        const sectionId = link.getAttribute('href');
+      if (sectionId === '#all-products-page') {
+        e.preventDefault();
+        showAllProductsPage();
+        return;
+      }
+      
+      const isAPageOpen = !document.getElementById("main-content").classList.contains('hidden');
+      
+      if (!isAPageOpen) {
         goToHomePage(e, sectionId);
       } else {
-        const sectionId = link.getAttribute('href');
         if (sectionId && sectionId.startsWith('#')) {
             e.preventDefault();
             const targetSection = document.querySelector(sectionId);
@@ -337,7 +313,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  
   // --- FORM HANDLING ---
   const getQuoteBtn = document.getElementById("get-quote-btn");
   const quoteFormContainer = document.getElementById("quote-form-container");
@@ -459,7 +434,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
   
-  // --- PARTNER PRODUCTS LOGIC ---
+  // --- PARTNER & ALL PRODUCTS LOGIC ---
   const partnerProductList = document.getElementById("partner-product-list");
   const partnerProductsTitle = document.getElementById("partner-products-title");
   
@@ -474,6 +449,7 @@ document.addEventListener("DOMContentLoaded", function () {
     previousPage = 'partner';
     document.getElementById("main-content").classList.add("hidden");
     document.getElementById("product-page").classList.add("hidden");
+    document.getElementById("all-products-page").classList.add("hidden");
     document.getElementById("partner-products-page").classList.remove("hidden");
     
     header.classList.add('scrolled'); 
@@ -490,9 +466,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     filteredProducts.forEach(product => {
       const productCard = document.createElement("div");
+      // NO-CARD STYLE
       productCard.classList.add(
-        "p-6", "rounded-2xl", "transition-all", "duration-300", 
-        "transform", "hover:scale-105", "cursor-pointer", "animate-on-scroll"
+        "text-center", "transition-all", "duration-300", 
+        "transform", "hover:scale-105", "cursor-pointer"
       );
       productCard.innerHTML = `
         <img src="${product.image}" alt="${product.name} Image" class="w-full h-64 object-cover rounded-xl mb-6">
@@ -502,8 +479,35 @@ document.addEventListener("DOMContentLoaded", function () {
       productCard.addEventListener("click", () => showProductPage(product.id));
       partnerProductList.appendChild(productCard);
     });
+  }
+
+  function showAllProductsPage() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.getElementById("main-content").classList.add("hidden");
+    document.getElementById("product-page").classList.add("hidden");
+    document.getElementById("partner-products-page").classList.add("hidden");
+    document.getElementById("all-products-page").classList.remove("hidden");
     
-    document.querySelectorAll(".animate-on-scroll").forEach(section => observer.observe(section));
+    header.classList.add('scrolled');
+    
+    const allProductListContainer = document.getElementById("all-product-list");
+    allProductListContainer.innerHTML = "";
+    
+    products.forEach(product => {
+        const productCard = document.createElement("div");
+        // NO-CARD STYLE
+        productCard.classList.add(
+            "text-center", "transition-all", "duration-300", 
+            "transform", "hover:scale-105", "cursor-pointer"
+        );
+        productCard.innerHTML = `
+            <img src="${product.image}" alt="${product.name} Image" class="w-full h-64 object-cover rounded-xl mb-6">
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">${product.name}</h3>
+            <p class="text-gray-600">${product.description.split(".")[0]}.</p>
+        `;
+        productCard.addEventListener("click", () => showProductPage(product.id));
+        allProductListContainer.appendChild(productCard);
+    });
   }
   
   // --- NAVBAR SCROLL BEHAVIOR ---
@@ -523,6 +527,6 @@ document.addEventListener("DOMContentLoaded", function () {
   handleScroll();
   window.addEventListener('scroll', handleScroll);
 
-  // Initial Render
-  renderProducts(productsVisible);
+  // Initial Render for main page products
+  renderProductsOnMain(productsVisibleOnMain);
 });

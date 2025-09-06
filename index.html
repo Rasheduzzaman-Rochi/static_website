@@ -24,6 +24,7 @@
       <div class="hidden md:flex items-center space-x-10 text-lg font-medium relative" id="desktop-nav">
         <a href="#banner-section" class="nav-link"><span>Our Services</span></a>
         <a href="#partners-section" class="nav-link"><span>Partners</span></a>
+        <a href="#all-products-page" class="nav-link"><span>Products</span></a>
         <a href="#certification-section" class="nav-link"><span>Certification</span></a>
         <a href="#contact-section" class="nav-link"><span>Contact Us</span></a>
       </div>
@@ -33,7 +34,7 @@
           <i class="fas fa-arrow-right transform transition-transform duration-300 group-hover:translate-x-1"></i>
         </a>
         <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none z-50">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
           </svg>
         </button>
@@ -42,6 +43,7 @@
     <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md shadow-lg">
       <a href="#banner-section" class="block px-6 py-3 text-gray-800 hover:bg-gray-200">Our Services</a>
       <a href="#partners-section" class="block px-6 py-3 text-gray-800 hover:bg-gray-200">Partners</a>
+      <a href="#all-products-page" class="block px-6 py-3 text-gray-800 hover:bg-gray-200">Products</a>
       <a href="#certification-section" class="block px-6 py-3 text-gray-800 hover:bg-gray-200">Certification</a>
       <a href="#contact-section" class="block px-6 py-3 text-gray-800 hover:bg-gray-200">Contact Us</a>
       <div class="px-6 py-4">
@@ -51,6 +53,7 @@
       </div>
     </div>
   </header>
+
   <div id="main-content">
     <section id="banner-section" class="relative h-screen w-full overflow-hidden flex items-center justify-center">
       <div id="banner-slideshow" class="absolute inset-0 w-full h-full">
@@ -427,7 +430,7 @@
       <div class="container mx-auto px-4 py-16 md:py-24">
         <h1 id="partner-products-title" class="text-4xl md:text-5xl font-bold mb-8 text-gray-900 text-center"
           style="font-family: 'Poppins', sans-serif"></h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="partner-product-list">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10" id="partner-product-list">
         </div>
       </div>
     </section>
@@ -467,6 +470,18 @@
       </div>
     </section>
   </div>
+
+  <div id="all-products-page" class="hidden">
+    <section class="bg-white pt-32">
+      <div class="container mx-auto px-4 py-16 md:py-24">
+        <h1 id="all-products-title" class="text-4xl md:text-5xl font-bold mb-12 text-gray-900 text-center"
+          style="font-family: 'Poppins', sans-serif">Our Products</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10" id="all-product-list">
+        </div>
+      </div>
+    </section>
+  </div>
+
 
   <footer class="bg-gray-900 text-gray-400">
     <div class="container mx-auto px-4 py-16">

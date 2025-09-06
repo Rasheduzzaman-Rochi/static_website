@@ -225,19 +225,11 @@ section:not(#banner-section) {
   box-shadow: 0 20px 25px -5px rgba(39, 51, 114, 0.15);
 }
 
-/* Products Section Styling (No Cards) */
+/* Products Section Styling */
 #products-section {
   background-color: var(--background-light);
 }
 
-#product-list>div {
-  /* Removing all card-related styles */
-  background-color: transparent;
-  border: none;
-  box-shadow: none;
-  /* Centering the content for a cleaner look without cards */
-  text-align: center;
-}
 
 /* Certifications Section Styling (Always Colored) */
 #certification-section {
