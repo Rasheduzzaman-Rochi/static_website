@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Products - iTEX GLOBAL SOURCING</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="product.css" />
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    <button id="scrollTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out">
+        <nav class="container mx-auto px-4 flex justify-between items-center transition-all duration-500 ease-in-out"
+            id="navbar-container">
+            <a href="../index.html" id="main-page-logo" class="flex items-center space-x-3">
+                <img src="../assets/images/itex_logo_color.png" alt="iTEX GLOBAL SOURCING Logo" id="logo-img"
+                    class="h-12 w-auto transition-all duration-500 ease-in-out">
+                <span id="logo-text" class="text-2xl font-bold text-white transition-all duration-500 ease-in-out">iTEX
+                    GLOBAL SOURCING</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-10 text-lg font-medium relative" id="desktop-nav">
+                <a href="../index.html#our-services-details" class="nav-link"><span>Our Services</span></a>
+                <a href="../index.html#partners-section" class="nav-link"><span>Partners</span></a>
+                <a href="product.html" class="nav-link"><span>Products</span></a>
+                <a href="../index.html#certification-section" class="nav-link"><span>Certification</span></a>
+                <a href="../index.html#contact-section" class="nav-link"><span>Contact Us</span></a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="../index.html#contact-section" class="hidden md:inline-block cta-button group">
+                    <span>Get a Quote</span><i
+                        class="fas fa-arrow-right transform transition-transform duration-300 group-hover:translate-x-1"></i>
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none z-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md shadow-lg">
+            <a href="../index.html#our-services-details" class="block px-6 py-3 text-gray-800 hover:bg-gray-200">Our
+                Services</a>
+            <a href="../index.html#partners-section"
+                class="block px-6 py-3 text-gray-800 hover:bg-gray-200">Partners</a>
+            <a href="product.html" class="block px-6 py-3 text-gray-800 hover:bg-gray-200">Products</a>
+            <a href="../index.html#certification-section"
+                class="block px-6 py-3 text-gray-800 hover:bg-gray-200">Certification</a>
+            <a href="../index.html#contact-section" class="block px-6 py-3 text-gray-800 hover:bg-gray-200">Contact
+                Us</a>
+            <div class="px-6 py-4"><a href="../index.html#contact-section"
+                    class="block w-full text-center bg-[var(--primary-color)] text-white px-6 py-3 rounded-full font-bold shadow-lg">Get
+                    a Quote</a></div>
+        </div>
+    </header>
+
+    <div id="product-page" class="hidden">
+        <section class="bg-white pt-32">
+            <div class="container mx-auto px-4 py-16 md:py-24">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:items-start">
+                    <div class="flex items-start justify-center"><img id="product-image" src="" alt="Product Image"
+                            class="w-full h-auto rounded-xl shadow-2xl" /></div>
+                    <div class="flex flex-col justify-center">
+                        <h1 id="product-name" class="text-4xl md:text-5xl font-bold mb-4 text-gray-900"
+                            style="font-family: 'Poppins', sans-serif"></h1>
+                        <p id="product-description" class="text-lg text-gray-600 mb-8"></p>
+                        <ul id="service-list" class="list-disc list-inside text-gray-600 mb-8"></ul>
+                        <button id="get-quote-btn"
+                            class="text-white px-8 py-4 rounded-xl font-bold shadow-lg transition-all duration-300 transform hover:scale-105"
+                            style="background-color: var(--secondary-color);">Get Quote</button>
+                        <div id="quote-form-container" class="mt-8 hidden">
+                            <form id="quote-form" class="bg-gray-200 p-8 rounded-xl shadow-md">
+                                <h3 class="text-xl font-bold mb-4 text-gray-900"
+                                    style="font-family: 'Poppins', sans-serif">Contact Form</h3>
+                                <div class="mb-4"><label for="form-product-name"
+                                        class="block text-gray-600 mb-2">Product Name</label><input type="text"
+                                        id="form-product-name" name="product-name"
+                                        class="w-full px-4 py-3 bg-white text-gray-800 border border-gray-400 rounded-lg"
+                                        readonly /></div>
+                                <div class="mb-4"><label for="contact-email" class="block text-gray-600 mb-2">Contact
+                                        Email</label><input type="email" id="contact-email" name="contact-email"
+                                        required placeholder="Enter your email"
+                                        class="w-full px-4 py-3 bg-white text-gray-800 border border-gray-400 rounded-lg focus:outline-none"
+                                        style="border-color: var(--primary-color);" /></div>
+                                <div class="mb-6"><label for="message" class="block text-gray-600 mb-2">Your
+                                        Message</label><textarea id="message" name="message" rows="4" required
+                                        placeholder="Enter your message"
+                                        class="w-full px-4 py-3 bg-white text-gray-800 border border-gray-400 rounded-lg focus:outline-none"
+                                        style="border-color: var(--primary-color);"></textarea></div><button
+                                    type="submit"
+                                    class="text-white px-8 py-3 rounded-lg font-bold shadow-md transition-all duration-300 float-right"
+                                    style="background-color: var(--primary-color);">Send</button>
+                                <div id="form-message" class="clear-both mt-12 text-center"
+                                    style="color: var(--primary-color);"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="embedded-contact-section">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-white">
+                        <h2 class="text-4xl font-bold mb-4" style="font-family: 'Poppins', sans-serif;">Have a Specific
+                            Question?</h2>
+                        <p class="text-lg text-gray-300 mb-6">Our team is ready to help with any inquiries about this
+                            product. Fill out the form and we'll get back to you shortly.</p>
+                        <div class="flex items-center gap-4 text-lg"><i
+                                class="fas fa-headset text-3xl"></i><span>Dedicated Support Team</span></div>
+                    </div>
+                    <div>
+                        <form class="embedded-contact-form p-8 bg-white/10 rounded-2xl backdrop-blur-sm">
+                            <div class="mb-4"><input name="name" type="text" placeholder="Your Name"
+                                    class="embedded-form-input" required></div>
+                            <div class="mb-4"><input name="email" type="email" placeholder="Your Email"
+                                    class="embedded-form-input" required></div>
+                            <div class="mb-4"><textarea name="message" placeholder="Your Message" rows="4"
+                                    class="embedded-form-input" required></textarea></div>
+                            <button type="submit" class="embedded-form-button">Send Inquiry</button>
+                            <p class="form-success-message mt-4 h-5 text-center"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="partner-products-page" class="hidden">
+        <section class="bg-white pt-32">
+            <div class="container mx-auto px-4 py-16 md:py-24">
+                <h1 id="partner-products-title" class="text-4xl md:text-5xl font-bold mb-12 text-gray-900 text-center"
+                    style="font-family: 'Poppins', sans-serif"></h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12" id="partner-product-list">
+                </div>
+            </div>
+        </section>
+        <section class="embedded-contact-section">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-white">
+                        <h2 class="text-4xl font-bold mb-4" style="font-family: 'Poppins', sans-serif;">Interested in
+                            Our Partner's Products?</h2>
+                        <p class="text-lg text-gray-300 mb-6">Let us know your requirements. We facilitate communication
+                            and ensure you get the best solutions from our trusted partners.</p>
+                        <div class="flex items-center gap-4 text-lg"><i
+                                class="fas fa-handshake text-3xl"></i><span>Seamless Partner Coordination</span></div>
+                    </div>
+                    <div>
+                        <form class="embedded-contact-form p-8 bg-white/10 rounded-2xl backdrop-blur-sm">
+                            <div class="mb-4"><input name="name" type="text" placeholder="Your Name"
+                                    class="embedded-form-input" required></div>
+                            <div class="mb-4"><input name="email" type="email" placeholder="Your Email"
+                                    class="embedded-form-input" required></div>
+                            <div class="mb-4"><textarea name="message" placeholder="Your Message" rows="4"
+                                    class="embedded-form-input" required></textarea></div>
+                            <button type="submit" class="embedded-form-button">Submit Request</button>
+                            <p class="form-success-message mt-4 h-5 text-center"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="all-products-page" class="hidden">
+        <section class="bg-white pt-32">
+            <div class="container mx-auto px-4 py-16 md:py-24">
+                <h1 id="all-products-title" class="text-4xl md:text-5xl font-bold mb-12 text-gray-900 text-center"
+                    style="font-family: 'Poppins', sans-serif">Our Products</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12" id="all-product-list">
+                </div>
+            </div>
+        </section>
+        <section class="embedded-contact-section">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-white">
+                        <h2 class="text-4xl font-bold mb-4" style="font-family: 'Poppins', sans-serif;">Let's Talk About
+                            Your Needs</h2>
+                        <p class="text-lg text-gray-300 mb-6">Have questions about our products or need a custom
+                            solution? Our team is ready to help. Fill out the form and we'll get back to you shortly.
+                        </p>
+                        <div class="flex items-center gap-4 text-lg"><i
+                                class="fas fa-headset text-3xl"></i><span>Dedicated Support Team</span></div>
+                    </div>
+                    <div>
+                        <form class="embedded-contact-form p-8 bg-white/10 rounded-2xl backdrop-blur-sm">
+                            <div class="mb-4"><input name="name" type="text" placeholder="Your Name"
+                                    class="embedded-form-input" required></div>
+                            <div class="mb-4"><input name="email" type="email" placeholder="Your Email"
+                                    class="embedded-form-input" required></div>
+                            <div class="mb-4"><textarea name="message" placeholder="Your Message" rows="4"
+                                    class="embedded-form-input" required></textarea></div>
+                            <button type="submit" class="embedded-form-button">Send Inquiry</button>
+                            <p class="form-success-message mt-4 h-5 text-center"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-gray-900 text-gray-400">
+        <div class="container mx-auto px-4 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="lg:col-span-1"><a href="../index.html"
+                        class="flex items-center space-x-2 text-2xl font-bold text-white mb-4"><img
+                            src="../assets/images/itex_logo_color.png" alt="iTEX GLOBAL Logo"
+                            class="h-8 w-auto"><span>iTEX GLOBAL SOURCING</span></a>
+                    <p class="text-sm mb-6">Pioneering chemical solutions and innovating for a better future with
+                        cutting-edge chemistry.</p>
+                    <div class="space-y-4 text-sm">
+                        <div class="flex items-start gap-3"><i
+                                class="fas fa-map-marker-alt text-lg mt-1 text-white"></i><span>9 Rangs Heritage,
+                                Flat-A5, House no-38, Shah Mokhdum avenue, Sector-13, Uttara, Dhaka-1230.</span></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-envelope text-lg text-white"></i><a
+                                href="mailto:imdad@intexglobalsourcing.com"
+                                class="footer-link">imdad@intexglobalsourcing.com</a></div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="../index.html#our-services-details" class="footer-link">Our Services</a></li>
+                        <li><a href="../index.html#partners-section" class="footer-link">Partners</a></li>
+                        <li><a href="product.html" class="footer-link">Products</a></li>
+                        <li><a href="../index.html#certification-section" class="footer-link">Certification</a></li>
+                        <li><a href="../index.html#contact-section" class="footer-link">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Our Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="footer-link">Research & Development</a></li>
+                        <li><a href="#" class="footer-link">Manufacturing</a></li>
+                        <li><a href="#" class="footer-link">Quality Assurance</a></li>
+                        <li><a href="#" class="footer-link">Supply Chain Management</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Join Our Newsletter</h3>
+                    <p class="text-sm mb-4">Get the latest updates and offers straight to your inbox.</p>
+                    <form id="newsletter-form">
+                        <div class="flex items-center"><input type="email" id="newsletter-email"
+                                placeholder="Your email address" class="newsletter-input" required><button type="submit"
+                                class="newsletter-button"><i class="fas fa-paper-plane"></i></button></div>
+                        <p id="newsletter-message" class="text-sm mt-2 h-4"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="bg-black bg-opacity-20">
+            <div
+                class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2025 iTEX GLOBAL SOURCING. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0"><a href="https://www.linkedin.com/" target="_blank"
+                        class="social-icon"><i class="fab fa-linkedin-in"></i></a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="product.js"></script>
+</body>
+
+</html>

@@ -1,6 +1,3 @@
-/* ==============================================
-   VARIABLE DEFINITIONS & GLOBAL STYLLES
-   ============================================== */
 :root {
   --primary-color: #273372;
   /* Dark Blue */
@@ -27,20 +24,14 @@ body {
   padding: 0;
 }
 
-/* Section Heading Style (For Consistency) */
 h2 {
   font-family: 'Poppins', sans-serif;
   color: var(--primary-color);
 }
 
-
-/* ==============================================
-   UPDATED NAVBAR STYLES (ADAPTING FOR WHITE LOGO BACKGROUND)
-   ============================================== */
 #header {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  /* Initial transparent background to blend with banner's overlay */
   background-color: transparent;
   transform: translateY(-100%);
   animation: slideDown 0.8s 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
@@ -50,12 +41,9 @@ h2 {
   height: 5rem;
 }
 
-/* --- Scrolled Header State (Shrink Effect) --- */
 #header.scrolled {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  /* IMPORTANT: Set to pure white to match potential white logo background.
-     This makes the white area of the logo blend with the navbar background. */
   background-color: #ffffff;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -72,20 +60,15 @@ h2 {
 
 #header.scrolled #logo-text {
   font-size: 1.25rem;
-  /* Change logo text color to primary when scrolled for visibility against white background */
   color: var(--primary-color);
 }
 
-/* --- Text and Link Color Transitions --- */
-/* Initial state for nav links and mobile menu button - white on transparent header */
 .nav-link span,
 #main-page-logo #logo-text,
-/* Explicitly target logo text for initial white color */
 #mobile-menu-btn {
   color: white;
 }
 
-/* Scrolled state for nav links and mobile menu button - dark on white header */
 #header.scrolled .nav-link span,
 #header.scrolled #mobile-menu-btn {
   color: var(--text-dark);
@@ -118,10 +101,9 @@ h2 {
 
 .nav-link span {
   transition: color 0.4s ease;
-  position: relative; /* This is important for the new underline */
+  position: relative;
 }
 
-/* NEW UNDERLINE STYLE using ::after pseudo-element */
 .nav-link span::after {
   content: '';
   position: absolute;
@@ -129,18 +111,16 @@ h2 {
   height: 2px;
   background-color: var(--secondary-color);
   left: 0;
-  bottom: -0.4rem; /* Adjust distance from text */
+  bottom: -0.4rem;
   transform: scaleX(0);
-  transform-origin: center; /* You can change this to 'left' or 'right' */
+  transform-origin: center;
   transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* Show underline on hover */
 .nav-link:hover span::after {
   transform: scaleX(1);
 }
 
-/* Keep underline visible for the active link */
 .nav-link.active span::after {
   transform: scaleX(1);
 }
@@ -149,9 +129,6 @@ h2 {
   color: var(--primary-color);
 }
 
-
-/* --- CTA Button Styling --- */
-/* CTA button will have a different initial style to stand out on the transparent header */
 .cta-button {
   background-color: white;
   color: var(--primary-color);
@@ -177,16 +154,11 @@ h2 {
   color: white;
 }
 
-/* ==============================================
-   SECTION STYLING (To fix "Naked" look)
-   ============================================== */
-
-/* FIX: This rule prevents content from hiding behind the fixed navbar on anchor link clicks. */
 section[id] {
-  scroll-margin-top: 5rem; /* 80px */
+  scroll-margin-top: 5rem;
+  /* 80px */
 }
 
-/* Applying a general style to all sections for padding and consistency */
 section:not(#banner-section) {
   padding-top: 5rem;
   /* 80px */
@@ -194,7 +166,6 @@ section:not(#banner-section) {
   /* 80px */
 }
 
-/* Services Section Card Styling */
 #our-services-details .grid>div {
   background-color: var(--background-section);
   border: 1px solid #e5e7eb;
@@ -205,8 +176,6 @@ section:not(#banner-section) {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
-
-/* Partners Section Styling */
 #partners-section {
   background-color: var(--background-light);
 }
@@ -221,53 +190,45 @@ section:not(#banner-section) {
 
 .partner-card:hover {
   transform: translateY(-10px) scale(1.03);
-  /* More subtle hover effect */
   box-shadow: 0 20px 25px -5px rgba(39, 51, 114, 0.15);
 }
 
-/* Products Section Styling */
 #products-section {
   background-color: var(--background-light);
 }
 
-
-/* Certifications Section Styling (Always Colored) */
 #certification-section {
   background-color: var(--background-section);
 }
 
 .certificate-item {
   transition: all 0.3s ease-in-out;
-  opacity: 0.85; /* Increased default opacity for better visibility */
+  opacity: 0.85;
 }
 
 .certificate-item:hover {
   opacity: 1;
-  transform: scale(1.1); /* Hover effect remains */
+  transform: scale(1.1);
 }
 
-/* Contact Section Styling (Updated with Background Image and Parallax Effect) */
 #contact-section {
   background-image: linear-gradient(rgba(26, 32, 44, 0.8), rgba(26, 32, 44, 0.8)), url('../images/banners/lab_1.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* This creates the parallax effect */
+  background-attachment: fixed;
 }
 
-/* Update text color for the heading and paragraph to be visible on the new dark background */
 #contact-section h2,
-#contact-section .text-center > p {
+#contact-section .text-center>p {
   color: #ffffff;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-/* ==============================================
-   KEYFRAME ANIMATIONS
-   ============================================== */
 @keyframes slideDown {
   from {
     transform: translateY(-100%);
   }
+
   to {
     transform: translateY(0);
   }
@@ -278,6 +239,7 @@ section:not(#banner-section) {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -289,6 +251,7 @@ section:not(#banner-section) {
     opacity: 0;
     transform: translateY(50px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -300,6 +263,7 @@ section:not(#banner-section) {
     opacity: 0;
     transform: translateX(100%);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -311,6 +275,7 @@ section:not(#banner-section) {
     opacity: 0;
     transform: translateX(-100%);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -337,10 +302,8 @@ section:not(#banner-section) {
   transform: translateY(0);
 }
 
-/* --- SCROLL TO TOP BUTTON (FIXED) --- */
 #scrollTopBtn {
   display: none;
-  /* Button is hidden by default */
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -356,7 +319,6 @@ section:not(#banner-section) {
   font-size: 24px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
-  /* Flex properties will apply when JS sets display to 'flex' */
   align-items: center;
   justify-content: center;
 }
@@ -367,7 +329,6 @@ section:not(#banner-section) {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* --- FOOTER STYLES --- */
 .footer-heading {
   font-size: 1.125rem;
   font-weight: 600;
@@ -455,16 +416,14 @@ section:not(#banner-section) {
   transform: translateY(-2px);
 }
 
-/* --- EMBEDDED CONTACT FORM STYLES (WITH PARALLAX) --- */
 .embedded-contact-section {
   padding: 4rem 0;
   background-image: linear-gradient(rgba(26, 32, 44, 0.8), rgba(26, 32, 44, 0.8)), url('../images/banners/lab_1.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* This creates the parallax effect */
+  background-attachment: fixed;
 }
 
-/* Styles for the text inside the contact section */
 .embedded-contact-section h2 {
   color: #ffffff;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
@@ -523,7 +482,6 @@ section:not(#banner-section) {
   transition: opacity 0.5s ease-in-out;
 }
 
-/* --- BANNER SLIDESHOW CSS --- */
 .banner-image {
   position: absolute;
   top: 0;
