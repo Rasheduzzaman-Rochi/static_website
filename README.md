@@ -1,10 +1,9 @@
 iTEX Global Sourcing - Corporate Website
+
 A modern, fully responsive front-end website for a chemical sourcing company, built with HTML, Tailwind CSS, and vanilla JavaScript. This project serves as a professional online presence for the company, showcasing its services, partners, products, and certifications.
 
 🚀 Demo
-(https://drive.google.com/file/d/1zcHCEaBpxUnpYWTTita0kT5-BI2HbhZe/view?usp=sharing)
-
-➡️ View Live Demo
+* Video Demo: (https://drive.google.com/file/d/1zcHCEaBpxUnpYWTTita0kT5-BI2HbhZe/view?usp=sharing)
 
 ✨ About The Project
 This project is a complete front-end implementation for a corporate entity named 'iTEX GLOBAL SOURCING'. The primary goal was to create a clean, professional, and highly interactive user experience that reflects the company's brand and values.
@@ -15,45 +14,43 @@ A key highlight of this project is its dynamic product catalog. Although it's a 
 This project was built using modern front-end technologies:
 
 🌟 Key Features
-Modern & Professional UI/UX: A clean, intuitive, and visually appealing design suitable for a global business.
 
-Fully Responsive: Optimized for a seamless experience across all devices, including desktops, tablets, and mobile phones.
+* Modern & Professional UI/UX: A clean, intuitive, and visually appealing design suitable for a global business.
 
-JavaScript-Powered Dynamic Product Catalog:
+* Fully Responsive: Optimized for a seamless experience across all devices, including desktops, tablets, and mobile phones.
 
-View details of a single product.
+* JavaScript-Powered Dynamic Product Catalog:
 
-Filter and display all products from a specific partner.
+     - View details of a single product.
 
-View a list of all available products.
+     - Filter and display all products from a specific partner.
 
-Interactive Elements: Engaging user experience with smooth animations, hover effects, a dynamic sticky navigation bar, and an automated hero banner slideshow.
+     - View a list of all available products.
 
-Comprehensive Corporate Sections: Includes dedicated sections for Services, Valued Partners, Product Showcase, Certifications, and Contact Information.
+* Interactive Elements: Engaging user experience with smooth animations, hover effects, a dynamic sticky navigation bar, and an automated hero banner slideshow.
 
-Lead Generation Forms: Multiple contact forms, including a general contact form and a product-specific "Get a Quote" form.
+* Comprehensive Corporate Sections: Includes dedicated sections for Services, Valued Partners, Product Showcase, Certifications, and Contact Information.
 
-Clean & Maintainable Code: Well-structured HTML, CSS, and JavaScript files for easy future updates and scalability.
+* Lead Generation Forms: Multiple contact forms, including a general contact form and a product-specific "Get a Quote" form.
+
+* Clean & Maintainable Code: Well-structured HTML, CSS, and JavaScript files for easy future updates and scalability.
 
 ⚙️ Getting Started
 To get a local copy up and running, follow these simple steps.
 
-Prerequisites
-You just need a modern web browser.
-
 Installation
-Clone the repository:
+1. Clone the repository:
 
-git clone [https://github.com/Rasheduzzaman-Rochi/static_website/)](https://github.com/Rasheduzzaman-Rochi/static_website/)]
+git clone [https://github.com/Rasheduzzaman-Rochi/static_website.git](https://github.com/Rasheduzzaman-Rochi/static_website.git)
 
-Navigate to the project directory:
+2. Navigate to the project directory:
 
 cd static_website
 
-Open the index.html file in your browser to view the website.
+3. Open the index.html file in your browser to view the website.
+   
 
 👤 Contact
 
-My Name - Rasheduzzaman Rochi
-
-My E-mail - rasheduzzaman2003@gmail.com
+Rasheduzzaman Rochi
+Email: rasheduzzaman2003@gmail.com
