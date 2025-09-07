@@ -5,7 +5,7 @@ A modern, fully responsive front-end website for a chemical sourcing company, bu
 🚀 Demo
 * Video Demo: (https://drive.google.com/file/d/1zcHCEaBpxUnpYWTTita0kT5-BI2HbhZe/view?usp=sharing)
 
-✨ About The Project
+✨ About The Project: 
 This project is a complete front-end implementation for a corporate entity named 'iTEX GLOBAL SOURCING'. The primary goal was to create a clean, professional, and highly interactive user experience that reflects the company's brand and values.
 
 A key highlight of this project is its dynamic product catalog. Although it's a static website without a traditional backend, it leverages vanilla JavaScript to intelligently read URL parameters. This allows it to display specific product details, filter products by partner, or show all products on a single product.html page, creating a fast and seamless experience akin to a single-page application (SPA).
